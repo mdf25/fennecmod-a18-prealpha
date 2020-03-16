@@ -1,0 +1,10 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Frozen Zombies -->
+	</insertBefore>
+	
+	<!-- The snow biome has a separate night spawn now. -->
+	<setattribute xpath="//biome[@name='snow']/spawn[@entitygroup='ZombiesNight']" name="entitygroup">SnowZombiesNight</setattribute>
+</configs>

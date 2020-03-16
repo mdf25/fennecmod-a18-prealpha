@@ -1,0 +1,51 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Wood Processing -->
+	</insertBefore>
+	
+	<!-- Trees now drop a number of logs according to their size. -->
+	<setattribute xpath="//block[starts-with(@name, 'tree') and not(contains(@name, 'Cactus')) and not(contains(@name, 'Master')) and not(property[@name='Material' and @value='Mleaves'])]/drop[@event='Harvest' and @name='resourceWood']" name="name">resourceTreeWoodFM</setattribute>
+	
+	<!-- This changes the vanilla count values into a number of logs instead. -->
+	<setattribute xpath="//block[starts-with(@name, 'tree')]/drop[@event='Harvest' and @name='resourceTreeWoodFM' and @count='20,30']" name="count">2</setattribute>
+	<setattribute xpath="//block[starts-with(@name, 'tree')]/drop[@event='Harvest' and @name='resourceTreeWoodFM' and @count='30']" name="count">3,4</setattribute>
+	<setattribute xpath="//block[starts-with(@name, 'tree')]/drop[@event='Harvest' and @name='resourceTreeWoodFM' and @count='70']" name="count">6,8</setattribute>
+	<setattribute xpath="//block[starts-with(@name, 'tree')]/drop[@event='Harvest' and @name='resourceTreeWoodFM' and @count='110']" name="count">10,12</setattribute>
+	<setattribute xpath="//block[starts-with(@name, 'tree')]/drop[@event='Harvest' and @name='resourceTreeWoodFM' and @count='150']" name="count">12,15</setattribute>
+	<!-- This turns drop events into destroy events, which will give logs only when the whole tree is cut down. -->
+	<setattribute xpath="//drop[@event='Harvest' and @name='resourceTreeWoodFM']" name="event">Destroy</setattribute>
+	
+	<!-- Other blocks that usually drop wood will now drop wood scraps instead. -->
+	<setattribute xpath="//drop[@name='resourceWood']" name="name">resourceScrapWoodFM</setattribute>
+	
+	<!-- This log can be chopped for some wood, or put onto a saw bench for even more. -->
+	<append xpath="/blocks">
+		<!-- Wood logs can be placed and then harvested for wood planks with a tool -->
+		<block name="woodLogPlaceableFM">
+			<property name="Material" value="Mwood_weak"/>
+			<property name="MaxDamage" value="50"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="#Entities/Trees?Prefabs/Stump.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="Path" value="solid"/>
+			<property name="Weight" value="8" />
+			<property name="CanPickup" value="true" param1="resourceTreeWoodFM"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="BigDecorationRadius" value="3"/>
+			<drop event="Harvest" name="resourceWood" count="5,8" tag="allHarvest"/>
+			<drop event="Destroy" name="" count="0" />
+			<property name="FilterTags" value="foutdoor,ftrees"/>
+			<property name="SortOrder1" value="a0d0"/>
+		</block>
+	</append>
+	
+	<append xpath="//block[@name='plainWoodWindowPlug']">
+		<property name="FuelValue" value="30" />
+	</append>
+	
+</configs>

@@ -1,0 +1,186 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Ores and Processing -->
+	</insertBefore>
+	
+	<!-- Add in the fragments, dusts and purified dusts, for all basic resources for processing later -->
+	<append xpath="/items">
+		
+		<!-- Distilled water for chemistry station pure dust recipes -->
+		<item name="resourceDistilledWaterFM">
+			<property name="HoldType" 			value="3" />
+			<property name="Meshfile" 			value="#Other/Items?Food/bottled_waterPrefab.prefab" />
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" 			value="Morganic" />
+			<property name="Stacknumber" 		value="1000" />
+			<property name="EconomicValue" 		value="2" />
+			<property name="Group"				value="Resources,Chemicals,CFChemicals" />
+		</item>
+		
+		<!-- Molds for casting. -->
+		<!-- COMING SOON
+		<item name="resourceMoldMasterFM"> 
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="40"/>
+			<property name="Meshfile" value="#Other/Items?Crafting/rock_smallPrefab.prefab"/>
+			<property name="DescriptionKey" value="resourceMoldMasterFMGroupDesc" />
+			<property name="DropScale" value="6"/>
+			<property name="Material" value="MresourceRockSmall"/>
+			<property name="Stacknumber" value="10"/>
+			<property name="Weight" value="5"/>
+			<property name="MeltTimePerUnit" value=".5"/>
+			<property name="EconomicValue" value="40"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value=".5"/>
+		</item>
+		
+		<item name="resourceMoldIngotFM"> 
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldPlateFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldRodFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldGearFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldNailFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadAxeFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadPickaxeFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadShovelFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadHammerFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadSledgehammerFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadKnifeFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		
+		<item name="resourceMoldToolHeadSpearFM">
+			<item name="Extends" value="resourceMoldMasterFM" />
+		</item>
+		-->
+		
+		
+		<!-- Iron -->
+		<item name="resourceIronFragmentFM">
+			<property name="HoldType" 			value="45" />
+			<property name="Meshfile" 			value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" 			value="MresourceIronFragmentFM" />
+			<property name="Weight" 			value="5" />
+			<property name="Stacknumber" 		value="1200" />
+			<property name="SellableToTrader" 	value="false" />
+			<property name="EconomicValue" 		value="25" />
+			<property name="EconomicBundleSize" value="5" />
+			<property name="Group" 				value="Resources" />
+		</item>
+		
+		<item name="resourceIronDustFM">
+			<property name="Extends"			value="resourceIronFragmentFM" />
+			<property name="Weight" 			value="7" />
+			<property name="MeltTimePerUnit"	value="0.5" />
+		</item>
+		
+		<item name="resourceIronDustPureFM">
+			<property name="Extends"			value="resourceIronFragmentFM" />
+			<property name="Weight" 			value="10" />
+			<property name="MeltTimePerUnit"	value="0.25" />
+			<property name="Group"				value="Resources,Chemicals,CFChemicals" />
+		</item>
+		
+		<!-- Lead -->
+		<item name="resourceLeadFragmentFM">
+			<property name="HoldType" 			value="45" />
+			<property name="Meshfile" 			value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" 			value="MresourceLeadFragmentFM" />
+			<property name="Weight" 			value="5" />
+			<property name="Stacknumber" 		value="1200" />
+			<property name="SellableToTrader" 	value="false" />
+			<property name="EconomicValue" 		value="25" />
+			<property name="EconomicBundleSize" value="5" />
+			<property name="Group" 				value="Resources" />
+		</item>
+		
+		<item name="resourceLeadDustFM">
+			<property name="Extends"			value="resourceLeadFragmentFM" />
+			<property name="Weight" 			value="7" />
+			<property name="MeltTimePerUnit"	value="0.5" />
+		</item>
+		
+		<item name="resourceLeadDustPureFM">
+			<property name="Extends"			value="resourceLeadFragmentFM" />
+			<property name="Weight" 			value="10" />
+			<property name="MeltTimePerUnit"	value="0.25" />
+			<property name="Group"				value="Resources,Chemicals,CFChemicals" />
+		</item>
+		
+		<!-- Coal -->
+		<item name="resourceCoalFragmentFM">
+			<property name="HoldType" 			value="45" />
+			<property name="Meshfile" 			value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" 			value="MresourceCoalFragmentFM" />
+			<property name="Weight" 			value="5" />
+			<property name="Stacknumber" 		value="1200" />
+			<property name="SellableToTrader" 	value="false" />
+			<property name="EconomicValue" 		value="25" />
+			<property name="EconomicBundleSize" value="5" />
+			<property name="Group" 				value="Resources" />
+		</item>
+		
+		<item name="resourceCoalDustFM">
+			<property name="Extends"			value="resourceCoalFragmentFM" />
+		</item>
+		
+		<!-- Nitrate -->
+		<item name="resourceNitrateFragmentFM">
+			<property name="HoldType" 			value="45" />
+			<property name="Meshfile" 			value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" 			value="MresourceNitrateFragmentFM" />
+			<property name="Weight" 			value="5" />
+			<property name="Stacknumber" 		value="1200" />
+			<property name="SellableToTrader" 	value="false" />
+			<property name="EconomicValue" 		value="25" />
+			<property name="EconomicBundleSize" value="5" />
+			<property name="Group" 				value="Resources" />
+		</item>
+		
+		<item name="resourceNitrateDustFM">
+			<property name="Extends"			value="resourceNitrateFragmentFM" />
+		</item>
+		
+		
+		
+		
+		
+		
+		
+	</append>
+	
+</configs>

@@ -1,0 +1,197 @@
+<config>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Biomes -->
+	</insertBefore>
+
+	<!-- PLANTS TO 3D VERSIONS -->
+
+	<!-- Goldenrod to HD Goldenrod -->
+	<remove xpath="//block[starts-with(@name, 'plantedGoldenrod')]/property[@name='Texture']" />
+	<append xpath="//block[@name='plantedGoldenrod1']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?GoldenrodHDStage1" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedGoldenrod2']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?GoldenrodHDStage2" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedGoldenrod3Harvest']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?GoldenrodHDStage3Harvest" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+
+
+	<!-- Chrysanthemum to HD chrysanthemum -->
+	<remove xpath="//block[starts-with(@name, 'plantedChrysanthemum')]/property[@name='Texture']" />
+	<append xpath="//block[@name='plantedChrysanthemum1']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?ChrysanthemumHDStage1" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedChrysanthemum2']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?ChrysanthemumHDStage2" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedChrysanthemum3Harvest']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?ChrysanthemumHDStage3Harvest" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+
+
+	<!-- Cotton to HD cotton -->
+	<remove xpath="//block[starts-with(@name, 'plantedCotton')]/property[@name='Texture']" />
+	<append xpath="//block[@name='plantedCotton1']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?CottonHDStage1" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedCotton2']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?CottonHDStage2" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+	<append xpath="//block[@name='plantedCotton3Harvest']">
+		<property name="Shape" value="ModelEntity" />
+		<property name="Model" value="#@modfolder:Resources/Plants.unity3d?CottonHDStage3Harvest" />
+		<property name="ModelOffset" value="0,-0.15,0" />
+	</append>
+
+
+
+	<!-- New blocks -->
+	<append xpath="/blocks">
+		
+		<!-- Sticks -->
+		<block name="propStickBase">
+			<property name="CreativeMode" value="None"/>
+			<property name="DescriptionKey" value="plantsBlockGroupDesc"/>
+			<property name="CustomIcon" value="resourceStickFM"/>
+			<property name="Class" value="Deadgrass"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="Collide" value="melee"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="IsDecoration" value="true"/>
+			<property name="HarvestOverdamage" value="false"/>
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick01" />
+			<property name="ModelOffset" value="0,-0.02,0" />
+			<property name="Material" value="Mleaves" />
+			<property name="CanPickup" value="true" param1="resourceStickFM"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Destroy" name="resourceStickFM" count="1" />
+			<property name="FilterTags" value="foutdoor,fshrubbery"/>
+			<property name="SortOrder1" value="a030"/>
+			<property name="SortOrder2" value="0002"/>
+		</block>
+		
+		<block name="propStick01">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick01" />
+		</block>
+		
+		<block name="propStick02">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick02" />
+		</block>
+		
+		<block name="propStick03">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick03" />
+		</block>
+		
+		<block name="propStick04">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick04" />
+		</block>
+		
+		<block name="propStick05">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick05" />
+		</block>
+		
+		<block name="propStick06">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick06" />
+		</block>
+		
+		<block name="propStick07">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick07" />
+		</block>
+		
+		<block name="propStick08">
+			<property name="Extends" value="propStickBase" />
+			<property name="Model" value="#@modfolder:Resources/Props.unity3d?Stick08" />
+		</block>
+		
+		
+		<!-- Trees -->
+		<!-- Special Trees -->
+		<block name="treeSpecialBase">
+			<property name="Extends" value="treeMaster"/>
+			<property name="CreativeMode" value="Player" />
+			<property name="Material" value="MtreeWoodFull"/>
+			<property name="MultiBlockDim" value="1,10,1"/>
+			<property name="ModelOffset" value="0,-1,0"/>
+			<property name="BigDecorationRadius" value="4"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<drop event="Harvest" name="resourceWood" count="500" tag="oreWoodHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<property name="ParticleOnDeath" value="treeGib_burnt"/>
+			<property name="SortOrder2" value="0300"/>
+		</block>
+
+		<block name="treeWolfie">
+			<property name="Extends" value="treeSpecialBase" />
+			<property name="Model" value="#@modfolder:Resources/TreeModels.unity3d?WolfieTree"/>
+		</block>
+	</append>
+
+
+
+	<!-- Adds stick and feather drops to trees -->
+	<append xpath="//property[@name='Extends' and @value='treeMaster']/..">
+		<drop event="Harvest" name="resourceStickFM" count="10" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceStickFM" count="7" prob="0.5" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceStickFM" count="3" prob="0.2" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceFeather" count="3" prob="0.4" tag="oreWoodHarvest" />
+	</append>
+
+
+	<!-- Adds stick drops to bird nests when harvesting -->
+	<append xpath="/blocks/block[@name='cntBirdnest']">
+		<drop event="Harvest" name="resourceStickFM" count="3" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceStickFM" count="2" prob="0.5" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceStickFM" count="1" prob="0.2" tag="oreWoodHarvest" />
+	</append>
+
+
+	<!-- Adds coal drops to burnt trees in the burnt forest biome -->
+	<append xpath="//block[contains(@name, 'treeBurntMaple')]">
+		<drop event="Harvest" name="resourceCoal" count="12" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCoal" count="8" prob="0.6" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCoal" count="5" prob="0.3" tag="oreWoodHarvest" />
+	</append>
+	
+	
+	<!-- Destroyed stone should drop scrap materials now and again. -->
+	<append xpath="//block[@name='terrDestroyedStone']">
+		<drop event="Harvest" name="resourceScrapIron"		count="1,2" 	prob="0.05" />
+		<drop event="Harvest" name="resourceScrapPolymers"	count="1,2"		prob="0.03" />
+		<drop event="Harvest" name="resourcePaper"			count="1,2"		prob="0.03" />
+		<drop event="Harvest" name="resourceCloth"			count="1"		prob="0.03" />
+		<drop event="Harvest" name="resourceScrapLead" 		count="1" 		prob="0.02" />
+		<drop event="Harvest" name="resourceScrapBrass" 	count="1" 		prob="0.02" />
+		<drop event="Harvest" name="resourceBrokenGlass" 	count="1"		prob="0.02" />
+	</append>
+
+</config>

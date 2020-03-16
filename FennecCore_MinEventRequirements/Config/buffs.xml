@@ -1,0 +1,28 @@
+<configs>
+
+	<append xpath="/buffs">
+	
+		<buff name="buffSpawnHelpersTest">
+			<update_rate value="10" />
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="spawns" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" 	action="ModifyCVar" cvar="spawns" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate"	action="SpawnEntity, Mods" entitygroup="ZombiesAll" count="3">
+					<requirement name="CVarCompare" cvar="spawns" operation="LTE" value="3" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffResurrectionTest">
+			<duration value="5" />
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart"		action="CVarLogMessage" message="Started." />
+				<triggered_effect trigger="onSelfBuffFinish"	action="Regenerate, Mods" target="self">
+					<!--<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />-->
+				</triggered_effect>
+			</effect_group>
+		</buff>
+	
+	</append>
+	
+</configs>

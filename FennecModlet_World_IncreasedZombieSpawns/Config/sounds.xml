@@ -1,0 +1,98 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Increased Zombie Spawns -->
+	</insertBefore>
+	
+	<!-- NOISE SYSTEM -->
+	<!-- All noises are louder -->
+	<setattribute xpath="//Noise[@ID='1']" name="noise">10</setattribute>
+	<setattribute xpath="//Noise[@ID='2']" name="noise">25</setattribute>
+	<setattribute xpath="//Noise[@ID='3']" name="noise">60</setattribute>
+	<setattribute xpath="//Noise[@ID='4']" name="noise">110</setattribute>
+	<setattribute xpath="//Noise[@ID='5']" name="noise">150</setattribute>
+	<setattribute xpath="//Noise[@ID='6']" name="noise">30</setattribute>
+	
+	
+	<!-- HEAT SYSTEM OVERHAUL -->
+	<!-- Baseline: Turns up all heat map strength sounds -->
+	
+	<setattribute xpath="//*[@heat_map_strength='0.05']"					name="heat_map_strength">0.25</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.2']" 					name="heat_map_strength">1.0</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.3']" 					name="heat_map_strength">1.5</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.4']" 					name="heat_map_strength">2.0</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.65']"		 			name="heat_map_strength">2.6</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.75']"		 			name="heat_map_strength">3.0</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.8']" 					name="heat_map_strength">4.0</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='0.9']" 					name="heat_map_strength">4.5</setattribute>
+	<setattribute xpath="//*[@heat_map_strength='1.0']" 					name="heat_map_strength">6.0</setattribute>
+	
+	
+	<!-- Animals: Engaging, attacking and killing animals is highly likely to trigger zombie interest... -->
+	<setattribute xpath="//SoundDataNode[@name='boaralert']/Noise" 			name="heat_map_strength">2</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boarattack']/Noise" 		name="heat_map_strength">1.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boarpain']/Noise" 			name="heat_map_strength">2</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boardeath']/Noise" 			name="heat_map_strength">12.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='rabbitpain']/Noise" 		name="heat_map_strength">1.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='rabbitdeath']/Noise" 		name="heat_map_strength">5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='stagpain']/Noise" 			name="heat_map_strength">3</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='stagdeath']/Noise" 			name="heat_map_strength">15</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearalert']/Noise" 			name="heat_map_strength">7</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearattack']/Noise" 		name="heat_map_strength">4.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearpain']/Noise" 			name="heat_map_strength">2.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='beardeath']/Noise" 			name="heat_map_strength">15</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='chickenpain']/Noise" 		name="heat_map_strength">1.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='chickendeath']/Noise" 		name="heat_map_strength">4</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfalert']/Noise" 			name="heat_map_strength">6</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfattack']/Noise" 		name="heat_map_strength">3.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfpain']/Noise" 			name="heat_map_strength">4</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfdeath']/Noise" 			name="heat_map_strength">7</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturealert']/Noise" 		name="heat_map_strength">4</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturesense']/Noise" 		name="heat_map_strength">3.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vultureattack']/Noise" 		name="heat_map_strength">3</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturepain']/Noise" 		name="heat_map_strength">2</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturedeath']/Noise" 		name="heat_map_strength">5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionalert']/Noise" 		name="heat_map_strength">8</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionsense']/Noise" 		name="heat_map_strength">3</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionattack']/Noise" 		name="heat_map_strength">5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionpain']/Noise" 			name="heat_map_strength">2.5</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mliondeath']/Noise" 		name="heat_map_strength">9</setattribute>
+	
+	<setattribute xpath="//SoundDataNode[@name='boaralert']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boarattack']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boarpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='boardeath']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='rabbitpain']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='rabbitdeath']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='stagpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='stagdeath']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearalert']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearattack']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='bearpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='beardeath']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='chickenpain']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='chickendeath']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfalert']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfattack']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='wolfdeath']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturealert']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturesense']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vultureattack']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturepain']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='vulturedeath']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionalert']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionsense']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionattack']/Noise" 		name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mlionpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='mliondeath']/Noise" 		name="heat_map_time">60</setattribute>
+	
+	<!-- Player landing sounds -->
+	<setattribute xpath="//SoundDataNode[@name='playerlandlight']/Noise" 	name="heat_map_strength">0.15</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='playerlandheavy']/Noise" 	name="heat_map_strength">0.3</setattribute>
+	
+	<setattribute xpath="//SoundDataNode[@name='playerlandlight']/Noise" 	name="heat_map_time">60</setattribute>
+	<setattribute xpath="//SoundDataNode[@name='playerlandheavy']/Noise" 	name="heat_map_time">60</setattribute>
+	
+</configs>

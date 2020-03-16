@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="FennecUtils - ModCompat" />
+		<Description value="A bridging modlet that will combine separate elements from each of the FennecModlets together. Load this after all FennecModlets. This is required for the full FennecMod experience." />
+		<Author value="MaxFox Gaming" />
+		<Version value="1.0" />
+		<Website value="" />
+	</ModInfo>
+</xml>

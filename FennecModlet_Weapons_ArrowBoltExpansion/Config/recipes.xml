@@ -1,0 +1,89 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion -->
+	</insertBefore>
+	
+	<!-- Adjusts steel arrows and crossbow bolts to use plastic fletching instead of scrap polymers. -->
+	<setattribute xpath="//recipe[contains(@name, 'Arrow') or contains(@name, 'CrossbowBolt')]/ingredient[@name='resourceScrapPolymers']" name="name">resourcePlasticFletchingFM</setattribute>
+	
+	
+	<!-- New arrow recipes -->
+	<append xpath="/recipes">
+		<recipe name="ammoArrowPrimitiveFM"				count="1" 	craft_time="2">
+			<ingredient name="resourceScrapIron"				count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourceCloth"					count="1" />
+		</recipe>
+		
+		<recipe name="ammoArrowPrimitiveFM"				count="1" 	craft_time="2">
+			<ingredient name="resourceScrapIron"				count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourceScrapPaperFletchingFM"	count="1" />
+		</recipe>
+		
+		<recipe name="ammoArrowStone"					count="1">
+			<ingredient name="resourceRockSmall"				count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourcePaperFletchingFM"			count="1" />
+		</recipe>
+		
+		<recipe name="ammoArrowIron"					count="1">
+			<ingredient name="resourceArrowHeadIron"			count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourcePaperFletchingFM"			count="1" />
+		</recipe>
+		
+		<recipe name="ammoCrossbowBoltStone"			count="1">
+			<ingredient name="resourceRockSmall"				count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourcePaperFletchingFM"			count="1" />
+		</recipe>
+		
+		<recipe name="ammoCrossbowBoltIron"				count="1">
+			<ingredient name="resourceArrowHeadIron"			count="1" />
+			<ingredient name="resourceWood"						count="1" />
+			<ingredient name="resourcePaperFletchingFM"			count="1" />
+		</recipe>
+		
+		<recipe name="ammoArrowElectropulseFM"			count="1" 	craft_area="workbench" craft_time="10">
+			<ingredient name="resourceElectricParts"			count="1" />
+			<ingredient name="ammoArrowSteelAP"					count="1" />
+			<ingredient name="resourceDuctTape"					count="1" />
+		</recipe>
+		
+		<recipe name="ammoCrossbowBoltElectropulseFM"	count="1"	craft_area="workbench" craft_time="10">
+			<ingredient name="resourceElectricParts"			count="1" />
+			<ingredient name="ammoCrossbowBoltSteelAP"			count="1" />
+			<ingredient name="resourceDuctTape"					count="1" />
+		</recipe>
+		
+		<recipe name="ammoArrowCorrosiveFM"				count="1"	craft_area="workbench" craft_time="10">
+			<ingredient name="foodRottingFlesh"					count="1" />
+			<ingredient name="ammoArrowSteelAP"					count="1" />
+			<ingredient name="resourceAcid"						count="1" />
+		</recipe>
+		
+		<recipe name="ammoCrossbowBoltCorrosiveFM"		count="1"	craft_area="workbench" craft_time="10">
+			<ingredient name="foodRottingFlesh"					count="1" />
+			<ingredient name="ammoCrossbowBoltSteelAP"			count="1" />
+			<ingredient name="resourceAcid"						count="1" />
+		</recipe>
+		
+		
+		<!-- Fletching -->
+		<recipe name="resourceScrapPaperFletchingFM"	count="1" craft_time="1">
+			<ingredient name="resourcePaper"					count="1" />
+		</recipe>
+		
+		<recipe name="resourcePaperFletchingFM"			count="1" craft_area="workbench" craft_time="2">
+			<ingredient name="resourcePaper"					count="1" />
+		</recipe>
+		
+		<recipe name="resourcePlasticFletchingFM"		count="1" craft_area="workbench" craft_time="3">
+			<ingredient name="resourceScrapPolymers"			count="1" />
+		</recipe>
+		
+	</append>
+	
+</configs>

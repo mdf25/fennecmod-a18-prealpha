@@ -1,0 +1,40 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Deadly Zombie Reach -->
+	</insertBefore>
+	
+	<append xpath="/buffs">
+		<!-- Player knockdown: Gives some resist to damage whilst you are on the floor. -->
+		<buff name="buffInjuryKnockdownPlayerFM" name_key="buffInjuryKnockdown01Name" description_key="buffInjuryKnockdown01Desc" icon="ui_game_symbol_stunned" icon_color="255,128,0">
+			<damage_type value="knockdown"/>
+			<stack_type value="ignore"/>
+			<duration value="1.2"/>
+			<display_value value=".knockdownDisplay"/><display_value_key value="{0}"/>
+			
+			<effect_group>
+				<requirements compare_type="and">
+					<requirement name="NotHasBuff" buff="buffInjuryKnockdownPlayerCooldownFM"/>
+					<requirement name="StatComparePercCurrentToMax" stat="Health" operation="LTE" value=".80"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LT" value="30" />
+				</requirements>
+				<passive_effect name="RunSpeed" operation="perc_set" value="0"/>
+				<passive_effect name="WalkSpeed" operation="perc_set" value="0"/>
+				<passive_effect name="CrouchSpeed" operation="perc_set" value="0"/>
+				<passive_effect name="JumpStrength" operation="perc_set" value="0"/>
+				<passive_effect name="HealthLoss" operation="perc_subtract" value="0.25"/>
+				<triggered_effect trigger="onSelfBuffStart" action="Ragdoll" duration="1.2"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffInjuryKnockdownPlayerCooldownFM"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".knockdownDisplay" operation="set" value="4"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".knockdownDisplay" operation="add" value="-1"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".knockdownDisplay" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffInjuryKnockdownPlayerCooldownFM" hidden="true"> 
+			<duration value="8"/> 
+			<stack_type value="ignore"/> 
+		</buff>
+	</append>
+
+</configs>

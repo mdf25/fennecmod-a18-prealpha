@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<ModInfo>
+		<Name value="FennecModlet - Industrial - Ore and Processing"/>
+		<Description value="Mining now gives ore which can be processed."/>
+		<Author value="MaxFox Gaming"/>
+		<Version value="1.0"/>
+	</ModInfo>
+</xml>

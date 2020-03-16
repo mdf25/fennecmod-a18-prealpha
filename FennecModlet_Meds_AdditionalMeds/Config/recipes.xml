@@ -1,0 +1,65 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Meds - Additional Meds -->
+	</insertBefore>
+
+	<append xpath="/recipes">
+		<recipe name="medicalAntisepticBandageFM" count="1" craft_time="5">
+			<ingredeint name="resourceCloth" count="1" />
+			<ingredient name="drinkJarGrainAlcohol" count="1" />
+		</recipe>
+		
+		<recipe name="medicalAntisepticBandageFM" count="1" craft_time="5">
+			<ingredeint name="resourceCloth" count="1" />
+			<ingredient name="medicalTurpentineExtractFM" count="1" />
+		</recipe>
+		
+		<recipe name="medicalTurpentineOilFM" count="1" craft_area="campfire" craft_tool="toolBeaker" craft_time="20">
+			<ingredient name="woodLogPillar100" count="2" />
+			<ingredient name="drinkJarEmpty" count="1" />
+		</recipe>
+		
+		<recipe name="medicalTurpentineOilFM" count="1" craft_area="chemistryStation" craft_time="10">
+			<ingredient name="woodLogPillar100" count="1" />
+			<ingredient name="drinkJarEmpty" count="1" />
+		</recipe>
+		
+		<recipe name="medicalTurpentineExtractFM" count="1" craft_area="campfire" craft_tool="toolBeaker" craft_time="30">
+			<ingredient name="medicalTurpentineOilFM" count="2" />
+		</recipe>
+		
+		<recipe name="medicalTurpentineExtractFM" count="1" craft_area="chemistryStation" craft_time="15">
+			<ingredient name="medicalTurpentineOilFM" count="1" />
+		</recipe>
+		
+		<recipe name="medicalAntivenomFM" count="1" craft_area="chemistryStation" craft_time="10">
+			<ingredient name="resourceSnakeHeadFM" count="1" />
+			<ingredient name="drinkJarEmpty" count="1" />
+		</recipe>
+		
+		
+		
+		<!-- Turpentine uses -->
+		<recipe name="meleeToolTorch" count="1">
+			<ingredient name="medicalTurpentineOilFM" count="1"/>
+			<ingredient name="resourceCloth" count="1"/>
+			<ingredient name="resourceWood" count="1"/>
+		</recipe>
+		
+		<recipe name="resourcePaint" count="20" craft_area="chemistryStation" tags="chemStationCrafting">
+			<ingredient name="resourceCropChrysanthemumPlant" count="1"/>
+			<ingredient name="medicalTurpentineOilFM" count="1"/>
+		</recipe>
+		
+		<recipe name="lanternLight_player" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
+			<ingredient name="resourceForgedIron" count="5"/>
+			<ingredient name="resourceHeadlight" count="1"/>
+			<ingredient name="resourceElectricParts" count="3"/>
+			<ingredient name="resourceDuctTape" count="4"/>
+			<ingredient name="medicalTurpentineExtractFM" count="5"/>
+		</recipe>
+		
+	</append>
+</configs>

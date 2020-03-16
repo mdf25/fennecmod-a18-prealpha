@@ -1,0 +1,32 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Frozen Zombies -->
+	</insertBefore>
+
+	<append xpath="//entitygroup[@name='SnowZombies']">
+		<entity name="zombieArleneFrozen" />
+		<entity name="zombieBikerFrozen" />
+		<entity name="zombieBoeFrozen" />
+		<entity name="zombieDarleneFrozen" />
+		<entity name="zombieSpiderFrozen" />
+	</append>
+	
+	<!-- Separate night spawn for the snow biome -->
+	<append xpath="/entitygroups">
+		<entitygroup name="SnowZombiesNight">
+			<entity name="zombieArleneFrozen" />
+			<entity name="zombieArleneFrozenFeral" prob="0.25" />
+			<entity name="zombieBikerFrozen" />
+			<entity name="zombieBoeFrozen" />
+			<entity name="zombieBoeFrozenFeral" prob="0.25" />
+			<entity name="zombieDarleneFrozen" />
+			<entity name="zombieDarleneFrozenFeral" prob="0.25" />
+			<entity name="zombieSnow" />
+			<entity name="zombieSnowFeral" prob="0.25" />
+			<entity name="zombieSpiderFrozen" />
+			<entity name="zombieSpiderFrozenFeral" prob="0.25" />
+		</entitygroup>
+	</append>
+</configs>

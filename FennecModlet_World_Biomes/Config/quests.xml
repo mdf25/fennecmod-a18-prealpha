@@ -1,0 +1,12 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Biomes -->
+	</insertBefore>
+	
+	<!-- Changes wood to sticks in the appropriate quest chains. -->
+	<setattribute xpath="//quest[@id='quest_BasicSurvival2']/objective[@phase='1' and (@id='resourceWood' or @id='resourceScrapWoodFM')]" name="value">1</setattribute>
+	<setattribute xpath="//quest[@id='quest_BasicSurvival2']/objective[@phase='1' and (@id='resourceWood' or @id='resourceScrapWoodFM')]" name="id">resourceStickFM</setattribute>
+	<setattribute xpath="//quest[@id='quest_BasicSurvival6']/objective[@id='resourceWood']" name="id">resourceStickFM</setattribute>
+</configs>

@@ -1,0 +1,10 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Deadly Zombie Reach -->
+	</insertBefore>
+	
+	<!-- Pain tolerance reduces chance of knockdown. -->
+	<append xpath="//perk[@name='perkPainTolerance']//passive_effect[@name='BuffResistance']/@tags">,buffInjuryKnockdownPlayerFM</append>
+	
+</configs>

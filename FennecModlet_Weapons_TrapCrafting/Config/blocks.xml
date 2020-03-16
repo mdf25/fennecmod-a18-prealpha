@@ -1,0 +1,21 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Weapons - Trap Crafting -->
+	</insertBefore>
+
+	<!-- Sets the wood spikes to do less damage but degrade slower too. -->
+	<!-- DoT: Vanilla: 99. Modified: 198. -->
+	<setattribute xpath="//block[@name='trapSpikesWoodMaster']/property[@name='Damage']" name="value">22</setattribute>
+	<setattribute xpath="//block[@name='trapSpikesWoodMaster']/property[@name='Damage_received']" name="value">11</setattribute>
+	
+	<!-- Sets the iron spikes to degrade slower. -->
+	<!-- DoT: Vanilla: 132. Modified: 396. -->
+	<setattribute xpath="//block[@name='trapSpikesScrapIronMaster']/property[@name='Damage_received']" name="value">11</setattribute>
+
+	<!-- Sets the original wood spikes to do more damage -->
+	<!-- DoT: Vanilla: 30. Modified: 90. -->
+	<setattribute xpath="//block[@name='trapSpikesNew']/property[@name='Damage']" name="value">15</setattribute>
+	
+</configs>

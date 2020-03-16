@@ -1,0 +1,17 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Alternative Recipes -->
+	</insertBefore>
+	
+	<!-- Torches - Can now be made with coal as well. -->
+	<append xpath="/recipes">
+		<recipe name="meleeToolTorch" count="1">
+			<ingredient name="resourceCoal" 			count="1" />
+			<ingredient name="resourceCloth"			count="1" />
+			<ingredient name="resourceWood"				count="1" />
+		</recipe>
+	</append>
+	
+</configs>

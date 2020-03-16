@@ -1,0 +1,297 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - More Meats -->
+	</insertBefore>
+	
+
+	<append xpath="/recipes">
+		
+		<!-- Charred meat -->
+		<recipe name="foodCharredBearMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawBearMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBearMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredBoarMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawBoarMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBoarMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredChickenMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawChickenMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawChickenMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredCoyoteMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawCoyoteMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawCoyoteMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredMountainLionMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredRabbitMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawRabbitMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawRabbitMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredSnakeMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawSnakeMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawSnakeMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredVenisonMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodCharredWolfMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawWolfMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawWolfMeatFM"/>
+			</effect_group>
+		</recipe>
+		
+		<!-- Boiled meat -->
+		<recipe name="foodBoiledBearMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawBearMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBearMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledBoarMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawBoarMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBoarMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledChickenMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawChickenMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawChickenMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledCoyoteMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawCoyoteMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawCoyoteMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledMountainLionMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledRabbitMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawRabbitMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawRabbitMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledSnakeMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawSnakeMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawSnakeMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledVenisonMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledWolfMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawWolfMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawWolfMeatFM"/>
+			</effect_group>
+		</recipe>
+		
+		<!-- Grilled meat -->
+		<recipe name="foodGrilledBearMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawBearMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBearMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledBoarMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawBoarMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawBoarMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledChickenMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawChickenMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawChickenMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledCoyoteMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawCoyoteMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawCoyoteMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledMountainLionMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledRabbitMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawRabbitMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawRabbitMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledSnakeMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawSnakeMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawSnakeMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledVenisonMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledWolfMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawWolfMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawWolfMeatFM"/>
+			</effect_group>
+		</recipe>
+		
+	</append>
+	
+	<!-- Changes vanilla recipes for any foods needing meat. -->
+	
+	<!-- Bacon and Eggs: Uses boar meat. Will fail if FennecModlet - Foods - Additional Foods is installed. -->
+	<setattribute xpath="//recipe[@name='foodBaconAndEggs']/ingredient[@name='foodRawMeat']" 		name="name">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="//recipe[@name='foodBaconAndEggs']//passive_effect[@tags='foodRawMeat']" 	name="tags">foodRawBoarMeatFM</setattribute>
+	
+	<!-- Chili Dog: Can use any red meat. -->
+	<setattribute xpath="//recipe[@name='foodChiliDog']/ingredient[@name='foodRawMeat']" 			name="name">foodRawBearMeatFM</setattribute>
+	<setattribute xpath="//recipe[@name='foodChiliDog']//passive_effect[@tags='foodRawMeat']" 		name="tags">foodRawBearMeatFM</setattribute>
+	<append xpath="/recipes">
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodRawCoyoteMeatFM" count="5"/>
+			<ingredient name="foodCornBread" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawCoyoteMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<ingredient name="foodCornBread" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<ingredient name="foodCornBread" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodRawWolfMeatFM" count="5"/>
+			<ingredient name="foodCornBread" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawWolfMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+	<!-- Hobo Stew: Can use small game meat instead of rotting flesh, crafts faster. -->
+	<append xpath="/recipes">
+		<recipe name="foodHoboStew" count="1"  craft_time="25" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawChickenMeatFM" count="10"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRawChickenMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodHoboStew" count="1"  craft_time="25" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawRabbitMeatFM" count="10"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRawRabbitMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodHoboStew" count="1"  craft_time="25" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawSnakeMeatFM" count="10"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRawSnakeMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+	<!-- Meat Stew: Requires one 'Big Game' meat. -->
+	<setattribute xpath="//recipe[@name='foodMeatStew']/ingredient[@name='foodRawMeat']" 			name="name">foodRawBearMeatFM</setattribute>
+	<setattribute xpath="//recipe[@name='foodMeatStew']//passive_effect[@tags='foodRawMeat']" 		name="tags">foodRawBearMeatFM</setattribute>
+	<append xpath="//recipes">
+		<recipe name="foodMeatStew" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodMeatStew" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+	<!-- Steak and Potato: Only meat to use here is boar. -->
+	<setattribute xpath="//recipe[@name='foodSteakAndPotato']/ingredient[@name='foodRawMeat']" 			name="name">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="//recipe[@name='foodSteakAndPotato']//passive_effect[@tags='foodRawMeat']" 	name="tags">foodRawBoarMeatFM</setattribute>
+</configs>

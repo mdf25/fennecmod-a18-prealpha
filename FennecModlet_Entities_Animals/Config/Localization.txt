@@ -1,0 +1,5 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+foodRawFoxMeatFM,Items,resource,,,"Raw Fox Meat"
+foodCharredFoxMeatFM,Items,resource,,,"Charred Fox Meat"
+foodBoiledFoxMeatFM,Items,resource,,,"Boiled Fox Meat"
+foodGrilledFoxMeatFM,Items,resource,,,"Grilled Fox Meat"

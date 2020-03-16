@@ -1,0 +1,99 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Animals -->
+	</insertBefore>
+	
+	<append xpath="//entity_classes">
+		
+		<!-- Adds a fox -->
+		<entity_class name="animalFoxFM" extends="animalWolf">
+			<property name="Tags" value="entity,animal,fox,perkAT02,perkAT03,perkAT04,perkAT05"/>
+			<property name="Class" value="EntityEnemyAnimal" />
+			<property name="MapIcon" value="ui_game_symbol_tracking_wolf"/>
+			<property name="TrackerIcon" value="ui_game_symbol_tracking_wolf"/>
+			<property name="PhysicsBody" value="wolf"/>
+			<property name="Mass" value="50"/>
+			<property name="Prefab" value="/Entities/Animals/Wolf/animalStandardCoyoteRagdoll"/>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?FoxMaterial" />
+			<property name="ReplaceMaterial1" value="#@modfolder:Resources/Materials.unity3d?FoxHairMaterial" />
+			<property name="SizeScale" value="0.7" />
+			
+			<property name="AIPathCostScale" value="100, 100"/>
+			<property name="AITask-1" value="Swim"/>
+			<property name="AITask-2" value="RunawayWhenHurt"/>
+			<property name="AITask-3" value="Look"/>
+			<property name="AITask-4" value="Wander"/>
+			<property name="AITask-5" value="" />
+
+			<property name="SoundRandom" value="foxroam"/>
+			<property name="SoundAlert" value=""/>
+			<property name="SoundHurt" value="foxpain"/>
+			<property name="SoundDeath" value="foxpain"/>
+			<property name="SoundAttack" value=""/>
+			<property name="SoundSense" value=""/>
+			<property name="SoundGiveUp" value=""/>
+
+			<property name="HandItem" value="meleeHandAnimalCoyote"/>
+			<property name="ExperienceGain" value="206"/>
+			<property name="DeadBodyHitPoints" value="200"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="80"/>
+				<passive_effect name="HealthMax" operation="perc_add" value="0"/>
+				<!-- Animal HP scale -->
+			</effect_group>
+
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="12"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="3"/>
+			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+		</entity_class>
+		
+		<!-- Adds a pink wolf boss. -->
+		<entity_class name="animalWolfPinkBossFM" extends="animalWolf">
+			<property name="SizeScale" value="1.6" />
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?PinkWolfMaterial" />
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="3000"/>
+				<passive_effect name="HealthMax" operation="perc_add" value="0"/>				
+			</effect_group>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="25"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="3"/>
+			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+		</entity_class>
+		
+		<!-- Adds a black bear. Tougher than the normal bear. -->
+		<entity_class name="animalBlackBearFM" extends="animalBear">
+			<property name="SizeScale" value="1.4" />
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?BlackBearMaterial" />
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="1800"/>
+				<passive_effect name="HealthMax" operation="perc_add" value="0"/>				
+			</effect_group>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="35"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="3"/>
+			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+		</entity_class>
+		
+	</append>
+	
+</configs>

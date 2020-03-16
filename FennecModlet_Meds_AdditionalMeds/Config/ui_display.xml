@@ -1,0 +1,16 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Meds - Additional Meds -->
+	</insertBefore>
+	
+	<append xpath="/ui_display_info/item_display">
+		<item_display_info display_type="bandageCureInfection" display_group="groupConsumables">
+			<display_entry name="maxHealthAmount" title_key="statMaxHealthAmount"/>
+			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Bool"/>
+			<display_entry name="dCureInfection" title_key="statCureInfection" display_type="Percent"/>
+		</item_display_info>
+	</append>
+	
+</configs>

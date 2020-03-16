@@ -1,0 +1,36 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Increased Zombie Spawns -->
+	</insertBefore>
+	
+	<!-- Changes screamer entity group to one where it could be any zombie instead. -->
+	<append xpath="//entitygroup[@name='ZombieScouts']">
+		<entity name="zombieSpider" prob="1"/>
+		<entity name="zombieSpiderFeral" prob=".25"/>
+		<entity name="zombieBoe" prob="1"/>
+		<entity name="zombieBoeFeral" prob=".25"/>
+		<entity name="zombieJoe" prob="1"/>
+		<entity name="zombieJoeFeral" prob=".25"/>
+		<entity name="zombieSteve" prob="1"/>
+		<entity name="zombieSteveFeral" prob=".25"/>
+		<entity name="zombieMoe" prob="1"/>
+		<entity name="zombieMoeFeral" prob=".25"/>
+		<entity name="zombieYo" prob="1"/>
+		<entity name="zombieYoFeral" prob=".25"/>
+		<entity name="zombieBusinessMan" prob="1"/>
+		<entity name="zombieBusinessManFeral" prob=".25"/>
+		<entity name="zombieArlene" prob="1"/>
+		<entity name="zombieArleneFeral" prob=".25"/>
+		<entity name="zombieDarlene" prob="1"/>
+		<entity name="zombieDarleneFeral" prob=".25"/>
+		<entity name="zombieMarlene" prob="1"/>
+		<entity name="zombieMarleneFeral" prob=".25"/>
+		<entity name="zombieNurse" prob="1"/>
+		<entity name="zombieNurseFeral" prob=".25"/>
+		<entity name="animalZombieDog" prob="0.05"/>
+		<entity name="zombieSteveCrawler" prob="1"/>
+		<entity name="zombieFatHawaiian" prob="1"/>
+		<entity name="zombieFatHawaiianFeral" prob=".25"/>
+	</append>
+</configs>

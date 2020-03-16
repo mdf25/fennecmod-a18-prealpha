@@ -1,0 +1,149 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion -->
+	</insertBefore>
+		
+	<append xpath="/buffs">
+		
+		<!-- Electropulse buff -->
+		<buff name="buffElectropulseFM" hidden="true">
+			<damage_type value="electrical" />
+			<stack_type value="replace" />
+			<duration value="0" />
+			
+			<!-- Subtract 1 from duration when each second and if buff is removed set to 0 -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="buffElectropulseFMDuration" operation="add" value="-1"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="buffElectropulseFMDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<!-- If the duration is less than 16, set the duration to 16 when buff starts or stacks. -->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="buffElectropulseFMDuration" operation="LT" value="16"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="buffElectropulseFMDuration" operation="set" value="16"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="buffElectropulseFMDuration" operation="set" value="16"/>
+			</effect_group>
+
+			<!-- When duration runs out, set it to 0 and remove the buff -->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="buffElectropulseFMDuration" operation="LTE" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="buffElectropulseFMDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffElectropulseFM"/>
+			</effect_group>
+
+			<!-- When buff starts, add a shocked buff. When buff ends, remove shocked buff. -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" 	action="AddBuff" 	buff="buffShockedFM" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="RemoveBuff" buff="buffShockedFM" />
+				<triggered_effect trigger="onSelfBuffRemove"	action="RemoveBuff" buff="buffShockedFM" />
+				<triggered_effect trigger="onSelfDied"			action="RemoveBuff" buff="buffShockedFM" />
+			</effect_group>
+		</buff>
+		
+		<!-- Shocked buff that goes with electropulse buff -->
+		<buff name="buffShockedFM" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" icon_color="255,0,0">
+			<damage_type value="electrical" />
+			<stack_type value="ignore" />
+			<duration value="0" />
+			<effect_group>
+				<!-- Movement speed slowed by 90% with minor damage over time -->
+				<passive_effect name="HealthChangeOT" 	operation="base_add" 		value="-2"  />
+				<passive_effect name="RunSpeed" 		operation="perc_subtract" 	value="0.9" />
+				<passive_effect name="WalkSpeed" 		operation="perc_subtract" 	value="0.9" />
+				<passive_effect name="CrouchSpeed" 		operation="perc_subtract" 	value="0.9" />
+				<passive_effect name="JumpStrength" 	operation="perc_subtract" 	value="0.9" />
+
+				<!-- Attach particles when buff is triggered or if entered game with the buff -->
+				<triggered_effect trigger="onSelfBuffStart" 	action="AttachParticleEffectToEntity" 	particle="p_electric_shock" local_offset="0,0.75,0"/>
+				<triggered_effect trigger="onSelfEnteredGame" 	action="AttachParticleEffectToEntity" 	particle="p_electric_shock" local_offset="0,0.75,0"/>
+
+				<!-- Remove particles if entity dies, leaves game, or buff is finished / removed -->
+				<triggered_effect trigger="onSelfDied" 			action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+				<triggered_effect trigger="onSelfLeaveGame" 	action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+				<triggered_effect trigger="onSelfBuffFinish" 	action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+				<triggered_effect trigger="onSelfBuffRemove" 	action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+				
+				<!-- Sounds -->
+				<triggered_effect trigger="onSelfBuffStart" 	action="PlaySound" 		sound="electric_fence_impact" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="FadeOutSound" 	sound="electric_fence_impact" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="FadeOutSound" 	sound="electric_fence_impact" />
+				<triggered_effect trigger="onSelfLeaveGame" 	action="StopSound" 		sound="electric_fence_impact" />
+			</effect_group>
+		</buff>
+		
+		
+		<!-- Corrosive buff -->
+		<buff name="buffCorrosiveFM" hidden="true">
+			<damage_type value="corrosive" />
+			<stack_type value="replace" />
+			<duration value="0" />
+			
+			<!-- Subtract 1 from duration when each second and if buff is removed set to 0 -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="buffCorrosiveFMDuration" operation="add" value="-1"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="buffCorrosiveFMDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<!-- If the duration is less than 16, set the duration to 16 when buff starts or stacks. -->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="buffElectropulseFMDuration" operation="LT" value="16"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="buffCorrosiveFMDuration" operation="set" value="16"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="buffCorrosiveFMDuration" operation="set" value="16"/>
+			</effect_group>
+
+			<!-- When duration runs out, set it to 0 and remove the buff -->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="buffElectropulseFMDuration" operation="LTE" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="buffCorrosiveFMDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffCorrosiveFMDuration"/>
+			</effect_group>
+
+			<!-- When buff starts, add a corrosive buff. When buff ends, remove corrosive buff. -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" 	action="AddBuff" 	buff="buffCorrosiveEffectFM" />
+				<triggered_effect trigger="onSelfBuffStack"		action="AddBuff"	buff="buffCorrosiveEffectFM" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="RemoveBuff" buff="buffCorrosiveEffectFM" />
+				<triggered_effect trigger="onSelfBuffRemove"	action="RemoveBuff" buff="buffCorrosiveEffectFM" />
+				<triggered_effect trigger="onSelfDied"			action="RemoveBuff" buff="buffCorrosiveEffectFM" />
+			</effect_group>
+		</buff>
+		
+		<!-- Corrosive effect buff that goes with corrosive buff -->
+		<buff name="buffCorrosiveEffectFM" name_key="buffCorrosiveFMName" description_key="buffCorrosiveFMDesc" icon="ui_game_symbol_death" icon_color="0,255,0">
+			<damage_type value="corrosive" />
+			<stack_type value="effect" />
+			<duration value="0" />
+			
+			<!-- When buff starts, set value to 5. When buff stacks, go up to 25 -->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart"		action="ModifyCVar" cvar="buffCorrosiveFMDamage" operation="set" value="-20" />
+				<triggered_effect trigger="onSelfBuffStack" 	action="ModifyCVar" cvar="buffCorrosiveFMDamage" operation="add" value="-10">
+					<requirement name="CVarCompare" cvar="buffCorrosiveFMDamage" operation="GTE" value="-60" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="buffCorrosiveFMDamage" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="buffCorrosiveFMDamage" operation="set" value="0" />
+			</effect_group>
+			
+			<effect_group>
+				<!-- Lowers health over time by corrosive damage effect -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" target="self" stat="Health" 	operation="add" 	value="@buffCorrosiveFMDamage" />
+
+				<!-- Attach particles when buff is triggered or if entered game with the buff -->
+				<triggered_effect trigger="onSelfBuffStart" 	action="AttachParticleEffectToEntity" 	particle="#@modfolder:Resources/Particles.unity3d?Corrosive" local_offset="0,0.35,0"/>
+				<triggered_effect trigger="onSelfEnteredGame" 	action="AttachParticleEffectToEntity" 	particle="#@modfolder:Resources/Particles.unity3d?Corrosive" local_offset="0,0.75,0"/>
+
+				<!-- Remove particles if entity dies, leaves game, or buff is finished / removed -->
+				<triggered_effect trigger="onSelfDied" 			action="RemoveParticleEffectFromEntity" particle="#@modfolder:Resources/Particles.unity3d?Corrosive"/>
+				<triggered_effect trigger="onSelfLeaveGame" 	action="RemoveParticleEffectFromEntity" particle="#@modfolder:Resources/Particles.unity3d?Corrosive"/>
+				<triggered_effect trigger="onSelfBuffFinish" 	action="RemoveParticleEffectFromEntity" particle="#@modfolder:Resources/Particles.unity3d?Corrosive"/>
+				<triggered_effect trigger="onSelfBuffRemove" 	action="RemoveParticleEffectFromEntity" particle="#@modfolder:Resources/Particles.unity3d?Corrosive"/>
+				
+			</effect_group>
+		</buff>
+		
+		
+		
+	</append>
+		
+</configs>

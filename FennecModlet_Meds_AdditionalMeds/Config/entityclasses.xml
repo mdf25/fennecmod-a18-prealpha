@@ -1,0 +1,13 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Animals -->
+	</insertBefore>
+
+	<!-- Adds snake head drops to wild snakes. -->
+	<insertAfter xpath="//entity_class[@name='animalSnake']/drop[last()]">
+		<drop event="Harvest" name="resourceSnakeHeadFM" tag="allToolsHarvest" count="1"/>
+	</insertAfter>
+
+</configs>

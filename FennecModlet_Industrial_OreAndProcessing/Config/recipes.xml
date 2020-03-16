@@ -1,0 +1,81 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Ores and Processing -->
+	</insertBefore>
+	
+	<!-- Add recipes to process ores -->
+	<append xpath="/recipes">
+	
+		<!-- Distilled Water -->
+		<recipe name="resourceDistilledWaterFM"			count="100"	craft_area="chemistryStation"	craft_time="100" tags="chemStationCrafting">
+			<ingredient name="drinkJarBoiledWater"				count="1" />
+		</recipe>
+		
+	
+		<!-- Ores -->
+		<recipe name="resourceIronDustFM"				count="1" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourceIronFragmentFM" 			count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		<recipe name="resourceIronDustPureFM" 			count="1" 	craft_area="chemistryStation" 	craft_time="3" 	tags="chemStationCrafting">
+			<ingredient name="resourceIronDustFM"				count="1" />
+			<ingredient name="resourceDistilledWaterFM"			count="1" />
+		</recipe>
+		
+		<recipe name="resourceLeadDustFM"				count="1" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourceLeadFragmentFM" 			count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		<recipe name="resourceLeadDustPureFM" 			count="1" 	craft_area="chemistryStation" 	craft_time="3" 	tags="chemStationCrafting">
+			<ingredient name="resourceLeadDustFM"				count="1" />
+			<ingredient name="resourceDistilledWaterFM"			count="1" />
+		</recipe>
+		
+		
+		<recipe name="resourceCoal"						count="2" 	craft_time="3">
+			<ingredient name="resourceCoalFragmentFM" 			count="1" />
+		</recipe>
+		
+		<recipe name="resourceCoal"						count="5" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourceCoalFragmentFM" 			count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		<recipe name="resourceCoalDustFM"				count="1" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourceCoal" 					count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		<recipe name="resourcePotassiumNitratePowder"	count="2" 	craft_time="3">
+			<ingredient name="resourceNitrateFragmentFM" 		count="1" />
+		</recipe>
+		
+		<recipe name="resourcePotassiumNitratePowder"	count="5" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourceNitrateFragmentFM" 		count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		<recipe name="resourceNitrateDustFM"			count="1" 	craft_area="cementMixer" 		craft_time="1"	tags="cementMixerCrafting">
+			<ingredient name="resourcePotassiumNitratePowder" 	count="1" />
+			<ingredient name="resourceRockSmall"				count="1" />
+		</recipe>
+		
+		
+		
+		<!-- Gunpowder recipes -->
+		<recipe name="resourceGunPowder" 				count="1"	craft_time="2">
+			<ingredient name="resourceCoalDustFM" 				count="1" />
+			<ingredient name="resourceNitrateDustFM" 			count="1" />
+		</recipe>
+		
+		<recipe name="resourceGunPowder" 				count="2" 	craft_area="chemistryStation"	craft_time="2" tags="chemStationCrafting">
+			<ingredient name="resourceCoalDustFM" 				count="1" />
+			<ingredient name="resourceNitrateDustFM" 			count="1" />
+		</recipe>
+
+	</append>
+	
+</configs>

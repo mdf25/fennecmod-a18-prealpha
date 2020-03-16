@@ -1,0 +1,13 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecCore - Item Actions</name>
+		<description>Adds new item actions that can be used on certain items.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.2</game_version>
+		<launcher_version>0.7.3</launcher_version>
+		<dependencies>
+			<dependency>FennecCore</dependency>
+		</dependencies>
+	</info>
+</mod>

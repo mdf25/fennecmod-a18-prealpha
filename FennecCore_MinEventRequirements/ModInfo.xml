@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<ModInfo>
+		<Name value="FennecCore - MinEvent Requirements"/>
+		<Description value="Adds more min-event requirements that can be used with buffs."/>
+		<Author value="MaxFox Gaming"/>
+		<Version value="1.0"/>
+	</ModInfo>
+</xml>

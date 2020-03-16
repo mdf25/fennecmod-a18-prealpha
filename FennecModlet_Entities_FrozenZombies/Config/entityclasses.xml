@@ -1,0 +1,67 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Frozen Zombies -->
+	</insertBefore>
+	
+	<!-- Add frozen variants of zombies. -->
+	<append xpath="//entity_classes">
+		
+		<entity_class name="zombieArleneFrozen" extends="zombieArlene">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieArleneFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieArleneFrozenFeral" extends="zombieArleneFeral">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieArleneFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieDarleneFrozen" extends="zombieDarlene">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieDarleneFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieDarleneFrozenFeral" extends="zombieDarleneFeral">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieDarleneFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieBikerFrozen" extends="zombieBiker">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieBikerFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieBoeFrozen" extends="zombieBoe">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieBoeFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieBoeFrozenFeral" extends="zombieBoeFeral">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieBoeFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieSpiderFrozen" extends="zombieSpider">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieSpiderFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+		<entity_class name="zombieSpiderFrozenFeral" extends="zombieSpiderFeral">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieSpiderFrozenMaterial" />
+			<property name="SoundFootstepModifier" value="Enemies/Snow_Zombie_Male/zombiesnowfootstep"/>
+			<property name="MoveSpeedAggro" value="0.15, 1"/>
+		</entity_class>
+		
+	</append>
+	
+</configs>

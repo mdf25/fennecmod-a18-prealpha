@@ -1,0 +1,21 @@
+<!-- 
+	* THIS FILE IS A DEPENDENCY INJECTOR.
+	* Whilst this file contains no additional information, it is used by FennecUtils to check for dependencies. 
+	*   DO add data to this file if you wish.
+	* 	DO NOT modify any existing data in this file. Modification can cause FennecUtils checking to break.
+	*   DO NOT delete existing data or this file. This will also break FennecUtils.
+	*
+	* If there are bugs arising from this file format, contact the mod author with any details.
+-->
+
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Ores and Processing -->
+	</insertBefore>
+
+	<!-- NEW DATA START -->
+		
+	<!-- NEW DATA END -->
+</configs>

@@ -1,0 +1,52 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Animals -->
+	</insertBefore>
+
+	<append xpath="/Sounds">
+		
+		<!-- Fox sounds -->
+		<SoundDataNode name="foxroam"> 
+			<AudioSource name="Sounds/AudioSource_CreaturesLG"/>
+			<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxSniff1"/>
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxHowl1" DistantClip="#@modfolder:Resources/Sounds.unity3d?FoxHowlDistant" />
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxHowl2" DistantClip="#@modfolder:Resources/Sounds.unity3d?FoxHowlDistant" />
+			<Channel name="Mouth"/>
+			<distantfadestart name="20"/> 	
+			<distantfadeend name="25" />
+			<Priority name="6"/>
+			<maxVoicesPerEntity value="1"/>
+			<LowestPitch name="0.9"/>
+			<HighestPitch name="1.0"/>
+			<LocalCrouchVolumeScale value="1.0"/> 
+			<CrouchNoiseScale value="0.5"/> 
+			<NoiseScale value="1"/> 
+			<MaxVoices value="10"/> 
+			<MaxRepeatRate value="0.9"/> 
+		</SoundDataNode>
+
+		<SoundDataNode name="foxpain"> 
+			<AudioSource name="Sounds/AudioSource_CreaturesLG"/>
+			<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxPain1" />
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxPain2" />
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?FoxPain3" />
+			<Channel name="Mouth"/>
+			<Priority name="6"/>
+			<maxVoicesPerEntity value="1"/>
+			<LowestPitch name="0.9"/>
+			<HighestPitch name="1.0"/>
+			<LocalCrouchVolumeScale value="1.0"/> 
+			<CrouchNoiseScale value="0.5"/> 
+			<NoiseScale value="1"/> 
+			<MaxVoices value="10"/> 
+			<MaxRepeatRate value="0.9"/> 
+		</SoundDataNode>
+
+			
+	</append>
+
+</configs>

@@ -1,0 +1,27 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Diet Management -->
+	</insertBefore>
+	
+	<!-- Adds the diet categories into food. -->
+	<!-- WIP until I can get 10 values or more to display nicely -->
+	<!--
+	<append xpath="//item_display_info[starts-with(@display_type, 'food') or starts-with(@display_type, 'water')]">
+		<display_entry name="dFruitAdd" 		title_key="statFruitAmount" 		display_group="nutrition" />
+		<display_entry name="dVegetablesAdd" 	title_key="statVegetablesAmount" 	display_group="nutrition" />
+		<display_entry name="dMeatsAdd" 		title_key="statMeatsAmount" 		display_group="nutrition" />
+		<display_entry name="dGrainAdd" 		title_key="statGrainAmount" 		display_group="nutrition" />
+		<display_entry name="dDairyAdd" 		title_key="statDairyAmount" 		display_group="nutrition" />
+	</append>
+	-->
+	
+	
+	
+	
+	
+	
+	
+	
+</configs>

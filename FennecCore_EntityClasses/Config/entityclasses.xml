@@ -1,0 +1,31 @@
+<configs>
+
+	<!-- 
+		ENTITY CLASS: EntityAnimalCatchable 
+			
+		Giving an entityclass this class type will allow you to pick up the entity by 'killing' it.
+		The class extends from AnimalRabbit by default so it's best to make sure you use it only on small game.
+		
+		PROPERTIES FOR THIS CLASS
+		REQUIRED:
+			<property name="Class" value="EntityAnimalCatchable, Mods" />
+				This will make the entity catchable when you would usually kill it.
+			<property name="ItemToReturn" value="{your_item}" />
+				This tells the game what item to put in your inventory when the entity is picked up.
+		
+		OPTIONAL:
+			<property name="HoldingItem" value="{your_item}" />
+				Your character must be holding the following item to make sure that the entity gets picked up.
+				Defaults to meleeHandPlayer if none is specified.
+	-->
+
+	<!-- This example clones the vanilla chicken animal and allows it to be picked up. -->
+	<append xpath="/entity_classes">
+		<entity_class name="animalChickenPickup" extends="animalChicken">
+			<property name="Class" value="EntityAnimalCatchable, Mods" />
+			<property name="HoldingItem" value="meleeHandPlayer" />
+			<property name="ItemToReturn" value="animalChickenItem" />
+		</entity_class>
+	</append>
+	
+</configs>

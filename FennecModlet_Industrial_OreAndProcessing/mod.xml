@@ -1,0 +1,10 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecModlet - Industrial - Ore and Processing</name>
+		<description>Adds ore back into the game with some ways to process them.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.1</game_version>
+		<launcher_version>0.7.3</launcher_version>
+	</info>
+</mod>

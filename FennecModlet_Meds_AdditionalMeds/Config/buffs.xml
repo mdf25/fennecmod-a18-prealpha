@@ -1,0 +1,479 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Meds - Additional Meds -->
+	</insertBefore>
+
+	<append xpath="//buff[@name='buffElementWet']">
+		<effect_group name="Process Hydrophobia">
+			<requirements compare_type="and">
+				<requirement name="HasBuff" buff="buffIllRabies03FM" target="self" />
+				<requirement name="NotHasBuff" buff="buffIllHydrophobiaFromDrinkingFM" target="self" />
+			</requirements>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllHydrophobiaFromWetnessFM" target="self" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//buff[@name='buffRedTea']">
+		<effect_group name="Remove Retching">
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM" target="self" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//buff[@name='buffElementCold']">
+		<effect_group name="Cough chances">
+			<requirements compare_type="and">
+				<requirement name="HasBuff" buff="buffElementWet" />
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,1000" operation="LTE" value="20" />
+			</requirements>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllCoughFM" target="self" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//buff[@name='buffElementFreezing']">
+		<effect_group name="Cough chances">
+			<requirements compare_type="and">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,1000" operation="LTE" value="60" />
+			</requirements>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllCoughFM" target="self" />
+		</effect_group>
+	</append>
+	
+	<append xpath="/buffs">
+		
+		<!-- Conditional infection curing for early stages only. -->
+		<buff name="buffInfectionAddCureConditional" hidden="true">
+			<stack_type value="ignore"/>
+			<duration value=".1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffInfectionAddCure">
+					<requirement name="HasBuff" buff="buffInfection01Untreated" /> 
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<!-- Adrenaline buff - lets you survive potential death hits and keep stamina available at a low rate. -->
+		<buff name="buffAdrenalineFM" name_key="buffAdrenalineFMName" description_key="buffAdrenalineFMDesc" icon="ui_game_symbol_adrenaline" icon_color="46,179,134">
+			<stack_type value="effect"/>
+			<duration value="300"/>
+			<effect_group>
+				<passive_effect name="EntityDamage" 	operation="perc_add" value="1.5">
+					<requirement name="HoldingItemHasTags" tags="melee" />
+				</passive_effect>
+				<passive_effect name="RunSpeed"			operation="perc_add" value="0.2" />
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="95">
+					<requirement name="StatCompareCurrent" stat="health" operation="LTE" value="30" />
+				</passive_effect>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyStats" target="self" stat="health" operation="set" value="30">
+					<requirement name="StatCompareCurrent" stat="health" operation="LTE" value="30" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" target="self" stat="stamina" operation="set" value="30">
+					<requirement name="StatCompareCurrent" stat="stamina" operation="LTE" value="30" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="0.1" effect_name="Drunk"/>
+				<triggered_effect trigger="onSelfBuffFinish" action="ModifyScreenEffect" intensity="0" effect_name="Drunk"/>
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffAdrenalineCooldownFM" target="self" />
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAdrenalineCooldownFM" name_key="buffAdrenalineCooldownFMName" description_key="buffAdrenalineCooldownFMDesc" icon="ui_game_symbol_adrenaline" icon_color="253,71,71">
+			<stack_type value="ignore"/>
+			<damage_type value="disease" />
+			<duration value="1200"/>
+			<effect_group>
+				<passive_effect name="FoodMax"		operation="base_set" value="50" />
+				<passive_effect name="WaterMax"		operation="base_set" value="50" />
+				<passive_effect name="HealthMax" 	operation="base_set" value="50" />
+				<passive_effect name="StaminaMax" 	operation="base_set" value="50" />
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAdrenalineCooldownStuntFM" hidden="true">
+			<duration value="0.1" />
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAdrenalineCooldownStuntFM" target="self">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffAdrenalineCooldownFM" target="self" />
+			</effect_group>
+		</buff>
+		
+		
+		<!-- Regular -->
+		<!-- Animal Bites: No side effects but can become rabies later on if untreated (50%). -->
+		<buff name="buffIllAnimalBitesFM" name_key="buffIllAnimalBitesFMName" description_key="buffIllAnimalBitesFMDesc" icon="ui_game_symbol_animalbites" icon_color="210,144,144">
+			<duration value="3600" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Complete">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffTreatedAnimalBitesFM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffBandagedAnimalBitesFM" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies01FM" target="self">
+					<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="50" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<!-- By treating animal bites, you can reduce infection chance for rabies down to 10% -->
+		<buff name="buffTreatedAnimalBitesFM" name_key="buffTreatedAnimalBitesFMName" description_key="buffTreatedAnimalBitesFMDesc" icon="ui_game_symbol_animalbitestreated" icon_color="144,210,144">
+			<duration value="3600" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Complete">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllAnimalBitesFM" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffBandagedAnimalBitesFM" target="self" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies01FM" target="self">
+					<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="10" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffBandagedAnimalBitesFM" target="self" />
+			</effect_group>
+		</buff>
+		
+		<!-- Using a bandage, you can then further reduce infection chance to 2%. -->
+		<buff name="buffBandagedAnimalBitesFM" name_key="buffBandagedAnimalBitesFMName" description_key="buffBandagedAnimalBitesFMDesc" icon="ui_game_symbol_animalbitesbandaged" icon_color="144,210,144">
+			<duration value="3600" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Complete">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllAnimalBitesFM" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffTreatedAnimalBitesFM" target="self" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies01FM" target="self">
+					<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="2" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		
+		<!-- Rabies -->
+		<!-- Rabies 1: First stage subtracts 10 max health and actions use more 10% extra stamina. -->
+		<buff name="buffIllRabies01FM" name_key="buffIllRabies01FMName" description_key="buffIllRabies01FMDesc" icon="ui_game_symbol_rabies" icon_color="210,144,144">
+			<duration value="3600" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies02FM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies03FM" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies02FM" target="self" />
+				<passive_effect name="HealthMax" operation="base_subtract" value="0,10" duration="0,120" />
+				<passive_effect name="StaminaMax" operation="base_subtract" value="0,10" duration="0,120" />
+				<passive_effect name="StaminaLoss" operation="perc_add" value="0.1" />
+			</effect_group>
+		</buff>
+		
+		<!-- Rabies 2: Second stage subtracts 20 max health, actions use 25% extra stamina, and health regenerates 20% slower. -->
+		<buff name="buffIllRabies02FM" name_key="buffIllRabies02FMName" description_key="buffIllRabies02FMDesc" icon="ui_game_symbol_rabies" icon_color="230,60,60">
+			<duration value="7200" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies01FM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies03FM" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies03FM" target="self" />
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffIllRabies02ProcessingFM" />
+				<passive_effect name="HealthMax" operation="base_subtract" value="10,20" duration="0,240"/>
+				<passive_effect name="StaminaMax" operation="base_subtract" value="10,20" duration="0,240"/>
+				<passive_effect name="StaminaLoss" operation="perc_add" value="0.35" />
+				<passive_effect name="HealthChangeOT" operation="perc_add" value="-0.2" />
+			</effect_group>
+		</buff>
+		
+		<!-- Rabies 3: Gives the player hydrophobia. Drinking will now cause the player to vomit. -->
+		<buff name="buffIllRabies03FM" name_key="buffIllRabies03FMName" description_key="buffIllRabies03FMDesc" icon="ui_game_symbol_rabies" icon_color="255,10,10">
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<update_rate value="60" />
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies01FM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies02FM" />
+				<passive_effect name="HealthMax" operation="base_subtract" value="20,50" duration="0,360"/>
+				<passive_effect name="StaminaMax" operation="base_subtract" value="20,50" duration="0,360"/>
+				<passive_effect name="StaminaLoss" operation="perc_add" value="0.6" />
+				<passive_effect name="HealthChangeOT" operation="perc_add" value="-0.5" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="health" operation="add" value="-1" />
+			</effect_group>
+		</buff>
+		
+		<!-- If you use a rabies syringe, you have a 50% chance to cure it completely, else it will go back down to rabies 1. -->
+		<buff name="buffIllRabies02ProcessingFM" name_key="buffIllRabies02ProcessingFMName" description_key="buffIllRabies02ProcessingFMDesc" icon="ui_game_symbol_rabiesprocessing" icon_color="230,60,60">
+			<duration value="1800" />
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies01FM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies02FM" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllRabies03FM" />
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffIllRabies01FM" target="self">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20,10" duration="0,120" />
+				</triggered_effect>
+				<passive_effect name="HealthMax" operation="base_subtract" value="20" />
+				<passive_effect name="StaminaLoss" operation="perc_add" value="0.35" />
+				<passive_effect name="HealthChangeOT" operation="perc_add" value="-0.2" />
+			</effect_group>
+		</buff>
+		
+		<!-- Hydrophobia: This lasts as long as the player is wet. -->
+		<buff name="buffIllHydrophobiaFromWetnessFM" name_key="buffIllHydrophobiaFMName" description_key="buffIllHydrophobiaFMDesc" icon="ui_game_symbol_hydrophobia" icon_color="255,10,10">
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<effect_group name="Buff Cleanup">
+				<requirements compare_type="and">
+					<requirement name="NotHasBuff" target="self" buff="buffIllRabies03FM" />
+					<requirement name="NotHasBuff" target="self" buff="buffElementWet" />
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllHydrophobiaFromWetnessFM" />
+			</effect_group>
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="stamina" operation="add" value="-5">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60" />
+					<requirement name="StatCompareCurrent" stat="stamina" operation="GTE" value="30" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="player#powerattack">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<!-- This buff triggers only if the player is drinking and takes over from the main hydrophobia one -->
+		<buff name="buffIllHydrophobiaFromDrinkingFM" name_key="buffIllHydrophobiaFMName" description_key="buffIllHydrophobiaFMDesc" icon="ui_game_symbol_hydrophobia" icon_color="255,10,10">
+			<stack_type value="ignore" />
+			<damage_type value="disease" />
+			<duration value="60" />
+			<effect_group name="Remove Hydrophobia From Wetness">
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="buffIllHydrophobiaFromWetnessFM" />
+			</effect_group>
+			<effect_group name="Buff Cleanup">
+				<requirements compare_type="and">
+					<requirement name="NotHasBuff" target="self" buff="buffIllRabies03FM" />
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllHydrophobiaFromDrinkingFM" />
+			</effect_group>
+			<effect_group name="Buff Triggers"> <!-- Triggers the wet hydrophobia buff after this ends, if the player is wet -->
+				<requirements compare_type="and">
+					<requirement name="HasBuff" target="self" buff="buffIllRabies03FM" />
+					<requirement name="HasBuff" target="self" buff="buffElementWet" />
+				</requirements>
+				<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" target="self" buff="buffIllHydrophobiaFromWetnessFM" />
+			</effect_group>
+			
+			<effect_group name="Buff Effects">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="stamina" operation="add" value="-5">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,1" operation="LTE" value="60" />
+					<requirement name="StatCompareCurrent" stat="stamina" operation="GTE" value="30" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="player#powerattack">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="Water" operation="add" value="-20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="Food" operation="set" value="-20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="player#vomit"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$foodAmount" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$waterAmount" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$foodAmountAdd" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$waterAmountAdd" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$foodAmountAdd2" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$waterAmountAdd2" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$waterStaminaRegenAmount" operation="set" value="0"/>
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHealHealth">
+						<requirement name="CVarCompare" cvar="medicalHealthAmount" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHealStaminaMax"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHealWaterMax"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffWaterStaminaRegen"/>
+			</effect_group>
+		</buff>
+		
+		
+		<!-- Snake Bites: Lowers your stamina and health over time, and will kill you if too severe. -->
+		<buff name="buffIllSnakeBite01FM" name_key="buffIllSnakeBite01FMName" description_key="buffIllSnakeBite01FMDesc" icon="ui_game_symbol_snakebite" icon_color="210,144,144">
+			<stack_type value="effect" />
+			<damage_type value="disease" />
+			<update_rate value="20" />
+			<effect_group name="CVars">
+				
+				<!-- Remove recovery buff if another bite is sustained. -->
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="buffIllSnakeBiteRecoveryFM" />
+				
+				<!-- Each bite adds 20 to the maximum venom progress, up to 70. -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="set" value="0">
+					<requirement name="CVarCompare" cvar="VenomMaxProgress" target="self" operation="LT" value="10" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="add" value="20">
+					<requirement name="CVarCompare" cvar="VenomMaxProgress" target="self" operation="LTE" value="70" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="add" value="20">
+					<requirement name="CVarCompare" cvar="VenomMaxProgress" target="self" operation="LTE" value="70" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="set" value="70">
+					<requirement name="CVarCompare" cvar="VenomMaxProgress" target="self" operation="GT" value="70" />
+				</triggered_effect>
+			
+				<!-- Each update, add 1 to venom progress, up until the maximum. -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="VenomProgress" operation="set" value="0">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LTE" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" target="self" cvar="VenomProgress" operation="add" value="1">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LT" value="@VenomMaxProgress" />
+				</triggered_effect>
+				
+				<!-- When the venom progress meets the max progress, remove this buff and set the recovery buff active. -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllSnakeBiteRecoveryFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" operation="GTE" value="@VenomMaxProgress" />
+				</triggered_effect>
+				
+			</effect_group>
+			<effect_group name="Buff Effects">
+				<passive_effect name="HealthMax" operation="base_subtract" value="@VenomProgress" />
+				<passive_effect name="StaminaMax" operation="base_subtract" value="@VenomProgress" />
+			</effect_group>
+			<effect_group name="Side Effects">
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllSnakeBiteVomitFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="GTE" value="40" />
+					<requirement name="NotHasBuff" buff="buffRedTea" target="self" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LTE" value="30" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffIllSnakeBiteSevereVenomFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="GTE" value="60" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteSevereVenomFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LTE" value="40" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffIllSnakeBiteRecoveryFM" name_key="buffIllSnakeBiteRecoveryFMName" description_key="buffIllSnakeBiteRecoveryFMDesc" icon="ui_game_symbol_snakebite" icon_color="144,210,144">
+			<stack_type value="effect" />
+			<damage_type value="disease" />
+			<update_rate value="120" />
+			<effect_group name="CVars">
+				<!-- Remove bite buff now we are starting to recover. -->
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="buffIllSnakeBite01FM" />
+				
+				<!-- Each update, venom progress and max progress lowers by one until it hits zero. -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" target="self" cvar="VenomProgress" operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="VenomProgress" operation="GT" value="0" />
+				</triggered_effect><!-- Each update, max venom progress will also reduce by one. -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="VenomMaxProgress" operation="GT" value="0" />
+				</triggered_effect>
+				
+				<!-- When the venom progress meets 0, remove this buff as recovery is complete now and reset cvars. -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteRecoveryFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" operation="Equals" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" target="self" cvar="VenomProgress" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" target="self" cvar="VenomMaxProgress" operation="set" value="0" />
+			</effect_group>
+			<effect_group name="Buff Effects">
+				<passive_effect name="HealthMax" operation="base_subtract" value="@VenomProgress" />
+				<passive_effect name="StaminaMax" operation="base_subtract" value="@VenomProgress" />
+			</effect_group>
+			<effect_group name="Side Effects (Cleanup)">
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LTE" value="30" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteSevereVenomFM" target="self">
+					<requirement name="CVarCompare" cvar="VenomProgress" target="self" operation="LTE" value="40" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffIllSnakeBiteVomitFM" name_key="buffIllSnakeBiteVomitFMName" description_key="buffIllSnakeBiteVomitFMDesc" icon="ui_game_symbol_vomit" icon_color="255,100,100">
+			<stack_type value="effect" />
+			<damage_type value="disease" />
+			<update_rate value="300" />
+			<effect_group name="Removal when cvars drop low enough or efficient digestion is in play.">
+				<requirements compare_type="or">
+					<requirement name="HasBuff" buff="buffRedTea" target="self" />
+					<requirement name="CVarCompare" cvar="VenomProgress" operation="LTE" value="30" target="self" />
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM" />
+			</effect_group>
+			<effect_group name="Vomit Effect">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="@VenomProgress" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Water" operation="add" value="-20"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Food" operation="add" value="-20"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="player#vomit"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffIllSnakeBiteSevereVenomFM" name_key="buffIllSnakeBiteSevereVenomFMName" description_key="buffIllSnakeBiteSevereVenomFMDesc" icon="ui_game_symbol_venom" icon_color="50,255,50">
+			<stack_type value="effect" />
+			<damage_type value="disease" />
+			<update_rate value="60" />
+			<effect_group name="Removal when cvars drop low enough.">
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM">
+					<requirement name="CVarCompare" cvar="VenomProgress" operation="LTE" value="40" target="self" />
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="Health Loss Effect">
+				<triggered_effect trigger="onSelfBuffUpdate" action="modifyStats" stat="health" operation="add" value="-1" />
+			</effect_group>
+		</buff>
+		
+		<!-- for immediate cleanup -->
+		<buff name="buffIllSnakebiteCleanupFM" hidden="true">
+			<duration value="0.1" />
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="VenomMaxProgress" operation="set" value="0" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="VenomProgress" operation="set" value="0" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllSnakeBite01FM" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllSnakeBiteRecoveryFM" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllSnakeBiteVomitFM" target="self" />
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffIllSnakeBiteSevereVenomFM" target="self" />
+			</effect_group>
+		</buff>
+		
+		<!-- Cough: Aiming is worse and sneaking is less effective. -->
+		<buff name="buffIllCoughFM" name_key="buffIllCoughFMName" description_key="buffIllCoughFMDesc" icon="ui_game_symbol_cough" icon_color="255,255,0">
+			<stack_type value="effect" />
+			<damage_type value="disease" />
+			<update_rate value="10" />
+			<effect_group name="Buff End Conditions">
+				<requirements compare_type="and">
+					<requirement name="NotHasBuff" buff="buffElementWet" />
+					<requirement name="NotHasBuff" buff="buffElementCold" />
+					<requirement name="NotHasBuff" buff="buffElementFreezing" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,1000" operation="LTE" value="18" />
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffIllCoughFM" />
+			</effect_group>
+			<effect_group name="Cough timing">
+				<triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="playerCough#">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="Aiming Penalty">
+				<requirements compare_type="and">
+					<requirement name="HoldingItemHasTags" 	tags="ranged" />
+					<requirement name="!HoldingItemHasTags" tags="shotgun" />
+				</requirements>
+				<passive_effect name="WeaponHandling"				operation="perc_add" value="-0.3" />
+				<passive_effect name="SpreadMultiplierHip" 			operation="perc_add" value="0.3" />
+				<passive_effect name="SpreadMultiplierAiming" 		operation="perc_add" value="0.3" />
+				<passive_effect name="SpreadMultiplierRunning" 		operation="perc_add" value="0.3" />
+				<passive_effect name="SpreadMultiplierWalking" 		operation="perc_add" value="0.3" />
+				<passive_effect name="SpreadMultiplierCrouching" 	operation="perc_add" value="0.3" />
+				<passive_effect name="SpreadMultiplierIdle" 		operation="perc_add" value="0.3" />
+			</effect_group>
+		</buff>
+		
+		
+		
+		<!-- Frostbite: Makes your character fall occasionally. -->
+		<!-- Depression: Makes your character craft slower, swing slower, and need food and alcohol more often. -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</append>
+</configs>

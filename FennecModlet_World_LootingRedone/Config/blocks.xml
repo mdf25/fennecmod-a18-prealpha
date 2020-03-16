@@ -1,0 +1,260 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Looting Redone -->
+	</insertBefore>
+	
+	<append xpath="/blocks">
+		
+		<!-- Adds store shelves that can be looted -->
+		<block name="storeShelfEmptyFM">
+			<property name="DescriptionKey" value="furnitureGroupDesc"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" 						value="ModelEntity"/>
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfEmpty"/>
+			<property name="ModelOffset"				value="0,-0.05,0" />
+			<property name="Place" value="TowardsPlacerInverted"/>
+			<property name="Path" value="solid"/>
+			<property class="RepairItems"> 
+				<property name="resourceForgedIron" value="3"/> 
+			</property>
+			<drop event="Harvest" name="resourceScrapIron" count="17" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="EconomicValue" value="18"/>
+			<property name="FilterTags" value="fdecor,fother,ffurniture"/>
+			<property name="Group" value="Decor/Miscellaneous"/>
+		</block>
+		
+		<block name="storeShelfGeneric1FM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfGeneric1"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="183" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfGeneric2FM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfGeneric2"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="183" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfGeneric3FM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfGeneric3"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="183" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfFood1FM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfFood1"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="184" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfFood2FM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfFood2"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="184" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfToolsFM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfTools"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="185" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+		<block name="storeShelfMedicalFM">
+			<property name="Extends"					value="storeShelfEmptyFM" />
+			<property name="CustomIcon"					value="storeShelfEmptyFM" />
+			<property name="Model" 						value="#@modfolder:Resources/Blocks.unity3d?ShelfMedical"/>
+			<property name="Class"						value="Loot" />
+			<property name="LootList"					value="186" />
+			<property name="DowngradeBlock"				value="storeShelfEmptyFM" />
+		</block>
+		
+	</append>
+	
+	<!-- LOOTING --> 
+	
+	<!-- Wood burning stove: Adds coal and wood as lootable objects -->
+	<setattribute xpath="/blocks/block[@name='cntWoodBurningStove']/property[@name='Class']" name="value">Loot</setattribute>
+	<remove xpath="/blocks/block[@name='cntWoodBurningStove']/property[@name='Light']" />
+	<append xpath="/blocks/block[@name='cntWoodBurningStove']">
+		<property name="LootList" value="180"/>
+	</append>
+
+	<!-- Pallet brown boxes: Adds junk and some good stuff you can find rarely -->
+	<append xpath="/blocks/block[@name='palletBrownBoxesBase']">
+		<property name="Class" value="Loot" />
+		<property name="LootList" value="181" />
+	</append>
+	
+	<!-- Car wreckage: Doors will contain junk, water or magazines (rarely) -->
+	<!-- Change material of most wreckage to iron type -->
+	<append xpath="/blocks/block[starts-with(@name, 'decoCar') and not(contains(@name, 'Tire')) and not(contains(@name, 'Wheel'))]">
+		<property name="Material" value="Mmetal_weak" />
+	</append>
+	<append xpath="/blocks/block[starts-with(@name, 'decoCar') and contains(@name, 'Door')]">
+		<property name="Class"	value="Loot" />
+		<property name="LootList" value="182" />
+	</append>
+	
+	<!-- Baths and toilets - should also have wasteland treasures applied to them for brass and lead. -->
+	<insertAfter xpath="//block[contains(@name, 'BathTub') or contains(@name, 'Toilet')]/drop[last()]">
+		<drop event="Harvest" name="resourceScrapBrass" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+		<drop event="Harvest" name="resourceScrapLead" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+	</insertAfter>
+	
+	
+	<!-- Barrels - Should contain gun powder, potentially alcohol -->
+	<append xpath="//block[@name='wineBarrel']">
+		<property name="Class" value="Loot" />
+		<property name="LootList" value="187" />
+	</append>
+	
+	
+	
+	
+	<!-- Change loot crates with good loot into helper blocks so we can adjust the probability that they spawn in POIs. -->
+	<append xpath="/blocks">
+		<!-- Weapons bags and chests -->
+		<block name="cntWeaponsBagSmallLoot">
+			<property name="Extends" 		value="cntWeaponsBagSmall" />
+			<property name="CustomIcon" 	value="cntWeaponsBagSmall" />
+			<property name="DescriptionKey" value="cntWeaponsBagSmallDesc" />
+		</block>
+		
+		<block name="cntWeaponsBagLargeLoot">
+			<property name="Extends" 		value="cntWeaponsBagLarge" />
+			<property name="CustomIcon" 	value="cntWeaponsBagLarge" />
+			<property name="DescriptionKey" value="cntWeaponsBagLargeDesc" />
+		</block>
+		
+		<block name="cntLootChestHeroLoot">
+			<property name="Extends" 		value="cntLootChestHero" />
+			<property name="CustomIcon" 	value="cntLootChestHero" />
+			<property name="DescriptionKey" value="cntLootChestHeroDesc" />
+		</block>
+		
+		<block name="cntLootChestHeroInsecureLoot">
+			<property name="Extends" 		value="cntLootChestHeroInsecure" />
+			<property name="CustomIcon" 	value="cntLootChestHeroInsecure" />
+			<property name="DescriptionKey" value="cntLootChestHeroInsecureDesc" />
+		</block>
+		
+		<!-- Shipping Crates -->
+		<block name="cntShippingCrateShamwayLoot">
+			<property name="Extends" 		value="cntShippingCrateShamway" />
+			<property name="CustomIcon" 	value="cntShippingCrateShamway" />
+			<property name="DescriptionKey" value="cntShippingCrateShamwayDesc" />
+		</block>
+
+		<block name="cntShippingCrateLabEquipmentLoot">
+			<property name="Extends" 		value="cntShippingCrateLabEquipment" />
+			<property name="CustomIcon" 	value="cntShippingCrateLabEquipment" />
+			<property name="DescriptionKey" value="cntShippingCrateLabEquipmentDesc" />
+		</block>
+
+		<block name="cntShippingCrateBookstoreLoot">
+			<property name="Extends" 		value="cntShippingCrateBookstore" />
+			<property name="CustomIcon" 	value="cntShippingCrateBookstore" />
+			<property name="DescriptionKey" value="cntShippingCrateBookstoreDesc" />
+		</block>
+
+		<block name="cntShippingCrateCarPartsLoot">
+			<property name="Extends" 		value="cntShippingCrateCarParts" />
+			<property name="CustomIcon" 	value="cntShippingCrateCarParts" />
+			<property name="DescriptionKey" value="cntShippingCrateCarPartsDesc" />
+		</block>
+
+		<block name="cntShippingCrateShotgunMessiahLoot">
+			<property name="Extends" 		value="cntShippingCrateShotgunMessiah" />
+			<property name="CustomIcon" 	value="cntShippingCrateShotgunMessiah" />
+			<property name="DescriptionKey" value="cntShippingCrateShotgunMessiahDesc" />
+		</block>
+
+		<block name="cntShippingCrateWorkingStiffsLoot">
+			<property name="Extends" 		value="cntShippingCrateWorkingStiffs" />
+			<property name="CustomIcon" 	value="cntShippingCrateWorkingStiffs" />
+			<property name="DescriptionKey" value="cntShippingCrateWorkingStiffsDesc" />
+		</block>
+		
+		<!-- Small and large ammo piles -->
+		<block name="cntAmmoPileSmallLoot">
+			<property name="Extends" 		value="cntAmmoPileSmall" />
+			<property name="CustomIcon" 	value="cntAmmoPileSmall" />
+		</block>
+		
+		<block name="cntAmmoPileMediumLoot">
+			<property name="Extends" 		value="cntAmmoPileMedium" />
+			<property name="CustomIcon" 	value="cntAmmoPileMedium" />
+		</block>
+		
+		<block name="cntAmmoPileLargeLoot">
+			<property name="Extends" 		value="cntAmmoPileLarge" />
+			<property name="CustomIcon" 	value="cntAmmoPileLarge" />
+		</block>
+		
+		<!-- Small and large medical piles -->
+		<block name="cntMedicalPileSmallLoot">
+			<property name="Extends" 		value="cntMedicalPileSmall" />
+			<property name="CustomIcon" 	value="cntMedicalPileSmall" />
+		</block>
+		
+		<block name="cntMedicalPileMediumLoot">
+			<property name="Extends" 		value="cntMedicalPileMedium" />
+			<property name="CustomIcon" 	value="cntMedicalPileMedium" />
+		</block>
+		
+		<block name="cntMedicalPileLargeLoot">
+			<property name="Extends" 		value="cntMedicalPileLarge" />
+			<property name="CustomIcon" 	value="cntMedicalPileLarge" />
+		</block>
+		
+		<!-- Small and large food piles -->
+		<block name="cntFoodPileSmallLoot">
+			<property name="Extends" 		value="cntFoodPileSmall" />
+			<property name="CustomIcon" 	value="cntFoodPileSmall" />
+		</block>
+		
+		<block name="cntFoodPileMediumLoot">
+			<property name="Extends" 		value="cntFoodPileMedium" />
+			<property name="CustomIcon" 	value="cntFoodPileMedium" />
+		</block>
+		
+		<block name="cntFoodPileLargeLoot">
+			<property name="Extends" 		value="cntFoodPileLarge" />
+			<property name="CustomIcon" 	value="cntFoodPileLarge" />
+		</block>
+		
+		<block name="cntMedicLootPileALoot">
+			<property name="Extends" 		value="cntMedicLootPileA" />
+			<property name="CustomIcon" 	value="cntMedicLootPileA" />
+		</block>
+		
+		<block name="cntMedicLootPileBLoot">
+			<property name="Extends" 		value="cntMedicLootPileB" />
+			<property name="CustomIcon" 	value="cntMedicLootPileB" />
+		</block>
+		
+	</append>
+	
+</configs>

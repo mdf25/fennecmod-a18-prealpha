@@ -1,0 +1,80 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Dynamic Zombie Walks -->
+	</insertBefore>
+	
+	<append xpath="/buffs">
+		
+		
+		<!-- Dynamic Walk -->
+		<buff name="buffDynamicWalk" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="0" />
+			<update_rate value="1.5" />
+			
+			<effect_group name="Main Loop">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZWalkType" value="randomint(1,7)"/>
+			</effect_group>
+			
+			<effect_group name="1">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="1"/>
+			</effect_group>
+			<effect_group name="2">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="2" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="2"/>
+			</effect_group>
+			<effect_group name="3">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="3" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="3"/>
+			</effect_group>
+			<effect_group name="5">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="5" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="5"/>
+			</effect_group>
+			<effect_group name="6">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="6" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="6"/>
+			</effect_group>
+			<effect_group name="7">
+				<requirement name="CVarCompare" cvar=".ZWalkType" operation="Equals" value="7" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="AnimatorSetInt" property="WalkType" value="7"/>
+			</effect_group>
+		</buff>
+		
+		<!-- Dynamic Speed -->
+		<buff name="buffDynamicSpeed" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="0" />
+			<update_rate value="0.8" />
+			
+			<effect_group name="Main Loop">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZMoveSpeed" operation="set" value="randomfloat(65,110)"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ZMoveSpeed" operation="divide" value="100" />
+			</effect_group>
+			
+			<effect_group name="Walk and Run">
+				<passive_effect name="RunSpeed" 	operation="perc_set" value="@.ZMoveSpeed"/>
+				<passive_effect name="WalkSpeed" 	operation="perc_set" value="@.ZMoveSpeed"/>
+			</effect_group>
+		</buff>
+		
+		<!-- Initial Speed -->
+		<buff name="buffInitialSpeed" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="0" />
+			
+			<effect_group name="Main Loop">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ZMoveSpeed" operation="set" value="randomfloat(80,100)"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ZMoveSpeed" operation="divide" value="100" />
+			</effect_group>
+			
+			<effect_group name="Walk and Run">
+				<passive_effect name="RunSpeed" 	operation="perc_set" value="@.ZMoveSpeed"/>
+				<passive_effect name="WalkSpeed" 	operation="perc_set" value="@.ZMoveSpeed"/>
+			</effect_group>
+		</buff>
+	</append>
+
+</configs>

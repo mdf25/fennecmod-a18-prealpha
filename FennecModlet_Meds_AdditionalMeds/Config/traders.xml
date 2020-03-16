@@ -1,0 +1,20 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Meds - Additional Meds -->
+	</insertBefore>
+	
+	<!-- Adding medical items to trader inventories -->
+	<append xpath="//trader_item_group[@name='rareMedicine']">
+		<item name="medicalAdrenalineShotFM" count="1,2" />
+		<item name="medicalRabiesSyringeFM" count="1,2" />
+		<item name="medicalAntivenomFM" count="1" />
+	</append>
+	<append xpath="//trader_item_group[@name='medicine']">
+		<item name="medicalAntisepticBandageFM" count="1,2" />
+		<item name="medicalCoughMedicineFM" count="1" />
+		<item name="medicalTurpentineExtractFM" count="1,2" />
+	</append>
+	
+</configs>

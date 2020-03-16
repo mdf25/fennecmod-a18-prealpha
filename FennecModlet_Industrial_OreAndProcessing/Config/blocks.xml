@@ -1,0 +1,34 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Ores and Processing -->
+	</insertBefore>
+	
+	<!-- Mining each ore now yields fragments -->
+	<setattribute xpath="//block[@name='terrOreIron' or @name='oreIronBoulder']/drop[@event='Harvest' and @name='resourceScrapIron']" name="count">21</setattribute>
+	<setattribute xpath="//block[@name='terrOreIron' or @name='oreIronBoulder']/drop[@event='Harvest' and @name='resourceScrapIron']" name="name">resourceIronFragmentFM</setattribute>
+	
+	<setattribute xpath="//block[@name='terrOreLead' or @name='oreLeadBoulder']/drop[@event='Harvest' and @name='resourceScrapLead']" name="count">10</setattribute>
+	<setattribute xpath="//block[@name='terrOreLead' or @name='oreLeadBoulder']/drop[@event='Harvest' and @name='resourceScrapLead']" name="name">resourceLeadFragmentFM</setattribute>
+	
+	<setattribute xpath="//block[@name='terrOreCoal' or @name='oreCoalBoulder']/drop[@event='Harvest' and @name='resourceCoal']" name="count">10</setattribute>
+	<setattribute xpath="//block[@name='terrOreCoal' or @name='oreCoalBoulder']/drop[@event='Harvest' and @name='resourceCoal']" name="name">resourceCoalFragmentFM</setattribute>
+	
+	<setattribute xpath="//block[@name='terrOrePotassiumNitrate' or @name='orePotassiumNitrateBoulder']/drop[@event='Harvest' and @name='resourcePotassiumNitratePowder']" name="count">10</setattribute>
+	<setattribute xpath="//block[@name='terrOrePotassiumNitrate' or @name='orePotassiumNitrateBoulder']/drop[@event='Harvest' and @name='resourcePotassiumNitratePowder']" name="name">resourceNitrateFragmentFM</setattribute>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</configs>

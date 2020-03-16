@@ -1,0 +1,52 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Animals -->
+	</insertBefore>
+
+	<append xpath="/Sounds">
+		
+		<!-- Male cough -->
+		<SoundDataNode name="playerCough1"> 
+			<AudioSource name="Sounds/AudioSource_CreaturesLG"/>
+			<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?Cough1M" />
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?Cough2M" />
+			<Channel name="Mouth"/>
+			<distantfadestart name="20"/> 	
+			<distantfadeend name="25" />
+			<Priority name="6"/>
+			<maxVoicesPerEntity value="1"/>
+			<LowestPitch name="0.9"/>
+			<HighestPitch name="1.0"/>
+			<LocalCrouchVolumeScale value="1.0"/> 
+			<CrouchNoiseScale value="0.5"/> 
+			<NoiseScale value="1"/> 
+			<MaxVoices value="10"/> 
+			<MaxRepeatRate value="0.9"/> 
+		</SoundDataNode>
+
+		<SoundDataNode name="playerCough2"> 
+			<AudioSource name="Sounds/AudioSource_CreaturesLG"/>
+			<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?Cough1F" />
+			<AudioClip ClipName="#@modfolder:Resources/Sounds.unity3d?Cough2F" />
+			<Channel name="Mouth"/>
+			<distantfadestart name="20"/> 	
+			<distantfadeend name="25" />
+			<Priority name="6"/>
+			<maxVoicesPerEntity value="1"/>
+			<LowestPitch name="0.9"/>
+			<HighestPitch name="1.0"/>
+			<LocalCrouchVolumeScale value="1.0"/> 
+			<CrouchNoiseScale value="0.5"/> 
+			<NoiseScale value="1"/> 
+			<MaxVoices value="10"/> 
+			<MaxRepeatRate value="0.9"/> 
+		</SoundDataNode>
+
+			
+	</append>
+
+</configs>

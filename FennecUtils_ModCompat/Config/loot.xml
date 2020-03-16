@@ -1,0 +1,23 @@
+<configs>
+
+	<!-- Ties together drop events etc from separate modlets -->
+
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - World - Looting Redone -->
+	<!-- Adds more alcohols and flour to the barrel. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Looting Redone ']//lootcontainer[@id = '187']">
+		<item name="drinkJarBlueberryWineFM" 	count="1" 		prob="0.4" />
+		<item name="drinkJarAppleCiderFM"		count="1"		prob="0.4" />
+		<item name="foodFlourFM"				count="2,4"		prob="0.4" />
+	</append>
+	
+	<!-- FennecModlet - Industrial - Ores and Processing + FennecModlet - World - Looting Redone -->
+	<!-- Adds ore fragments -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Industrial - Ores and Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Looting Redone ']//lootcontainer[@id = '187']">
+		<item name="resourceIronFragmentFM" 	count="30,50" 	prob="0.1" />
+		<item name="resourceLeadFragmentFM" 	count="30,50" 	prob="0.1" />
+		<item name="resourceCoalFragmentFM" 	count="30,50" 	prob="0.1" />
+		<item name="resourceNitrateFragmentFM" 	count="30,50" 	prob="0.1" />
+	</append>
+	
+	
+</configs>

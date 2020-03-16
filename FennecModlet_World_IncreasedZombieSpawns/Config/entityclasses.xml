@@ -1,0 +1,14 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Increased Zombie Spawns -->
+	</insertBefore>
+	
+	<!-- Increases zombie sight to 100 blocks from 30. -->
+	<setattribute xpath="//entity_class[@name='zombieTemplateMale']/property
+	[@name='SightRange']" name="value">100</setattribute>
+	
+	<!-- Zombies can see you tons better at night -->
+	<setattribute xpath="//entity_class[@name='zombieTemplateMale']/property
+	[@name='SightLightThreshold']" name="value">-2,25</setattribute>
+</configs>

@@ -1,0 +1,569 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Diet Management -->
+	</insertBefore>
+
+	<!-- Vitamins now have a chance to add +3 to any attribute. -->
+	<append xpath="//item[@name='drugVitamins']">
+		<effect_group tiered="false" name="Diet: Fruit">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+		<effect_group tiered="false" name="Diet: Vegetables">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+		<effect_group tiered="false" name="Diet: Meats">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+		<effect_group tiered="false" name="Diet: Grain">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+		<effect_group tiered="false" name="Diet: Dairy">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	
+	<!-- For each item in vanilla, we need to add the diet values. -->
+	<append xpath="//item[@name='foodHoney']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanBeef']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanChicken']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>	
+	
+	<append xpath="//item[@name='foodCanLamb']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanCatfood']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanDogfood']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<display_value name="dGrainAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanChili']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanTuna']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanSham']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanPasta']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dDairyAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanSalmon']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanMiso']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="3" />
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanPeas']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanPears']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanSoup']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="2" />
+			<display_value name="dMeatsAdd" value="4" />
+			<display_value name="dVegetablesAdd" value="4" /> 
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCanStock']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="3" />
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCornOnTheCob']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCornBread']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="3" />
+			<display_value name="dGrainAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" 		operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodMoldyBread']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodShamSandwich']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<display_value name="dGrainAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCharredMeat']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	
+	<append xpath="//item[@name='foodGrilledMeat']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodBoiledMeat']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodMeatStew']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="18" />
+			<display_value name="dVegetablesAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodSteakAndPotato']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodShamChowder']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="8" />
+			<display_value name="dGrainAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodHoboStew']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="9" />
+			<display_value name="dVegetablesAdd" value="16" />
+			<display_value name="dGrainAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodFishTacos']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dGrainAdd" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodChiliDog']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="21" />
+			<display_value name="dGrainAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodBakedPotato']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodBlueberryPie']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="10" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" 		operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy"		operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodPumpkinPie']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="16" />
+			<display_value name="dGrainAdd" value="10" />
+			<display_value name="dDairyAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" 		operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy"		operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodPumpkinCheesecake']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="8" />
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dDairyAdd" value="15" />	
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" 		operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy"		operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodPumpkinBread']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="5" />
+			<display_value name="dGrainAdd" value="4" /> 
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" 		operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain"		operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodEggBoiled']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" 		operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodBaconAndEggs']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="13" />
+			<display_value name="dDairyAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" 		operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy"		operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodVegetableStew']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="25" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="25" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodRawMeat']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodRottingFlesh']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodEgg']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="2">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCornMeal']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropBlueberries']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropCorn']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropGraceCorn']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropPotato']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropMushrooms']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropYuccaFruit']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='foodCropPumpkin']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="2">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='drinkJarYuccaJuice']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+	<append xpath="//item[@name='drinkYuccaJuiceSmoothie']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	
+</configs>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

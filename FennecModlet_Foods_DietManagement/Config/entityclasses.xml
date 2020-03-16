@@ -1,0 +1,17 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Diet Management -->
+	</insertBefore>
+	
+	<!-- Adds in the cvars to be used by diet buffs. -->
+	<append xpath="//entity_class[@name='playerMale']/effect_group[1]">
+		<triggered_effect trigger="onSelfEnteredGame" 	action="ModifyCVar" cvar="DMSUpdateRate" operation="set" value="300" />
+		<triggered_effect trigger="onSelfRespawn" 		action="ModifyCVar" cvar="DMSUpdateRate" operation="set" value="300" />
+		<triggered_effect trigger="onSelfEnteredGame" 	action="AddBuff" 	target="self" buff="buffDietTracker" />
+		<triggered_effect trigger="onSelfRespawn" 		action="AddBuff" 	target="self" buff="buffDietTracker" />
+	</append>
+	
+	
+</configs>

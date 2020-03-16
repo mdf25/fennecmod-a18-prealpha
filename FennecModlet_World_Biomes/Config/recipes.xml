@@ -1,0 +1,13 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Biomes -->
+	</insertBefore>
+
+	<!-- Primitive tools, torches, and arrows now need sticks found in the biomes. -->
+	<setattribute xpath="//recipe[@name='meleeToolStoneAxe' or @name='meleeThrownSpearStone' or @name='meleeToolShovelStone' or @name='meleeToolSledgehammerStone' or @name='meleeToolTorch' or @name='gunBowPrimitive' or @name='ammoArrowStone' or @name='ammoBundleArrowStone' or @name='ammoArrowIron' or @name='ammoBundleArrowIron' or @name='ammoCrossbowBoltStone' or @name='ammoBundleCrossbowBoltStone' or @name='ammoCrossbowBoltIron' or @name='ammoBundleCrossbowBoltIron']/ingredient[@name='resourceWood']" name="name">resourceStickFM</setattribute>
+	<!-- Sets the number of sticks to 1 where necessary on some tools and other things. -->
+	<setattribute xpath="//recipe[@name='meleeToolStoneAxe' or @name='meleeThrownSpearStone' or @name='meleeToolShovelStone' or @name='meleeToolSledgehammerStone' or @name='meleeToolTorch']/ingredient[@name='resourceStickFM']" name="count">1</setattribute>
+
+</configs>

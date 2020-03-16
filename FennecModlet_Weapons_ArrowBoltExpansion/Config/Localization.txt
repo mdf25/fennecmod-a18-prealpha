@@ -1,0 +1,18 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+ammoArrowPrimitiveFM,items,Ammo,,,"Junk Arrow (Ammo)"
+ammoArrowPrimitiveFMDesc,items,Ammo,,,"Junk arrows can't fly well or deal much damage, but in times of desperation when materials run low, these may seem more appealing."
+ammoArrowElectropulseFM,items,Ammo,,,"Electropulse Arrow"
+ammoArrowElectropulseFMDesc,items,Ammo,,,"Electropulse arrows don't have high damage output but can stun and slow enemies within a small radius of impact."
+ammoCrossbowBoltElectropulseFM,items,Ammo,,,"Electropulse Crossbow Bolt"
+ammoCrossbowBoltElectropulseFMDesc,items,Ammo,,,"Electropulse bolts don't have high damage output but can stun and slow enemies within a small radius of impact."
+ammoArrowCorrosiveFM,items,Ammo,,,"Corrosive Arrow"
+ammoArrowCorrosiveFMDesc,items,Ammo,,,"Corrosive arrows can cause the very flesh of your enemy to decay, reducing their health very quickly. More arrows increase the rate of corrosion."
+ammoCrossbowBoltCorrosiveFM,items,Ammo,,,"Corrosive Crossbow Bolt"
+ammoCrossbowBoltCorrosiveFMDesc,items,Ammo,,,"Corrosive crossbow bolts can cause the very flesh of your enemy to decay, reducing their health very quickly. More bolts increase the rate of corrosion."
+
+resourceScrapPaperFletchingFM,items,Resources,,,"Torn Paper Flecting"
+resourceScrapPaperFletchingFMDesc,items,Resources,,,"When you can't cut some paper into a precise shape, tearing it into a rough version may be your only choice. This fletching has terrible aerodynamic properties, but hey, it's the apocalypse."
+resourcePaperFletchingFM,items,Resources,,,"Paper Fletching"
+resourcePaperFletchingFMDesc,items,Resources,,,"If feathers are in short supply you can always cut up some paper to use as fletchings instead."
+resourcePlasticFletchingFM,items,Resources,,,"Plastic Fletching"
+resourcePlasticFletchingFMDesc,items,Resources,,,"Shaping polymer into a durable fletching provides arrows with the best aerodynamic properties. This is essential for heavier arrows such as steel to fly well."

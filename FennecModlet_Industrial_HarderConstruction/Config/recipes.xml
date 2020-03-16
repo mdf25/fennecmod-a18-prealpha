@@ -1,0 +1,67 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Harder Construction -->
+	</insertBefore>
+	
+	<!-- Wood frames now require nails in their construction. -->
+	<append xpath="//recipe[@name='woodFrameBlockVariantHelper']">
+		<ingredient name="resourceNail"				count="2" />
+	</append>
+	
+	<!-- Wood bars now require nails in their construction. -->
+	<append xpath="//recipe[starts-with(@name, 'woodBars')]">
+		<ingredient name="resourceNail"				count="2" />
+	</append>
+	
+	<!-- Catwalks need nails too. -->
+	<append xpath="//recipe[@name='woodCatwalkBlockVariantHelper']">
+		<ingredient name="resourceNail"				count="4" />
+	</append>
+	
+	<!-- Table saw wood recipes require nails. -->
+	<append xpath="//recipe[@name='woodFenceRailingTrellisSheetBlockVariantHelper' or
+	@name='woodHatch1_v1' or
+	@name='woodPillar100' or
+	@name='woodPlate' or
+	@name='woodCTRPlate' or
+	@name='woodPole' or
+	@name='woodCTRPole' or
+	@name='woodStairs25' or
+	@name='woodStairsFilledRailingRight' or
+	@name='woodStairsFilledRailingLeft' or
+	@name='woodSupport' or
+	@name='woodWedgeTip' or
+	@name='woodRampIncline' or
+	@name='woodRampInclineFiller']">
+		<ingredient name="resourceNail" count="2" />
+	</append>
+	
+	<!-- Flagstone blocks now require cement mix in their construction. -->
+	<append xpath="//recipe[@name='flagstoneBlockVariantHelper']">
+		<ingredient name="resourceCement"			count="3" />
+	</append>
+	
+	<!-- Concrete blocks can no longer be crafted in the cement mixer. They need to upgrade from brick. -->
+	<remove xpath="//recipe[@name='pouredConcreteBlockVariantHelper']" />
+	
+	<!-- Concrete mix now requires nitrate powder in its recipe. -->
+	<append xpath="//recipe[@name='resourceConcreteMix']">
+		<ingredient name="resourcePotassiumNitratePowder" 		count="2" />
+	</append>
+	
+	<!-- Regular cement can be crafted from old cement that is found in the world, after adding some water and nitrate. -->
+	<append xpath="/recipes">
+		<recipe name="resourceCement" count="10" craft_area="cementMixer" craft_time="8" tags="cementMixerCrafting">
+			<ingredient name="resourceCementOldFM" 				count="10" />
+			<ingredient name="resourcePotassiumNitratePowder" 	count="5" />
+			<ingredient name="drinkJarBoiledWater" 				count="1" />
+		</recipe>
+	</append>
+	
+	<!-- Rebar frames now need more iron and clay to use, to offset their cost. -->
+	<setattribute xpath="//recipe[@name='rebarFrameBlockVariantHelper']/ingredient[@name='unit_iron']" name="count">32</setattribute>
+	<setattribute xpath="//recipe[@name='rebarFrameBlockVariantHelper']/ingredient[@name='unit_clay']" name="count">8</setattribute>
+	
+</configs>

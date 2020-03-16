@@ -1,0 +1,5 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+resourceTreeWoodFM,Items,Resource,,,"Tree Log"
+resourceTreeWoodFMDesc,items,Resource,,,"Tree logs can be harvested by chopping down trees. They can be scrapped to scrap wood, or processed to wood suitable for construction on a saw bench. You can also place the logs directly and chop them up for usable wood, if you need it - but this will be slow."
+resourceScrapWoodFM,items,Resource,,,"Scrap Wood"
+resourceScrapWoodFMDesc,Items,Resource,,,"Scrap wood can be used as a fuel source, or be used to build basic barricades."

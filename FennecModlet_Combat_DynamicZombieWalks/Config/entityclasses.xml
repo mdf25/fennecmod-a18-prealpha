@@ -1,0 +1,46 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Dynamic Zombie Walks -->
+	</insertBefore>
+	
+	<!-- All zombies have a dynamic walk type buff appended -->
+	<append xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler'))]/effect_group[@name='Base Effects']">
+		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffInitialSpeed" />
+		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicWalk" />
+		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicSpeed" />
+	</append>
+	
+	<insertAfter xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler'))]/effect_group[last()]">
+		<effect_group name="Initial Conditions">
+			<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" cvar=".IWalkType" value="randomint(1,7)"/>
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicWalk" />
+		</effect_group>
+			
+		<effect_group name="1">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="1" />
+			<triggered_effect trigger="onSelfBuffFinish" action="AnimatorSetInt" property="WalkType" value="1"/>
+		</effect_group>
+		<effect_group name="2">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="2" />
+			<triggered_effect trigger="onSelfFirstSpawn" action="AnimatorSetInt" property="WalkType" value="2"/>
+		</effect_group>
+		<effect_group name="3">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="3" />
+			<triggered_effect trigger="onSelfFirstSpawn" action="AnimatorSetInt" property="WalkType" value="3"/>
+		</effect_group>
+		<effect_group name="5">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="5" />
+			<triggered_effect trigger="onSelfFirstSpawn" action="AnimatorSetInt" property="WalkType" value="5"/>
+		</effect_group>
+		<effect_group name="6">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="6" />
+			<triggered_effect trigger="onSelfFirstSpawn" action="AnimatorSetInt" property="WalkType" value="6"/>
+		</effect_group>
+		<effect_group name="7">
+			<requirement name="CVarCompare" cvar=".IWalkType" operation="Equals" value="7" />
+			<triggered_effect trigger="onSelfFirstSpawn" action="AnimatorSetInt" property="WalkType" value="7"/>
+		</effect_group>
+	</insertAfter>
+
+</configs>

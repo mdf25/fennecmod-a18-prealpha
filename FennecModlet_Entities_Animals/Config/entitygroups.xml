@@ -1,0 +1,40 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Animals -->
+	</insertBefore>
+
+	<!-- BIOME GROUPS -->
+	<!-- Add foxes to the forest and desert biome -->
+	<append xpath="/entitygroups/entitygroup[@name='FriendlyAnimalsForest' or @name='FriendlyAnimalsDesert']">
+		<entity name="animalFoxFM" prob="0.3" />
+	</append>
+	
+	<!-- Add black bears to the forest biome -->
+	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsForest']">
+		<entity name="animalBlackBearFM" prob="0.3" />
+	</append>
+	
+	<!-- Add pink wolves to the snow biome -->
+	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsSnow']">
+		<entity name="animalWolfPinkBossFM" prob="0.1" />
+	</append>
+	
+	
+	<!-- MISC GROUPS -->
+	<!-- Adds the animals to other relevant groups -->
+	<append xpath="/entitygroups/entitygroup[@name='AnimalsSmall']">
+		<entity name="animalFoxFM" prob="0.1" />
+	</append>
+	
+	<append xpath="/entitygroups/entitygroup[@name='AnimalsAll']">
+		<entity name="animalWolfPinkBossFM" prob="0.01" />
+		<entity name="animalFoxFM" />
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='WolfPack']">
+		<entity name="animalWolfPinkBossFM" prob="0.05" />
+	</append>
+	
+</configs>

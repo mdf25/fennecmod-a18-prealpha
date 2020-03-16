@@ -1,0 +1,36 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Leather Processing -->
+	</insertBefore>
+	
+	<!-- Blocks that would normally drop leather will now drop leather scraps instead. -->
+	<setattribute xpath="//drop[@name='resourceLeather']" name="name">resourceLeatherScrapsFM</setattribute>
+	<setattribute xpath="//drop[@name='resourceLeatherScrapsFM']" name="count">3,5</setattribute>
+	
+	<!-- Adds a tanning rack that will turn hides into leather over time. -->
+	<append xpath="/blocks">
+		<block name="tanningRackFM">
+			<property name="Extends" 		value="woodMaster" />
+			<property name="CreativeMode" 	value="Dev" />
+			<property name="Class" 			value="Transformer, Mods" />
+			<property name="LootList" 		value="301" /> <!-- 1x2 -->
+			<property name="Shape" 			value="ModelEntity"/>
+			<property name="Model" 			value="#@modfolder:Resources/Workstations.unity3d?TanningRackLeather"/>
+			<property name="ModelOffset" 	value="0,-0.07,0"/>
+			<property class="Transformations">
+				<!-- Direct animal hide to leather, takes a long time and only ever makes 1 leather. -->
+				<property name="Transformation1_Time"     value="60" />
+				<property name="Transformation1_Input1"   value="resourceAnimalHideFM,1" />
+				<property name="Transformation1_Output1"  value="resourceLeather,1" />
+				<!-- Cured animal hide to leather, takes less time and gives 3 leather. -->
+				<property name="Transformation2_Time"     value="55" />
+				<property name="Transformation2_Input1"   value="resourceCuredAnimalHideFM,1" />
+				<property name="Transformation2_Output1"  value="resourceLeather,3" />
+			</property>
+		</block>
+	</append>
+	
+	
+</configs>

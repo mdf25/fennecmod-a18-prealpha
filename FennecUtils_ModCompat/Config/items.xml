@@ -1,0 +1,1540 @@
+<configs>
+
+	<!-- Ties together drop events etc from separate modlets -->
+
+	<!-- FennecModlet - Foods - More Meats + FennecModlet - Entities - Animals -->
+	<!-- Allows Fox meat to be enabled in schematics -->
+	<insertAfter xpath="(/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//item[@name='foodBoiledMeatSchematic']//triggered_effect[@action='ModifyCVar'])[last()]">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodBoiledFoxMeatFM" 			operation="set" value="1"/>
+	</insertAfter>
+	<insertAfter xpath="(/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//item[@name='foodGrilledMeatSchematic']//triggered_effect[@action='ModifyCVar'])[last()]">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodGrilledFoxMeatFM" 			operation="set" value="1"/>
+	</insertAfter>
+	
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - Diet Management -->
+	<!-- Fills in all of the dietary values for the additional foods added to the game. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanBeansFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanBeansHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanBeefHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanChickenHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanLambHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanChiliHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<display_value name="dVegetablesAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanTunaHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanShamHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanPastaHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="8" />
+			<display_value name="dDairyAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanSalmonHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanMisoHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="9" />
+			<display_value name="dDairyAdd" value="7" />
+			<display_value name="dVegetablesAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanPeasHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanSoupHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="4" />
+			<display_value name="dMeatsAdd" value="7" />
+			<display_value name="dVegetablesAdd" value="7" /> 
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanStockHotFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dMeatsAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodAnchovyPizzaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="12" />
+			<display_value name="dMeatsAdd" value="5" />
+			<display_value name="dDairyAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodAnimalGutsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodApplePieFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="6" />
+			<display_value name="dGrainAdd" value="9" />
+			<display_value name="dDairyAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBaconButtyFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dMeatsAdd" value="9" />
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBaconQuicheFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dMeatsAdd" value="5" />
+			<display_value name="dDairyAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBakedBeanCasseroleFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dMeatsAdd" value="20" />
+			<display_value name="dVegetablesAdd" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBangersAndMashFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="5" />
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBatteredFishFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="9" />
+			<display_value name="dGrainAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBeefStewFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="27" />
+			<display_value name="dVegetablesAdd" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="27" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBloodSausageFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBlueberryCakeFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="8" />
+			<display_value name="dDairyAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledMushroomsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledPotatoFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoneAndGutBrothFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBreadFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBreadSliceFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBritishBreakfastFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="21" />
+			<display_value name="dVegetablesAdd" value="8" />
+			<display_value name="dDairyAdd" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBurgerBunFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodButterFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCakeMixtureFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="2" />
+			<display_value name="dDairyAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCanAnchoviesFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredBaconFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredSausageFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCheeseFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCheeseDoughballsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="3" />
+			<display_value name="dGrainAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCheesePizzaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="10" />
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dVegetablesAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCheeseSandwichFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="8" />
+			<display_value name="dGrainAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCheeseStuffedTomatoFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="6" />
+			<display_value name="dFruitAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenCheeseburgerFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="5" />
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dMeatsAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenMushroomPastaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<display_value name="dVegetablesAdd" value="3" />
+			<display_value name="dDairyAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenMushroomSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dVegetablesAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenPieFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dGrainAdd" value="8" />
+			<display_value name="dDairyAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenSandwichFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenStewFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dVegetablesAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="35" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChickenSweetcornSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<display_value name="dVegetablesAdd" value="14" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="14" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChocolateFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodChocolateCakeFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="18" />
+			<display_value name="dGrainAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCookedFishFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCookedSalmonFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropAppleFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropPearFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropPricklyPearFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropSoybeanFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropTomatoFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCropWheatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodDoggyDooFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<display_value name="dVegetablesAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodDoughFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodEggSandwichFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFishAndChipsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFlourFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFreshAnchovyFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFreshFishFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFreshSalmonFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFriedBaconFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFriedTofuFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodFriesFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGelatinFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledCheeseFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="4" />
+			<display_value name="dDairyAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledSausageFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGroundHerbsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<display_value name="dVegetablesAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[starts-with(@name, 'foodGummyBears')]">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodHogRoastBurgerFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="21" />
+			<display_value name="dGrainAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodHoneyChickenKabobsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodHoneyYuccaPieFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="8" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodHotDogFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="17" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodHunterStewFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dVegetablesAdd" value="34" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="34" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodJacketPotatoFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="12" />
+			<display_value name="dVegetablesAdd" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="34" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodKittyCasseroleFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="14" />
+			<display_value name="dVegetablesAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="34" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodLambStewFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="25" />
+			<display_value name="dVegetablesAdd" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="20" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="35" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodLionBurgerFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dGrainAdd" value="10" />
+			<display_value name="dDairyAdd" value="8" />
+			<display_value name="dVegetablesAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodLionMeatballHeroFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="15" />
+			<display_value name="dGrainAdd" value="15" />
+			<display_value name="dDairyAdd" value="5" />
+			<display_value name="dVegetablesAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodMacaroniCheeseFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dDairyAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodMapleBaconCupcakeFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<display_value name="dGrainAdd" value="2" />
+			<display_value name="dDairyAdd" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodMushroomSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dVegetablesAdd" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodPastaShamFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="4" />
+			<display_value name="dVegetablesAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodPeaHamSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dVegetablesAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodPotatoPastaSaladFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="6" />
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dVegetablesAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodPricklyPearPiecesFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="1">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+			</triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawBaconFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawSausageFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRottingFleshCharredFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodScrambledEggsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="18" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodShamSandwichCharredFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="13" />
+			<display_value name="dGrainAdd" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodShepherdsPieFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="12" />
+			<display_value name="dGrainAdd" value="7" />
+			<display_value name="dDairyAdd" value="8" />
+			<display_value name="dVegetablesAdd" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="11" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSmokedSalmonFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="36" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="36" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSnakeSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="16" />
+			<display_value name="dVegetablesAdd" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="16" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="12" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSnakeStripsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<display_value name="dGrainAdd" value="2" />
+			<display_value name="dDairyAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSpaghettiVenisonMeatballsFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<display_value name="dGrainAdd" value="17" />
+			<display_value name="dDairyAdd" value="10" />
+			<display_value name="dVegetablesAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="17" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSpicyHashFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="10" />
+			<display_value name="dGrainAdd" value="6" />
+			<display_value name="dVegetablesAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSummerFruitSaladFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="24" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="24" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodToastFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="4" />
+			<display_value name="dDairyAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodTofuFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodTofuSloppyJoeFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="21" />
+			<display_value name="dVegetablesAdd" value="40" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="21" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="40" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodTortillaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dGrainAdd" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="2" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodSpicyHashFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="8" />
+			<display_value name="dGrainAdd" value="13" />
+			<display_value name="dFruitAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodVegetableSoupFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="22" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="22" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodVenisonFeastPizzaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="15" />
+			<display_value name="dGrainAdd" value="17" />
+			<display_value name="dDairyAdd" value="8" />
+			<display_value name="dVegetablesAdd" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="15" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="17" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="8" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodVenisonWellingtonFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="6" />
+			<display_value name="dGrainAdd" value="5" />
+			<display_value name="dDairyAdd" value="3" />
+			<display_value name="dVegetablesAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodWinterFruitSaladFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="24" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="24" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodWolfiesMeatloafFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="32" />
+			<display_value name="dGrainAdd" value="9" />
+			<display_value name="dDairyAdd" value="17" />
+			<display_value name="dVegetablesAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="32" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addGrain" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="17" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddGrain" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodYoghurtFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />		
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodYoghurtBlueberryFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="10" />
+			<display_value name="dFruitAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />		
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />		
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodYoghurtMixedFruitFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="13" />
+			<display_value name="dFruitAdd" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="13" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="9" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />		
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />		
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodYoghurtYuccaFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="10" />
+			<display_value name="dFruitAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="10" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />		
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />		
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarAppleCiderFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarAppleJuiceFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarBloodyMaryFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>	
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarBlueberryJuiceFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarBlueberryWineFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>	
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarPotatoJuiceFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dVegetablesAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addVegetables" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddVegetables" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarPricklyPearReserveFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="4" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>	
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkJarTomatoJuiceFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dFruitAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addFruit" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddFruit" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkCartonMilkFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='drinkCartonSoyaMilkFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dDairyAdd" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addDairy" operation="add" value="6" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddDairy" />
+		</effect_group>
+	</append>
+	
+	
+	<!-- FennecModlet - Foods - More Meats + FennecModlet - Foods - Diet Management -->
+	<!-- All meat variants are added with diet values. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawBearMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawBoarMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawChickenMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawCoyoteMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawMountainLionMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawRabbitMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawSnakeMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawVenisonMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodRawWolfMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredBearMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredBoarMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredChickenMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredCoyoteMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredMountainLionMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredRabbitMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredSnakeMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredVenisonMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodCharredWolfMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledBearMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledBoarMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledChickenMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledCoyoteMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledMountainLionMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledRabbitMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledSnakeMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledVenisonMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodBoiledWolfMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledBearMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledBoarMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledChickenMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledCoyoteMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledMountainLionMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledRabbitMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledSnakeMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledVenisonMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']//item[@name='foodGrilledWolfMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	
+	<!-- FennecModlet - Foods - More Meats + FennecModlet - Food - Diet Management + FennecModlet - Entities - Animals -->
+	<!-- New animal meat has diet values. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']/../*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']//item[@name='foodRawFoxMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="1" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']/../*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']//item[@name='foodCharredFoxMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="3" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']/../*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']//item[@name='foodBoiledFoxMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="5" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Diet Management ']/../*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']//item[@name='foodGrilledFoxMeatFM']">
+		<effect_group tiered="false" name="Diet">
+			<display_value name="dMeatsAdd" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="addMeats" operation="add" value="7" />
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffAddMeats" />
+		</effect_group>
+	</append>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</configs>

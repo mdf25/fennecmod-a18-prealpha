@@ -1,0 +1,13 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecCore - UI Display</name>
+		<description>Allows the UI display to show text values as well as numbers.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.2</game_version>
+		<launcher_version>0.7.3</launcher_version>
+		<dependencies>
+			<dependency>FennecCore</dependency>
+		</dependencies>
+	</info>
+</mod>

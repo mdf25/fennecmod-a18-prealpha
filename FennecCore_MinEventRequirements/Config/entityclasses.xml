@@ -1,0 +1,22 @@
+<configs>
+	
+	<!-- This example clones the Putrid Girl and allows her to spawn helpers. -->
+	<append xpath="/entity_classes">
+		<entity_class name="zombieSpawnerTest" extends="zombieArlene">
+			<effect_group name="Spawn Helpers">
+				<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="buffSpawnHelpersTest" />
+			</effect_group>
+		</entity_class>
+	</append>
+	
+	<!-- This example clones the Wight and allows it to revive itself sometimes. -->
+	<!-- NOT CURRENTLY WORKING -->
+	<append xpath="/entity_classes">
+		<entity_class name="zombieRessurectionTest" extends="zombieWightFeral">
+			<effect_group name="Resurrect">
+				<triggered_effect trigger="onSelfDied" action="Resurrect, Mods" target="self" />
+			</effect_group>
+		</entity_class>
+	</append>
+	
+</configs>

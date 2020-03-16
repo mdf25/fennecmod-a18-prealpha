@@ -1,0 +1,2 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+animalChickenItem,items,animals,,,"Chicken"

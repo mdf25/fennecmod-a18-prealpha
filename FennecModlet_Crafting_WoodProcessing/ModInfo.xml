@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<ModInfo>
+		<Name value="FennecModlet - Crafting - Wood Processing"/>
+		<Description value="Trees now drop wood that can be scrapped or processed further."/>
+		<Author value="MaxFox Gaming"/>
+		<Version value="1.0"/>
+	</ModInfo>
+</xml>

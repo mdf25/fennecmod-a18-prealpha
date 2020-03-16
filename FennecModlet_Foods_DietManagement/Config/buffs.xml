@@ -1,0 +1,538 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Diet Management -->
+	</insertBefore>
+	
+	<append xpath="/buffs">
+		
+		<!-- Diet management system -->
+		<buff name="buffDietManagement" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="300" />
+		
+			<!-- SETUP SECTION -->
+			<!-- When the buff begins, set the cvars if they have not been set already. -->
+			<effect_group name="Diet Levels Setup">
+				<requirement name="CVarCompare" cvar="dietLevelSetup" operation="NotEquals" value="1" />
+				
+				<triggered_effect trigger="onSelfBuffStart" action="LogMessage" message="Initialsing Diet System for Player." />
+				
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelFruit" 		operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelVegetables" 	operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelMeats" 		operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelGrain" 		operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelDairy" 		operation="set" value="0" />
+				
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="addFruit" 			operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="addVegetables" 		operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="addMeats" 			operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="addGrain" 			operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="addDairy" 			operation="set" value="0" />
+				
+				<!-- Wellness variable, will add or subtract max health and stamina depending on its value. -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelWellness" 	operation="set" value="0" />
+			</effect_group>
+			
+			<!-- After setup, set this value to 1 to indicate vars were set properly. -->
+			<effect_group name="Setup Complete">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelSetup"		operation="set" value="1" />
+			</effect_group>
+		
+		
+			<!-- DIMINISHING DIET SECTION -->
+			<!-- Each update, reduce the level of each variable by 1. If above 50, reduce by 2 50% of the time, and if above 90, reduce by 3 20% of the time. These are only occurring if the player does not have efficient digestion. -->
+			<effect_group name="Diet Level - Diminish Over Time">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Diet Level - Diminish Over Time 2">
+				<requirement name="NotHasBuff" buff="buffRedTea" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="GTE" value="50" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="GTE" value="50" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="GTE" value="50" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="GTE" value="50" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="GTE" value="50" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50" />
+				</triggered_effect>
+			
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="GTE" value="90" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="GTE" value="90" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="GTE" value="90" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="GTE" value="90" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="GTE" value="90" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20" />
+				</triggered_effect>
+			</effect_group>
+			
+			<!-- If the player has dysentery, we need to make it diminish diet values slightly faster. -->
+			<effect_group name="Diet Level - Diminish Dysentery">
+				<requirement name="HasBuff" buff="buffDysenteryMain" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="add" value="-1" />
+			</effect_group>
+			
+			
+			<!-- LIMIT ENFORCING SECTION -->
+			<!-- If the diet level is below -100, set it to -100.  If it is above 100, set it to 100. -->
+			<effect_group name="Clamp Lower Bounds">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="set" value="-100">
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="LTE" value="-100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit"			operation="set" value="100">
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="GTE" value="100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="set" value="-100">
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="LTE" value="-100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables"		operation="set" value="100">
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="GTE" value="100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="set" value="-100">
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="LTE" value="-100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats"			operation="set" value="100">
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="GTE" value="100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="set" value="-100">
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="LTE" value="-100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain"			operation="set" value="100">
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="GTE" value="100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="set" value="-100">
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="LTE" value="-100" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy"			operation="set" value="100">
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="GTE" value="100" />
+				</triggered_effect>
+			</effect_group>
+			
+			
+			<!-- BUFF ASSIGNMENT SECTION -->
+			<!-- If each buff is below -80, set the negative effect buffs. Unset if this level rises above -80. -->
+			<effect_group name="Deficiency Manager">
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeficiencyFruit">
+					<requirement name="NotHasBuff" 	buff="buffDeficiencyFruit" />
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="LTE" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDeficiencyFruit">
+					<requirement name="HasBuff" 	buff="buffDeficiencyFruit" />
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="GT" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeficiencyVegetables">
+					<requirement name="NotHasBuff" 	buff="buffDeficiencyVegetables" />
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="LTE" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDeficiencyVegetables">
+					<requirement name="HasBuff" 	buff="buffDeficiencyVegetables" />
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="GT" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeficiencyMeats">
+					<requirement name="NotHasBuff" 	buff="buffDeficiencyMeats" />
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="LTE" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDeficiencyMeats">
+					<requirement name="HasBuff" 	buff="buffDeficiencyMeats" />
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="GT" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeficiencyGrain">
+					<requirement name="NotHasBuff" 	buff="buffDeficiencyGrain" />
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="LTE" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDeficiencyGrain">
+					<requirement name="HasBuff" 	buff="buffDeficiencyGrain" />
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="GT" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffDeficiencyDairy">
+					<requirement name="NotHasBuff" 	buff="buffDeficiencyDairy" />
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="LTE" value="-80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDeficiencyDairy">
+					<requirement name="HasBuff" 	buff="buffDeficiencyDairy" />
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="GT" value="-80" />
+				</triggered_effect>
+			</effect_group>
+			
+			<!-- If each buff is above +80, set the positive effect buffs. Unset if this level falls below +50. -->
+			<effect_group name="Sufficiency Manager">
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSufficiencyFruit">
+					<requirement name="NotHasBuff" 	buff="buffSufficiencyFruit" />
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="GTE" value="80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSufficiencyFruit">
+					<requirement name="HasBuff" 	buff="buffSufficiencyFruit" />
+					<requirement name="CVarCompare" cvar="dietLevelFruit" operation="LT" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSufficiencyVegetables">
+					<requirement name="NotHasBuff" 	buff="buffSufficiencyVegetables" />
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="GTE" value="80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSufficiencyVegetables">
+					<requirement name="HasBuff" 	buff="buffSufficiencyVegetables" />
+					<requirement name="CVarCompare" cvar="dietLevelVegetables" operation="LT" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSufficiencyMeats">
+					<requirement name="NotHasBuff" 	buff="buffSufficiencyMeats" />
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="GTE" value="80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSufficiencyMeats">
+					<requirement name="HasBuff" 	buff="buffSufficiencyMeats" />
+					<requirement name="CVarCompare" cvar="dietLevelMeats" operation="LT" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSufficiencyGrain">
+					<requirement name="NotHasBuff" 	buff="buffSufficiencyGrain" />
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="GTE" value="80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSufficiencyGrain">
+					<requirement name="HasBuff" 	buff="buffSufficiencyGrain" />
+					<requirement name="CVarCompare" cvar="dietLevelGrain" operation="LT" value="50" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSufficiencyDairy">
+					<requirement name="NotHasBuff" 	buff="buffSufficiencyDairy" />
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="GTE" value="80" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSufficiencyDairy">
+					<requirement name="HasBuff" 	buff="buffSufficiencyDairy" />
+					<requirement name="CVarCompare" cvar="dietLevelDairy" operation="LT" value="50" />
+				</triggered_effect>
+			</effect_group>
+			
+			<!-- Adjust health and stamina based on diet wellness value. -->
+			<effect_group name="Modify Health and Stamina Changes">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="HealthStaminaChange" 	operation="set" 		value="10" />
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="StaminaRecoveryRate"	operation="set" 		value="0.04" />
+				<triggered_effect trigger="onSelfBuffUpdate" 	action="ModifyCVar" cvar="HealthStaminaChange" 	operation="multiply" 	value="@dietLevelWellness" />
+				<triggered_effect trigger="onSelfBuffUpdate" 	action="ModifyCVar" cvar="StaminaRecoveryRate" 	operation="multiply" 	value="@DietLevelWellness" />
+				
+				<passive_effect name="HealthMax" 	operation="base_add" 	value="@HealthStaminaChange" />
+				<passive_effect name="StaminaMax" 	operation="base_add" 	value="@HealthStaminaChange" />
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="@StaminaRecoveryRate" />
+			</effect_group>
+			
+		</buff>
+		
+		
+		
+		<!-- DEFICIENCIES: Not eating enough will lead to negative effects. -->
+		<buff name="buffDeficiencyFruit" name_key="buffDeficiencyFruitName" description_key="buffDeficiencyFruitDesc" icon="ui_game_symbol_fruit" icon_color="255,65,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="-1" 	tags="attIntellect" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffDeficiencyVegetables" name_key="buffDeficiencyVegetablesName" description_key="buffDeficiencyVegetablesDesc" icon="ui_game_symbol_vegetables" icon_color="255,65,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="-1" 	tags="attPerception" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffDeficiencyMeats" name_key="buffDeficiencyMeatsName" description_key="buffDeficiencyMeatsDesc" icon="ui_game_symbol_meats" icon_color="255,65,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="-1" 	tags="attStrength" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffDeficiencyGrain" name_key="buffDeficiencyGrainName" description_key="buffDeficiencyGrainDesc" icon="ui_game_symbol_grain" icon_color="255,65,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="-1" 	tags="attAgility" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffDeficiencyDairy" name_key="buffDeficiencyDairyName" description_key="buffDeficiencyDairyDesc" icon="ui_game_symbol_dairy" icon_color="255,65,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="-1" 	tags="attFortitude" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		
+		
+		<!-- SUFFICIENCIES: Eating a good amount of a certain type of food gives bonuses. -->
+		<buff name="buffSufficiencyFruit" name_key="buffSufficiencyFruitName" description_key="buffSufficiencyFruitFruitDesc" icon="ui_game_symbol_fruit" icon_color="65,255,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="1" 	tags="attIntellect" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffSufficiencyVegetables" name_key="buffSufficiencyVegetablesName" description_key="buffSufficiencyVegetablesFruitDesc" icon="ui_game_symbol_vegetables" icon_color="65,255,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="1" 	tags="attPerception" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffSufficiencyMeats" name_key="buffSufficiencyMeatsName" description_key="buffSufficiencyMeatsFruitDesc" icon="ui_game_symbol_meats" icon_color="65,255,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="1" 	tags="attStrength" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffSufficiencyGrain" name_key="buffSufficiencyGrainName" description_key="buffSufficiencyGrainFruitDesc" icon="ui_game_symbol_grain" icon_color="65,255,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="1" 	tags="attAgility" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffSufficiencyDairy" name_key="buffSufficiencyDairyName" description_key="buffSufficiencyDairyFruitDesc" icon="ui_game_symbol_dairy" icon_color="65,255,65">
+			<stack_type value="ignore" />
+			
+			<effect_group name="Set CVar">
+				<triggered_effect trigger="onSelfBuffStart" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffRemove" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+				<triggered_effect trigger="onSelfBuffFinish" 	action="ModifyCVar" cvar="dietLevelWellness" operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Ability Changes">
+				<passive_effect 	name="AttributeLevel" 		operation="base_add" 	value="1" 	tags="attFortitude" />
+				<triggered_effect 	trigger="onSelfBuffStart" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffRemove" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+				<triggered_effect 	trigger="onSelfBuffFinish" 	action="AddBuff" 		buff="buffPerkAbilityUpdate"/>
+			</effect_group>
+		</buff>
+		
+		
+		
+		<!-- BUFFS TO ADD LEVELS TO EACH DIET CATEGORY. -->
+		<buff name="buffAddFruit" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="2" />
+			
+			<effect_group name="Add Level Over Time">
+				<requirement name="CVarCompare" cvar="addFruit" operation="GT" value="0" />
+ 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelFruit" 	operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="addFruit"		operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="addFruit" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAddFruit">
+					<requirement name="CVarCompare" cvar="addFruit" operation="LTE" value="0" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAddVegetables" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="2" />
+			
+			<effect_group name="Add Level Over Time">
+				<requirement name="CVarCompare" cvar="addVegetables" operation="GT" value="0" />
+ 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelVegetables" 	operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="addVegetables"		operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="addVegetables" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAddVegetables">
+					<requirement name="CVarCompare" cvar="addVegetables" operation="LTE" value="0" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAddMeats" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="2" />
+			
+			<effect_group name="Add Level Over Time">
+				<requirement name="CVarCompare" cvar="addMeats" operation="GT" value="0" />
+ 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelMeats" 	operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="addMeats"		operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="addMeats" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAddMeats">
+					<requirement name="CVarCompare" cvar="addMeats" operation="LTE" value="0" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAddGrain" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="2" />
+			
+			<effect_group name="Add Level Over Time">
+				<requirement name="CVarCompare" cvar="addGrain" operation="GT" value="0" />
+ 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelGrain" 	operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="addGrain"		operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="addGrain" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAddGrain">
+					<requirement name="CVarCompare" cvar="addGrain" operation="LTE" value="0" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffAddDairy" hidden="true">
+			<stack_type value="ignore" />
+			<update_rate value="2" />
+			
+			<effect_group name="Add Level Over Time">
+				<requirement name="CVarCompare" cvar="addDairy" operation="GT" value="0" />
+ 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="dietLevelDairy" 	operation="add" value="1" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="addDairy"		operation="add" value="-1" />
+			</effect_group>
+			
+			<effect_group name="Cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="addDairy" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAddDairy">
+					<requirement name="CVarCompare" cvar="addDairy" operation="LTE" value="0" />
+				</triggered_effect>
+			</effect_group>
+		</buff>
+	</append>
+	
+	
+	<!-- Modify the food poisoning buff so that it removes 10 from each stat and debuffs processing buffs. -->
+	<append xpath="//buff[@name='buffIllFoodPoisoning01']/effect_group[last()]">	
+		<!-- Remove active buffs that are adding nutrition values. -->
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAddFruit" />
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAddVegetables" />
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAddMeats" />
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAddGrain" />
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffAddDairy" />
+		<!-- Reduce all diet values by 10. -->
+		<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelFruit" 		operation="add" value="-10" />
+		<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelVegetables" 	operation="add" value="-10" />
+		<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelMeats" 		operation="add" value="-10" />
+		<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelGrain" 		operation="add" value="-10" />
+		<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="dietLevelDairy" 		operation="add" value="-10" />
+	</append>
+	
+	
+	
+</configs>

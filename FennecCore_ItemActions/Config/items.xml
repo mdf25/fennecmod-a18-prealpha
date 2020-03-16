@@ -1,0 +1,40 @@
+<configs>
+
+	<append xpath="/items">
+		
+		<!-- 
+			ITEMACTION: SpawnEntity 
+			This allows you to spawn any type of entity when left or right clicking.
+			
+			REQUIREMENTS:
+				<property class="{Action0 / Action1}">
+					<property name="Class" value="SpawnEntity, Mods" />
+					<property name="Entity" value="{entity_name}" />
+				</property>
+				
+			This will spawn in an entity when you left or right click whilst holding the item in hand.
+			
+			The below example shows how to spawn in a chicken from the hand.
+		-->
+		
+		<item name="animalChickenPlaceable">		
+			<property name="HoldType" value="1"/>
+			<property name="Meshfile" value="Entities/Animals/CHICKEN/chickenPrefab"/>
+			<property name="DropMeshfile" value="Entities/Animals/CHICKEN/chickenPrefab"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Morganic"/>
+			<property name="RepairTime" value="1"/>
+			<property name="RepairAmount" value="30"/>
+			<property name="Stacknumber" value="5"/> 
+			<property name="EconomicValue" value="100"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="Group" value="Resources"/>
+			<property class="Action1">
+				<property name="Class" value="SpawnEntity, Mods"/>
+				<property name="Entity" value="animalChicken"/>
+			</property>
+		</item>
+	</append>
+	
+	
+</configs>

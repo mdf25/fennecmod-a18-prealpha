@@ -1,0 +1,11 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - More Meats -->
+	</insertBefore>
+	
+	<!-- FennecModlet - Entities - Animals + FennecModlet - Foods - More Meats -->
+	<!-- Unlocks the fox meat recipes. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//perk[@name='perkMasterChef']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags">,foodBoiledFoxMeatFM,foodGrilledFoxMeatFM</append>
+</configs>

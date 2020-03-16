@@ -1,0 +1,15 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Entities - Burnt Zombies -->
+	</insertBefore>
+
+	<remove xpath="//entitygroup[@name='ZombiesBurntForest']/entity[@name='zombieSteveCrawler']" />
+	<removeattribute xpath="//entitygroup[@name='ZombiesBurntForest']/entity[@name='zombieBurnt']/@prob" />
+	
+	<append xpath="//entitygroup[@name='ZombiesBurntForest']">
+		<entity name="zombieArleneBurnt" />
+	</append>
+	
+</configs>

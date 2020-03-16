@@ -1,0 +1,27 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Meds - Additional Meds -->
+	</insertBefore>
+	
+	<!-- Adding medical items to loot containers -->
+	<append xpath="//lootgroup[@name='rareMedicine']">
+		<item name="medicalAdrenalineShotFM" count="1,2" />
+		<item name="medicalRabiesSyringeFM" count="1,2" />
+		<item name="medicalAntivenomFM" count="1" />
+	</append>
+	<append xpath="//lootgroup[@name='medicine']">
+		<item name="medicalAntisepticBandageFM" count="1,2" />
+		<item name="medicalCoughMedicineFM" count="1" />
+		<item name="medicalTurpentineExtractFM" count="1,2" />
+	</append>
+	<append xpath="//lootgroup[@name='groupHeroChestLoot']">
+		<item name="medicalImmunityBoosterSyringeFM" count="1" />
+	</append>
+	
+	
+	<!-- The rare syringe can only be found in hidden stashes. -->
+	
+	
+</configs>

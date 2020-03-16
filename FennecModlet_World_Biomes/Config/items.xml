@@ -1,0 +1,24 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Biomes -->
+	</insertBefore>
+	
+	<append xpath="/items">
+		<item name="resourceStickFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+			<property name="Material" value="MresourceWood"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="500"/> <!-- STK resource -->
+			<property name="FuelValue" value="50"/>
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources,Basics"/>
+			<property name="RepairAmount" value="0"/>
+			<property name="LootExpValue" value="0"/>
+			<property name="CraftingIngredientTime" value="0.25"/>
+		</item>
+	</append>
+</configs>

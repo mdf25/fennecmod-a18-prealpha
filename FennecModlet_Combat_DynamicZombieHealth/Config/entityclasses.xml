@@ -1,0 +1,10 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Dynamic Zombie Walks -->
+	</insertBefore>
+	
+	<!-- All zombies have a dynamic health value. This means they will be, on average, 25% harder to kill. -->
+	<setattribute xpath="//entity_class[starts-with(@name, 'zombie')]/effect_group[@name='Base Effects']/passive_effect[@name='HealthMax' and @operation='perc_set']" name="value">0.5,2</setattribute>
+	
+</configs>

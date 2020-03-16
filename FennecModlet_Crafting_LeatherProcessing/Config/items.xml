@@ -1,0 +1,60 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Leather Processing -->
+	</insertBefore>
+	
+	
+	<!-- Change leather icon to a better one -->
+	<append xpath="//item[@name='resourceLeather']">
+		<property name="CustomIcon" value="resourceLeatherFM" />
+	</append>
+	
+	<!-- Adds animal hides and scrap leather -->
+	<append xpath="/items">
+		<item name="resourceAnimalHideFM">
+			<property name="HoldType" value="45"/>
+			<property name="CustomIcon" value="resourceLeather" />
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Weight" value="5"/>
+			<property name="RepairAmount" value="150"/>
+			<property name="Stacknumber" value="250"/> 
+			<property name="EconomicValue" value="12"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="2"/>
+		</item>
+		
+		<item name="resourceCuredAnimalHideFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Weight" value="5"/>
+			<property name="RepairAmount" value="150"/>
+			<property name="Stacknumber" value="250"/> 
+			<property name="EconomicValue" value="12"/>
+			<property name="Group" value="Resources,Chemicals,CFChemicals"/>
+			<property name="CraftingIngredientTime" value="2"/>
+		</item>
+		
+		<item name="resourceLeatherScrapsFM">
+			<property name="HoldType" value="45"/>
+			<property name="CustomIcon" value="resourceLeather" />
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceLeather"/>
+			<property name="Weight" value="5"/>
+			<property name="RepairAmount" value="150"/>
+			<property name="Stacknumber" value="250"/> 
+			<property name="EconomicValue" value="12"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="2"/>
+		</item>
+		
+	</append>
+	
+	
+</configs>

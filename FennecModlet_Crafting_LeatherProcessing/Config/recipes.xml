@@ -1,0 +1,40 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Leather Processing -->
+	</insertBefore>
+	
+	<!-- Adjusts leather meterials so it will become leather scraps instead. -->
+	<setattribute xpath="//recipe[@name='resourceLeather' and @tags='salvageScrap']" name="name">resourceLeatherScrapsFM</setattribute>
+	
+	<append xpath="/recipes">
+		
+		<recipe name="tanningRackFM" count="1" craft_time="30">
+			<ingredient name="resourceWood"		 		count="50" />
+			<ingredient name="resourceNail"				count="12" />
+			<ingredient name="resourceSewingKit" 		count="6" />
+			<ingredient name="resourceForgedIron"		count="2" />
+		</recipe>
+		
+		<recipe name="resourceCuredAnimalHideFM" count="1" craft_time="30" craft_area="campfire" craft_tool="toolBeaker">
+			<ingredient name="resourceAnimalHideFM"		count="2" />
+			<ingredient name="resourceCoal"				count="2" />
+			<ingredient name="drinkJarBoiledWater"		count="1" />
+		</recipe>
+		
+		<recipe name="resourceCuredAnimalHideFM" count="1" craft_time="30" craft_area="chemistryStation">
+			<ingredient name="resourceAnimalHideFM"		count="1" />
+			<ingredient name="resourceCoal"				count="1" />
+			<ingredient name="drinkJarRiverWater"		count="1" />
+		</recipe>
+		
+		<recipe name="resourceLeather" count="1" craft_area="workbench" craft_time="20" tags="workbenchCrafting">
+			<ingredient name="resourceLeatherScrapsFM" 	count="5" />
+			<ingredient name="resourceSewingKit"		count="1" />
+		</recipe>
+		
+	</append>
+	
+	
+</configs>

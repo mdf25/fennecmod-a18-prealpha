@@ -1,0 +1,14 @@
+<configs>
+
+	<!-- Ties together drop events etc from separate modlets -->
+
+	<!-- FennecModlet - Crafting - Leather Processing -->
+	<!-- All animal entities now drop animal hides. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']//drop[@name='resourceLeather']" name="name">resourceAnimalHideFM</setattribute>
+	
+	<!-- FennecModlet - Entities - Animals + FennecModlet - Foods - More Meats -->
+	<!-- Adds the respective meat drops from each animal added by FennecModlet - Entities - Animals. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//entity_class[@name='animalFoxFM']/drop[@name='foodRawMeat']" name="name">foodRawFoxMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//entity_class[@name='animalBlackBearFM']/drop[@name='foodRawMeat']" name="name">foodRawBearMeatFM</setattribute>	
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//entity_class[@name='animalWolfPinkBossFM']/drop[@name='foodRawMeat']" name="name">foodRawWolfMeatFM</setattribute>
+</configs>

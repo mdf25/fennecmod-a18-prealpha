@@ -1,0 +1,10 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecModlet - Combat - Dynamic Zombie Health</name>
+		<description>Zombies will spawn in with between 50% and 200% of their normal health value.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.1</game_version>
+		<launcher_version>0.7.3</launcher_version>
+	</info>
+</mod>

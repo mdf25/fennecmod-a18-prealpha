@@ -1,0 +1,14 @@
+<configs>
+
+	<!-- Ties together drop events etc from separate modlets -->
+
+	<!-- FennecModlet - Industrial - Harder Construction + FennecModlet - Skills - New: Scrap Collector -->
+	<!-- White pallets drop more old cement instead -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Industrial - Harder Construction ']/../*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']//block[starts-with(@name, 'palletWhiteBags')]/drop[@name='resourceCement']" name="name">resourceCementOldFM</setattribute>
+	
+
+	<!-- FennecModlet - World - Biomes + FennecModlet - Crafting - Wood Processing -->
+	<!-- Makes sticks drop from the shrubs that would usually drop scrap wood instead. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/block[starts-with(@name, 'tree')]/drop[@name='resourceScrapWoodFM']" name="name">resourceStickFM</setattribute>
+	
+</configs>

@@ -1,0 +1,13 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecCore - MinEvent Actions</name>
+		<description>Adds new min event actions that can be used as part of buffs.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.2</game_version>
+		<launcher_version>0.7.3</launcher_version>
+		<dependencies>
+			<dependency>FennecCore</dependency>
+		</dependencies>
+	</info>
+</mod>

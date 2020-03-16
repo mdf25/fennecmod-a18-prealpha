@@ -1,0 +1,47 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Wood Processing -->
+	</insertBefore>
+	
+	<!-- Adjust weight of wood to control scrapping values a bit. -->
+	<setattribute xpath="//item[@name='resourceWood']/property[@name='Weight']" name="value">3</setattribute>
+	
+	<!-- Adds tree wood and scrap wood. -->
+	<append xpath="/items">
+		<item name="resourceTreeWoodFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mwood"/>
+			<property name="Weight" value="10"/>
+			<property name="FuelValue" value="240" />
+			<property name="RepairAmount" value="150"/>
+			<property name="Stacknumber" value="6000"/> 
+			<property name="EconomicValue" value="3"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="2"/>
+			<property class="Action1">
+				<property name="Class" value="PlaceAsBlock"/>
+				<property name="Blockname" value="woodLogPlaceableFM"/>
+			</property>
+		</item>
+		
+		<item name="resourceScrapWoodFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mwood"/>
+			<property name="Weight" value="1"/>
+			<property name="FuelValue" value="15" />
+			<property name="RepairAmount" value="150"/>
+			<property name="Stacknumber" value="6000"/> 
+			<property name="EconomicValue" value="12"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="0.15"/>
+		</item>
+	</append>
+	
+	
+</configs>

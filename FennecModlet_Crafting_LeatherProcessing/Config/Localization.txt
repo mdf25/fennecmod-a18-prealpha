@@ -1,0 +1,9 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+resourceAnimalHideFM,Items,Resource,,,"Animal Hide"
+resourceAnimalHideFMDesc,items,Resource,,,"Animal hides can be refined into leather by processing it in a tanning rack. You can cure it first for higher output."
+resourceCuredAnimalHideFM,items,Resource,,,"Cured Animal Hide"
+resourceCuredAnimalHideFMDesc,Items,Resource,,,"Cured animal hide can be dried to produce leather at a more efficient rate than using uncured hide."
+resourceLeatherScrapsFM,Items,Resource,,,"Leather Scraps"
+resourceLeatherScrapsFMDesc,Items,Resource,,,"Leather scraps can be sewn back up into leather on a workbench."
+tanningRackFM,Blocks,Workstation,,,"Tanning Rack"
+tanningRackFMDesc,Blocks,Workstation,,,"The tanning rack will turn animal hides into leather over time. Just insert your animal hides into one slot and wait a while."

@@ -1,0 +1,42 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Harder Recipes -->
+	</insertBefore>
+	
+	<!-- Repair kits - Now require oil and cloth again. -->
+	<append xpath="//recipe[@name='resourceRepairKit']">
+		<ingredient name="resourceCloth" 			count="1" />
+		<ingredient name="resourceOil"				count="1" />
+	</append>
+	
+	<!-- Duct tape: Now requires a workbench to make, and needs cotton and polymers as well as glue, instead of cloth. -->
+	<setattribute xpath="//recipe[@name='resourceDuctTape']" name="craft_area">workbench</setattribute>
+	<append xpath="//recipe[@name='resourceDuctTape']">
+		<ingredient name="resourceCropCottonPlant" 	count="2" />
+		<ingredient name="resourceScrapPolymers" 	count="1" />
+	</append>
+	<remove xpath="//recipe[@name='resourceDuctTape']/ingredient[@name='resourceCloth']" />
+	
+	<!-- Glue: Now requires a beaker in the campfire to make, as well as clean water. -->
+	<setattribute xpath="//recipe[@name='resourceGlue' and @craft_area='campfire']" name="craft_tool">toolBeaker</setattribute>
+	<setattribute xpath="//recipe[@name='resourceGlue' and @craft_area='campfire']/ingredient[@name='drinkJarRiverWater']" name="name">drinkJarBoiledWater</setattribute>
+	
+	<!-- Bullet casings and bullet tips: Now require a crucible. -->
+	<setattribute xpath="//recipe[@name='resourceBulletCasing' or @name='resourceBulletTip']" name="craft_tool">toolForgeCrucible</setattribute>
+	
+	<!-- Bandages / First Aid Bandages: Now require duct tape. -->
+	<append xpath="//recipe[@name='medicalBandage' or @name='medicalFirstAidBandage']">
+		<ingredient name="resourceDuctTape" 		count="1" />
+	</append>
+	
+	<!-- First Aid Bandages: Now require a sewing kit. -->
+	<append xpath="//recipe[@name='medicalFirstAidBandage']">
+		<ingredient name="resourceSewingKit" 		count="1" />
+	</append>
+	
+	<!-- Water - Now requires a cooking pot again. -->
+	<setattribute xpath="//recipe[@name='drinkJarBoiledWater' and @craft_area='campfire']" name="craft_tool">toolCookingPot</setattribute>
+	
+</configs>

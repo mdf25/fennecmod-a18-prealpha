@@ -1,0 +1,19 @@
+<configs>	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Combat - Deadly Zombie Reach -->
+	</insertBefore>
+	
+	<!-- Modifies reach of zombies to be 1.2 blocks. -->
+	<setattribute xpath="//item[@name='meleeHandMaster']//property[@name='Range']" name="value">1.05</setattribute>
+	
+	<!-- Zombie hands now have a chance to give you knockdown. -->
+	<append xpath="//item[starts-with(@name, 'meleeHandZombie')]/property[@class='Action0']/property[@name='Buff']/@value">,buffInjuryKnockdownPlayerFM</append>
+	<append xpath="//item[starts-with(@name, 'meleeHandZombie')]/effect_group">
+		<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffInjuryKnockdownPlayerFM"/>
+	</append>
+	
+	<!-- Armor increases resistance to knockdowns. -->
+	<append xpath="//item[starts-with(@name, 'armor')]//passive_effect[@name='BuffResistance']/@tags">,buffInjuryKnockdownPlayerFM</append>
+	
+</configs>

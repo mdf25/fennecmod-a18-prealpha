@@ -1,0 +1,68 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Harder Construction -->
+	</insertBefore>
+	
+	<!-- Reinforced wood blocks now upgrade to iron reinforced wood blocks again. -->
+	<setattribute xpath="//block[@name='rWoodWedgeIncline']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeIncline</setattribute>
+	<setattribute xpath="//block[@name='rWoodPillar100']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalPillar100</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeStairs']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeStairs</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeTipCNRFullTop']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeTipCNRFullTop</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeTipStairs']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeTipStairs</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeTipCNRFullBottom']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeTipCNRFullBottom</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRInsideBottom']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRInsideBottom</setattribute>
+	<setattribute xpath="//block[@name='rWoodArrowSlitHalf']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalArrowSlitHalf</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRInsideTop']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRInsideTop</setattribute>
+	<setattribute xpath="//block[@name='rWoodCNRRampFiller']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalCNRRampFiller</setattribute>
+	<setattribute xpath="//block[@name='rWoodStairsFilledRailingLeft']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalStairsFilledRailingLeft</setattribute>
+	<setattribute xpath="//block[@name='rWoodStairsFilledRailingRight']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalStairsFilledRailingRight</setattribute>
+	<setattribute xpath="//block[@name='rWoodStairs25CornerCNR']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalStairs25CornerCNR</setattribute>
+	<setattribute xpath="//block[@name='rWoodGableInvertedSteep']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalGableInvertedSteep</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRInsideSteepTop']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRInsideSteepTop</setattribute>
+	<setattribute xpath="//block[@name='rWoodArch']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalArch</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeTip']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeTip</setattribute>
+	<setattribute xpath="//block[@name='rWoodQuarterCNR']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalQuarterCNR</setattribute>
+	<setattribute xpath="//block[@name='rWoodQuarterCNR3Way']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalQuarterCNR3Way</setattribute>
+	<setattribute xpath="//block[@name='rWoodHalf']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalHalf</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRSteepTop']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRSteepTop</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRSteepBase']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRSteepBase</setattribute>
+	<setattribute xpath="//block[@name='rWoodPole']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalPole</setattribute>
+	<setattribute xpath="//block[@name='rWoodQuarterSCtr']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalQuarterSCtr</setattribute>
+	<setattribute xpath="//block[@name='rWoodQuarterTeeSCtr']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalQuarterTeeSCtr</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedgeCNRInsideSteepBase']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedgeCNRInsideSteepBase</setattribute>
+	<setattribute xpath="//block[@name='rWoodCTRpole']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalCTRpole</setattribute>
+	<setattribute xpath="//block[@name='rWoodGableQuarter']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalGableQuarter</setattribute>
+	<setattribute xpath="//block[@name='rWoodGableInvertedQuarter']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalGableInvertedQuarter</setattribute>
+	<setattribute xpath="//block[@name='rWoodGableInvertedHalf']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalGableInvertedHalf</setattribute>
+	<setattribute xpath="//block[@name='rWoodPlateOffset']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalPlateOffset</setattribute>
+	<setattribute xpath="//block[@name='rWoodWedge']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalWedge</setattribute>
+	<setattribute xpath="//block[@name='rWoodPlate']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalPlate</setattribute>
+	<setattribute xpath="//block[@name='rWoodSupport']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalSupport</setattribute>
+	<setattribute xpath="//block[@name='rWoodRamp']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalRamp</setattribute>
+	<setattribute xpath="//block[@name='rWoodCNRInside']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalCNRInside</setattribute>
+	<setattribute xpath="//block[@name='rWoodCNRFull']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalCNRFull</setattribute>
+	<setattribute xpath="//block[@name='rWoodBlock']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalBlock</setattribute>
+
+	<!-- General upgrade params for iron reinforced upgrade. -->
+	<setattribute xpath="//block[@name='rWoodMaster']/property[@class='UpgradeBlock']/property[@name='ToBlock']" name="value">rWoodMetalMaster</setattribute>
+	<setattribute xpath="//block[@name='rWoodMaster']/property[@class='UpgradeBlock']/property[@name='Item']" name="value">resourceScrapIron</setattribute>
+	<setattribute xpath="//block[@name='rWoodMaster']/property[@class='UpgradeBlock']/property[@name='ItemCount']" name="value">8</setattribute>
+	
+	<!-- Remove ability for iron reinforced wood to upgrade to cobblestone. -->
+	<remove xpath="//block[starts-with(@name, 'rWoodMetal')]/property[@name='Extends' and @value='rWoodMetalMaster']/../property[@class='UpgradeBlock']"/>
+	<remove xpath="//block[@name='rWoodMetalMaster']/property[@class='UpgradeBlock']"/>
+	
+	<!-- Remove the ability for cobblestone blocks to upgrade to concrete. Bricks will take this role. -->
+	<remove xpath="//block[starts-with(@name, 'cobblestone')]/property[@name='Extends' and @value='cobblestoneMaster']/../property[@class='UpgradeBlock']"/>
+	<remove xpath="//block[@name='cobblestoneMaster']/property[@class='UpgradeBlock']"/>
+	
+	<!-- Pallets now drop old cement that needs to be restored. -->
+	<setattribute xpath="/blocks/block[starts-with(@name, 'palletWhiteBags')]/drop[@name='resourceCement']" name="name">resourceCementOldFM</setattribute>
+	
+	<!-- Wood frames and weak wooden objects now drop nails when destroyed. -->
+	<insertAfter xpath="//block[@name='woodFrameMaster' or @name='woodWeakNoUpgradeMaster' or @name='woodNoUpgradeMaster' or @name='decoEntityWoodMaster']/drop[last()] | //property[@name='Material' and (@value='Mfurniture')]/../drop[last()]">
+		<drop event="Destroy" name="resourceNail" count="1,2" prob="1" />
+	</insertAfter>
+</configs>

@@ -1,0 +1,30 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Weapons - Trap Crafting -->
+	</insertBefore>
+
+	<!-- Adds harder recipe for wood spikes. -->
+	<setattribute xpath="//recipe[@name='trapSpikesWoodDmg0']" name="craft_time">3</setattribute>
+	<setattribute xpath="//recipe[@name='trapSpikesWoodDmg0']/ingredient[@name='resourceWood']" name="count">12</setattribute>
+	<append xpath="//recipe[@name='trapSpikesWoodDmg0']">
+		<ingredient name="resourceNail" 	count="6" />
+	</append>
+	
+	<!-- Add recipes for the wood spikes from A16. -->
+	<append xpath="/recipes">
+		<recipe name="trapSpikesNew" count="1" craft_time="3">
+			<ingredient name="resourceWood"			count="6" />
+			<ingredient name="resourceYuccaFibers" 	count="1" />
+		</recipe>
+		
+		<!-- Allow transfer of spikes from one to the other -->
+		<recipe name="trapSpikesWoodDmg0" count="1" craft_time="1">
+			<ingredient name="trapSpikesNew" 		count="1" />
+			<ingredient name="resourceWood" 		count="6" />
+			<ingredient name="resourceNail" 		count="6" />
+		</recipe>
+	</append>
+
+</configs>

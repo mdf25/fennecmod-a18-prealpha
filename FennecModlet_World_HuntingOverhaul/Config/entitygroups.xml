@@ -1,0 +1,11 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - World - Hunting Overhaul -->
+	</insertBefore>
+	
+	<!-- Animals spawn much more rarely. Aggressive animals are rarest. -->
+	<setattribute xpath="//entity[@name='invisibleAnimalEnemy']" name="prob">20</setattribute>
+	<setattribute xpath="//entity[@name='invisibleAnimal']" name="prob">12</setattribute>
+	
+</configs>

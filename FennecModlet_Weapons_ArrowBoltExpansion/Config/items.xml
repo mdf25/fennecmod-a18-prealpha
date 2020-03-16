@@ -1,0 +1,308 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion -->
+	</insertBefore>
+	
+	<!-- Allows the bows to use new arrows -->
+	<append xpath="//item[starts-with(@name, 'gunBow')]/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoArrowPrimitiveFM,ammoArrowElectropulseFM,ammoArrowCorrosiveFM</append>
+	
+	<!-- Allows the crossbow to use new bolts -->
+	<append xpath="//item[starts-with(@name, 'gunCrossbow')]/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoCrossbowBoltElectropulseFM,ammoCrossbowBoltCorrosiveFM</append>
+	
+	<!-- Adds new arrows and bolts -->
+	<append xpath="/items">
+		
+		<item name="ammoArrowPrimitiveFM">
+			<property name="DisplayType" 			value="ammoArrow"/>
+			<property name="Tags" 					value="ammo,ranged,attAgility,perkArchery"/>
+			<property name="Meshfile" 				value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/arrowPrefab"/>
+			<property name="HoldType" 				value="45"/>
+			<property name="HandMeshfile" 			value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" 			value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="IsSticky" 				value="true"/>
+			<property name="StickyOffset" 			value=".5"/>
+			<property name="StickyColliderUp" 		value="2"/>
+			<property name="StickyColliderRadius" 	value=".05"/>
+			<property name="StickyColliderLength" 	value="1"/>
+			<property name="Material" 				value="Mwood"/>
+			<property name="Stacknumber" 			value="150"/>
+			<property name="FuelValue" 				value="25"/>
+			<property name="EconomicValue" 			value="3"/>
+			<property name="EconomicBundleSize" 	value="5"/>
+			<property name="Group" 					value="Ammo/Weapons,Basics"/>
+			<property class="Action1">
+				<property name="Class" 						value="Projectile"/>
+				<property name="Explosion.ParticleIndex" 	value="0"/>
+				<property name="FlyTime" 					value="0.2"/>
+				<property name="Gravity" 					value="-6"/>
+				<property name="LifeTime" 					value="14"/>
+			</property>
+
+			<effect_group name="ammoArrowPrimitive" tiered="false">
+				<passive_effect name="EntityDamage" 		operation="base_set" value="25"/>
+				<passive_effect name="BlockDamage" 			operation="base_set" value="1"/>
+				<passive_effect name="DamageModifier" 		operation="perc_set" value=".1" tags="wood"/>
+				<passive_effect name="DamageModifier" 		operation="perc_set" value="0" tags="earth,metal,cloth"/>
+				<passive_effect name="ProjectileVelocity" 	operation="base_set" value="30"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<!-- Ranger perks do not apply as much to these arrows as they are primitive. -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01">
+					<requirement name="!EntityTagCompare" tags="player"/>
+					<requirement name="ProgressionLevel" progression_name="perkRangersCripplingShot" operation="Equals" value="1"/>
+					<requirement name="HitLocation" body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryKnockdown01">
+					<requirement name="ProgressionLevel" progression_name="perkRangersKnockdown" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_notAlerted" operation="Equals" value="1" target="other"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.05">
+					<requirement name="ProgressionLevel" progression_name="perkPenetrator" operation="Equals" value="1"/></passive_effect>
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.1">
+					<requirement name="ProgressionLevel" progression_name="perkPenetrator" operation="Equals" value="2"/></passive_effect>
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.15">
+					<requirement name="ProgressionLevel" progression_name="perkPenetrator" operation="Equals" value="3"/></passive_effect>
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.15">
+					<requirement name="ProgressionLevel" progression_name="perkPenetrator" operation="GTE" value="4"/></passive_effect>
+			</effect_group>
+		</item>
+
+		<item name="ammoArrowElectropulseFM">
+			<property name="Extends" 			value="ammoArrowIron"/>
+			<property name="DisplayType" 		value="ammoArrowExploding"/>
+			<property name="Meshfile" 			value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/explodingArrowPrefab.prefab"/>
+			<property name="IsSticky" 			value="false"/>
+			<property name="Stacknumber" 		value="75"/>
+			<property name="FuelValue" 			value="27"/>
+			<property name="EconomicValue" 		value="65"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="UnlockedBy" 		value="perkRangersExplodingBolts"/>
+			<property class="Action1">
+				<property name="Gravity" value="-5"/>
+				<property name="Explosion.ParticleIndex" 		value="3"/>
+				<property name="Explosion.RadiusBlocks" 		value="3"/>
+				<property name="Explosion.RadiusEntities" 		value="3"/>
+				<property name="Explosion.DamageBonus.stone" 	value=".3"/>
+				<property name="Explosion.DamageBonus.metal" 	value=".1"/>
+				<property name="Explosion.DamageBonus.earth" 	value="0"/>
+				<property name="Explosion.DamageBonus.wood" 	value=".5"/>
+				<property name="Explosion.DamageBonus.water" 	value="0"/>
+			</property>
+			<effect_group name="ammoArrowExploding" tiered="false"> 
+				<passive_effect name="BlockDamage" 				operation="base_set" value="2"/>
+				<display_value name="dExDamageBlock" 			value="2"/>
+				<passive_effect name="EntityDamage" 			operation="base_set" value="10"/>
+				<display_value name="dExDamageEntity" 			value="20"/>
+				<passive_effect name="DamageModifier"		 	operation="perc_set" value=".1" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value="0" tags="earth,water"/>
+					
+				<passive_effect name="ProjectileVelocity" 		operation="base_set" value="40"/>
+				<passive_effect name="ProjectileStickChance" 	operation="perc_set" value="0"/>
+				<display_value name="dExRadius" 				value="3"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onProjectileImpact" 	action="AddBuff" 	target="positionAOE" range="2.7" buff="buffElectropulseFM" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01">
+					<requirement 	name="!EntityTagCompare" 	tags="player"/>
+					<requirement 	name="ProgressionLevel" 	progression_name="perkRangersCripplingShot" operation="Equals" value="1"/>
+					<requirement 	name="HitLocation" 			body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" 	target="other" buff="buffInjuryKnockdown01">
+					<requirement name="ProgressionLevel" progression_name="perkRangersKnockdown" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_notAlerted" operation="Equals" value="1" target="other"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="ammoArrowCorrosiveFM">
+			<property name="Extends" 			value="ammoArrowIron"/>
+			<property name="DisplayType" 		value="ammoArrow"/>
+			<property name="Meshfile" 			value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/explodingArrowPrefab.prefab"/>
+			<property name="IsSticky" 			value="true"/>
+			<property name="Stacknumber" 		value="75"/>
+			<property name="FuelValue" 			value="27"/>
+			<property name="EconomicValue" 		value="65"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="UnlockedBy" 		value="perkRangersExplodingBolts"/>
+			<property class="Action1">
+				<property name="Gravity" value="-5"/>
+				<property name="Explosion.ParticleIndex" 		value="0"/>
+			</property>
+			<effect_group name="ammoArrowCorrosive" tiered="false"> 
+				<passive_effect name="BlockDamage" 				operation="base_set" value="2"/>
+				<passive_effect name="EntityDamage" 			operation="base_set" value="10"/>
+				<passive_effect name="DamageModifier"		 	operation="perc_set" value=".1" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value="0" tags="earth,water"/>
+					
+				<passive_effect name="ProjectileVelocity" 		operation="base_set" value="40"/>
+				<passive_effect name="ProjectileStickChance" 	operation="perc_set" value="0.5"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfAttackedOther" 	action="AddBuff" 	target="other" buff="buffCorrosiveFM" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01">
+					<requirement 	name="!EntityTagCompare" 	tags="player"/>
+					<requirement 	name="ProgressionLevel" 	progression_name="perkRangersCripplingShot" operation="Equals" value="1"/>
+					<requirement 	name="HitLocation" 			body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" 	target="other" buff="buffInjuryKnockdown01">
+					<requirement name="ProgressionLevel" progression_name="perkRangersKnockdown" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_notAlerted" operation="Equals" value="1" target="other"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="ammoCrossbowBoltElectropulseFM">
+			<property name="Extends" 			value="ammoCrossbowBoltIron"/>
+			<property name="Tags" 				value="ammo,ranged,attAgility,perkArchery"/>
+			<property name="DisplayType" 		value="ammoArrowExploding"/>
+			<property name="Meshfile" 			value="#Other/Items?Weapons/Ranged/Bows/Crossbow/crossbowBoltExplosivePrefab.prefab"/>
+			<property name="HoldType" 			value="45"/>
+			<property name="HandMeshfile" 		value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="IsSticky" 			value="false"/>
+			<property name="Stacknumber" 		value="75"/>
+			<property name="FuelValue" 			value="27"/>
+			<property name="EconomicValue" 		value="80"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="UnlockedBy" 		value="perkRangersExplodingBolts"/>
+			<property class="Action1">
+				<property name="Gravity"				 		value="-5"/>
+				<property name="Explosion.ParticleIndex" 		value="3"/>
+				<property name="Explosion.RadiusBlocks" 		value="3"/>
+				<property name="Explosion.RadiusEntities" 		value="3"/>
+				<property name="Explosion.DamageBonus.stone" 	value=".3"/>
+				<property name="Explosion.DamageBonus.metal" 	value=".1"/>
+				<property name="Explosion.DamageBonus.earth" 	value="0"/>
+				<property name="Explosion.DamageBonus.wood" 	value=".5"/>
+				<property name="Explosion.DamageBonus.water" 	value="0"/>
+			</property>
+			<effect_group name="ammoCrossbowBoltExploding" tiered="false">
+				<passive_effect name="BlockDamage" 				operation="base_set" value="2"/>
+				<display_value name="dExDamageBlock" 			value="2"/>
+				<passive_effect name="EntityDamage" 			operation="base_set" value="15"/>
+				<display_value name="dExDamageEntity" 			value="30"/>
+				<passive_effect name="DamageModifier" 			operation="perc_add" value="-.5" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value=".1" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value="0" tags="earth,water"/>
+				<passive_effect name="ProjectileVelocity" 		operation="base_set" value="45"/>
+				<passive_effect name="ProjectileStickChance" 	operation="perc_set" value="0"/>
+				<display_value name="dExRadius" 				value="3"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onProjectileImpact" 	action="AddBuff" 	target="positionAOE" range="2.7" buff="buffElectropulseFM" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01">
+					<requirement name="!EntityTagCompare" tags="player"/>
+					<requirement name="ProgressionLevel" progression_name="perkRangersCripplingShot" operation="Equals" value="1"/>
+					<requirement name="HitLocation" body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryKnockdown01">
+					<requirement name="ProgressionLevel" progression_name="perkRangersKnockdown" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_notAlerted" operation="Equals" value="1" target="other"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="ammoCrossbowBoltCorrosiveFM">
+			<property name="Extends" 			value="ammoCrossbowBoltIron"/>
+			<property name="Tags" 				value="ammo,ranged,attAgility,perkArchery"/>
+			<property name="DisplayType" 		value="ammoArrow"/>
+			<property name="Meshfile" 			value="#Other/Items?Weapons/Ranged/Bows/Crossbow/crossbowBoltPrefab.prefab"/>
+			<property name="HoldType" 			value="45"/>
+			<property name="HandMeshfile" 		value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" 		value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="IsSticky" 			value="true"/>
+			<property name="Stacknumber" 		value="75"/>
+			<property name="FuelValue" 			value="27"/>
+			<property name="EconomicValue" 		value="80"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="UnlockedBy" 		value="perkRangersExplodingBolts"/>
+			<property class="Action1">
+				<property name="Gravity"				 		value="-5"/>
+				<property name="Explosion.ParticleIndex" 		value="0"/>
+			</property>
+			<effect_group name="ammoCrossbowBoltExploding" tiered="false">
+				<passive_effect name="BlockDamage" 				operation="base_set" value="2"/>
+				<display_value name="dExDamageBlock" 			value="2"/>
+				<passive_effect name="EntityDamage" 			operation="base_set" value="15"/>
+				<display_value name="dExDamageEntity" 			value="30"/>
+				<passive_effect name="DamageModifier" 			operation="perc_add" value="-.5" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value=".1" tags="wood"/>
+				<passive_effect name="DamageModifier" 			operation="perc_set" value="0" tags="earth,water"/>
+				<passive_effect name="ProjectileVelocity" 		operation="base_set" value="45"/>
+				<passive_effect name="ProjectileStickChance" 	operation="perc_set" value="1"/>
+				<display_value name="dExRadius" 				value="3"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" 	target="other" buff="buffCorrosiveFM" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" 	target="other" buff="buffInjuryCrippled01">
+					<requirement name="!EntityTagCompare" tags="player"/>
+					<requirement name="ProgressionLevel" progression_name="perkRangersCripplingShot" operation="Equals" value="1"/>
+					<requirement name="HitLocation" body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInjuryKnockdown01">
+					<requirement name="ProgressionLevel" progression_name="perkRangersKnockdown" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="_notAlerted" operation="Equals" value="1" target="other"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<!-- Arrow Fletching -->
+		<item name="resourceScrapPaperFletchingFM">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="junk"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourcePaper"/>
+			<property name="Stacknumber" value="250"/> <!-- STK resource -->
+			<property name="FuelValue" value="1"/>
+			<property name="Weight" value="1"/>
+			<property name="EconomicValue" value="10"/>
+			<property name="EconomicBundleSize" value="10"/>
+			<property name="Group" value="Resources,Chemicals,CFChemicals"/>
+		</item>
+		
+		<item name="resourcePaperFletchingFM">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="junk"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourcePaper"/>
+			<property name="Stacknumber" value="250"/> <!-- STK resource -->
+			<property name="FuelValue" value="1"/>
+			<property name="Weight" value="1"/>
+			<property name="EconomicValue" value="10"/>
+			<property name="EconomicBundleSize" value="10"/>
+			<property name="Group" value="Resources,Chemicals,CFChemicals"/>
+		</item>
+		
+		<item name="resourcePlasticFletchingFM">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="junk"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceScrapPolymers"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="250"/>
+			<property name="EconomicValue" value="8"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientExp" value="15"/>
+			<property name="CraftingIngredientTime" value="1"/>
+		</item>
+		
+	</append>
+	
+</configs>

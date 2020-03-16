@@ -1,0 +1,10 @@
+<configs>
+	
+	<!-- FennecModlet - Entities - Animals + FennecModlet - World - Increased Zombie Spawns -->
+	<!-- Fox sounds have a heat map. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Increased Zombie Spawns ']//SoundDataNode[@name='foxpain']/Noise" 			name="heat_map_strength">4</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Increased Zombie Spawns ']//SoundDataNode[@name='foxroam']/Noise" 			name="heat_map_strength">6</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Increased Zombie Spawns ']//SoundDataNode[@name='foxpain']/Noise" 			name="heat_map_time">60</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Increased Zombie Spawns ']//SoundDataNode[@name='foxroam']/Noise" 			name="heat_map_time">60</setattribute>
+
+</configs>

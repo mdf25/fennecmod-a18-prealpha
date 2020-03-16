@@ -1,0 +1,13 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Harder Construction -->
+	</insertBefore>
+	
+	<!-- Alter starting quest to build wood frames to require nails. -->
+	<insertAfter xpath="//quest[@id='quest_BasicSurvival7']/objective[@phase='1']">
+		<objective type="FetchKeep" id="resourceNail" count="2" phase="1" />
+	</insertAfter>
+	
+</configs>

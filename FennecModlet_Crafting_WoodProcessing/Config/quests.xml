@@ -1,0 +1,19 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Wood Processing -->
+	</insertBefore>
+	
+	<!--  Changes the wood to scrap wood in the second starter quest. -->
+	<setattribute xpath="//quest[@id='quest_BasicSurvival2']/objective[@id='resourceWood']" name="value">5</setattribute>
+	<setattribute xpath="//quest[@id='quest_BasicSurvival2']/objective[@id='resourceWood']" name="id">resourceScrapWoodFM</setattribute>
+	
+	
+	<!-- Adds wood chopping to the stone axes quest. -->
+	<insertAfter xpath="//quest[@id='quest_BasicSurvival2']/objective[last()]">
+		<objective type="FetchKeep" 	id="resourceTreeWoodFM" value="1" phase="3"/>
+		<objective type="FetchKeep" 	id="resourceWood" 		value="1" phase="3"/>
+	</insertAfter>
+	
+</configs>

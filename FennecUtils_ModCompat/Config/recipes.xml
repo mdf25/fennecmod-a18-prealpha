@@ -1,0 +1,198 @@
+<configs>
+
+	<!-- Ties together recipes from separate modlets so they work together. -->
+
+	<!-- FennecModlet - Entities - Animals + FennecModlet - Foods - More Meats -->
+	<!-- Adds recipes for fox meats. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']">
+		<recipe name="foodCharredFoxMeatFM" count="1" craft_area="campfire" tags="perkMasterChef">
+			<ingredient name="foodRawFoxMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodBoiledFoxMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawFoxMeatFM" count="5"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodGrilledFoxMeatFM" count="1" craft_area="campfire" craft_tool="toolCookingGrill" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawFoxMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodRawFoxMeatFM" count="5"/>
+			<ingredient name="foodCornBread" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodHoboStew" count="1"  craft_time="25" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRawFoxMeatFM" count="10"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - More Meats -->
+	<!-- Adjusts recipes so both modlets will play nicely together with minimal overlap. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodChickenCheeseburgerFM']/ingredient[@name='foodGrilledMeat']" name="name">foodGrilledChickenMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHogRoastBurgerFM']/ingredient[@name='foodCharredMeat']" name="name">foodCharredBoarMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHogRoastBurgerFM']/ingredient[@name='foodGrilledMeat']" name="name">foodGrilledBoarMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHoneyChickenKabobsFM']/ingredient[@name='foodRawMeat']" name="name">foodRawChickenMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHoneyChickenKabobsFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawChickenMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHunterStewFM']/ingredient[@name='foodRawMeat']" name="name">foodRawRabbitMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodHunterStewFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawRabbitMeatFM</setattribute>
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']">
+		<recipe name="foodHunterStewFM" 				count="1" craft_area="campfire" craft_tool="toolCookingPot" craft_time="150" tags="learnable,perkMasterChef">
+			<ingredient name="foodCanPeas"						count="1" />
+			<ingredient name="drinkJarBoiledWater"				count="1" />
+			<ingredient name="foodCropMushrooms"				count="1" />
+			<ingredient name="foodCropCorn"						count="2" />
+			<ingredient name="foodRawVenisonMeatFM"				count="10" />
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodLionBurgerFM']/ingredient[@name='foodGrilledMeat']" name="name">foodGrilledMountainLionMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodLionMeatballHeroFM']/ingredient[@name='foodGrilledMeat']" name="name">foodGrilledMountainLionMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSnakeSoupFM']/ingredient[@name='foodRawMeat']" name="name">foodRawSnakeMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSnakeSoupFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawSnakeMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSnakeStripsFM']/ingredient[@name='foodRawMeat']" name="name">foodRawSnakeMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSnakeStripsFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawSnakeMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSpaghettiVenisonMeatballsFM']/ingredient[@name='foodRawMeat']" name="name">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodSpaghettiVenisonMeatballsFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodVenisonFeastPizzaFM']/ingredient[@name='foodRawMeat']" name="name">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodVenisonFeastPizzaFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodVenisonWellingtonFM']/ingredient[@name='foodRawMeat']" name="name">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodVenisonWellingtonFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodWolfiesMeatloafFM']/ingredient[@name='foodRawMeat']" name="name">foodRawWolfMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodWolfiesMeatloafFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawWolfMeatFM</setattribute>
+	
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodRawBaconFM']/ingredient[@name='foodRawMeat']" name="name">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodRawBaconFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodRawSausageFM']/ingredient[@name='foodRawMeat']" name="name">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']//recipe[@name='foodRawSausageFM']//passive_effect[@tags='foodRawMeat']" name="tags">foodRawBoarMeatFM</setattribute>
+	
+	
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']">
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodTortillaFM" count="1" />
+			<ingredient name="foodRawCoyoteMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawCoyoteMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodTortillaFM" count="1" />
+			<ingredient name="foodRawMountainLionMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawMountainLionMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodTortillaFM" count="1" />
+			<ingredient name="foodRawVenisonMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawVenisonMeatFM"/>
+			</effect_group>
+		</recipe>
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodTortillaFM" count="1" />
+			<ingredient name="foodRawWolfMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawWolfMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - More Meats + FennecModlet - Entities - Animals -->
+	<!-- Adds any extra recipes for foods not covered by only a pair of modlets -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - More Meats ']/../*[comment() = ' DEPENDENCY: FennecModlet - Entities - Animals ']">
+		<recipe name="foodChiliDog" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCanChili" count="1"/>
+			<ingredient name="foodTortillaFM" count="1" />
+			<ingredient name="foodRawFoxMeatFM" count="5"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-1" tags="foodRawFoxMeatFM"/>
+			</effect_group>
+		</recipe>
+	</append>
+	
+	
+	<!-- FennecModlet - World - Biomes + FennecModlet - Weapons - Arrow and Bolt Expansion -->
+	<!-- Scrap arrows now need sticks if both modlets are installed. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']//recipe[@name='ammoArrowPrimitiveFM']/ingredient[@name='resourceWood']" name="name">resourceStickFM</setattribute>
+	
+	
+	<!-- FennecModlet - Crafting - Wood Processing + FennecModlet - World - Biomes -->
+	<!-- Remove the scrap wood recipe for the stone axe, sticks can handle this -->
+	<remove xpath="//recipe[@name='meleeToolStoneAxe']/ingredient[@name='resourceScrapWoodFM']/.." />                                   
+	
+	
+	<!-- FennecModlet - Crafting - Wood Processing + FennecModlet - Weapons - Trap Crafting -->
+	<!-- Spikes require scrap wood in their construction instead of regular wood. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Weapons - Trap Crafting ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']//recipe[contains(@name, 'Spikes')]/ingredient[@name='resourceWood']" name="name">resourceScrapWoodFM</setattribute>
+	
+	
+	<!-- FennecModlet - Industrial - Ores and Processing + FennecModlet - Industrial - Harder Construction -->
+	<!-- Adds recipes for nitrate dust in concrete mix (more efficient) -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Industrial - Ores and Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Industrial - Harder Construction ']">
+		<recipe name="resourceConcreteMix" craft_area="cementMixer" count="1" tags="cementMixerCrafting">
+			<ingredient name="resourceCement"			count="1" />
+			<ingredient name="resourceRockSmall" 		count="1" />
+			<ingredient name="resourceCrushedSand"		count="1" />
+			<ingredient name="resourceNitrateDustFM"	count="1" />
+		</recipe>
+		<recipe name="resourceCement" count="10" craft_area="cementMixer" craft_time="8" tags="cementMixerCrafting">
+			<ingredient name="resourceCementOldFM" 		count="10" />
+			<ingredient name="resourceNitrateDustFM" 	count="2" />
+			<ingredient name="drinkJarBoiledWater" 		count="1" />
+		</recipe>
+	</append>
+	
+	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes -->
+	<!-- Makes medical items fall in line with the crafting changes. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalAntisepticBandageFM']">
+		<ingredient name="resourceDuctTape" count="1" />
+	</append>
+	
+	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Leather Processing -->
+	<!-- Basic leather recipe requires turpentine instead of river water. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='resourceCuredAnimalHideFM']/ingredient[@name='drinkJarRiverWater']" name="name">medicalTurpentineOilFM</setattribute>
+	
+	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Wood Processing -->
+	<!-- Turpentine now uses the wood logs in the modlet instead of the pillar 100 blocks. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalTurpentineOilFM']/ingredient[@name='woodLogPillar100']" name="name">resourceTreeWoodFM</setattribute>
+	
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Crafting - Leather Processing -->
+	<!-- Makes all leather recipes require salt and vegetable oil for tanning. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/recipe[@name='resourceCuredAnimalHideFM']/ingredient[@name='resourceCoal']" name="name">resourceSaltFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/recipe[@name='resourceCuredAnimalHideFM']/ingredient[contains(@name, 'Water')]" name="name">drinkJarVegetableOilFM</setattribute>
+	
+	
+	<!-- FennecModlet - Crafting - Alternative Recipes + FennecModlet - World - Biomes -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Alternative Recipes ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']/recipe[@name='meleeToolTorch']/ingredient[@name='resourceWood']" name="name">resourceStickFM</setattribute>
+	
+</configs>

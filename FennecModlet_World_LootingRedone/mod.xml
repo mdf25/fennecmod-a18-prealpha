@@ -1,0 +1,10 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecModlet - World - Looting Redone</name>
+		<description>POIs no longer have bonus crates as frequently at the end. Looting is harder now.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.1</game_version>
+		<launcher_version>0.7.3</launcher_version>
+	</info>
+</mod>

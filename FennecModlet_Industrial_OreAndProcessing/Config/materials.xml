@@ -1,0 +1,36 @@
+<configs>
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Ores and Processing -->
+	</insertBefore>
+	
+	<append xpath="/materials">
+		
+		<material id="MresourceIronFragmentFM">
+			<property name="damage_category" 	value="metal"/>
+			<property name="surface_category" 	value="metal"/>
+			<property name="forge_category" 	value="iron"/>
+			<property name="Experience" 		value="12"/>
+		</material>
+		
+		<material id="MresourceLeadFragmentFM">
+			<property name="damage_category" 	value="metal"/>
+			<property name="surface_category" 	value="metal"/>
+			<property name="forge_category" 	value="lead"/>
+			<property name="Experience" 		value="12"/>
+		</material>
+		
+		<material id="MresourceCoalFragmentFM">
+			<property name="damage_category" 	value="stone"/>
+			<property name="surface_category" 	value="stone"/>
+			<property name="Experience" 		value="12"/>
+		</material>
+		
+		<material id="MresourceNitrateFragmentFM">
+			<property name="damage_category" 	value="stone"/>
+			<property name="surface_category" 	value="stone"/>
+			<property name="Experience" 		value="12"/>
+		</material>
+		
+	</append>
+</configs>

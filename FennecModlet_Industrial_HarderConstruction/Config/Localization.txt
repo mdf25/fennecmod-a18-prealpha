@@ -1,0 +1,3 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+resourceCementOldFM,items,Resources,,,"Old Cement"
+resourceCementOldFMDesc,items,Resources,,,"This cement mix is no good anymore in its current state. But, maybe with some water and nitrate, it can be salvaged."

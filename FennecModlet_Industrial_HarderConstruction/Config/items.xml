@@ -1,0 +1,20 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Industrial - Harder Construction -->
+	</insertBefore>
+	
+	<!-- Adds old cement mix that must be remade into normal mix. -->
+	<append xpath="//items">
+		
+		<item name="resourceCementOldFM">
+			<property name="Extends" value="resourceCement" />
+			<property name="CustomIcon" value="resourceCement" />
+			<property name="CustomIconTint" value="999999" />
+			<property name="EconomicValue" value="3" />
+			<property name="EconomicBundleSize" value="50" />
+		</item>
+		
+	</append>
+</configs>

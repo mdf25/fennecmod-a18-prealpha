@@ -1,0 +1,20 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - More Meats -->
+	</insertBefore>
+	
+	<!-- Entities now drop their respective meat. -->
+	<setattribute xpath="//entity_class[@name='animalBear']/drop[@name='foodRawMeat']" 			name="name">foodRawBearMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalBoar']/drop[@name='foodRawMeat']" 			name="name">foodRawBoarMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalChicken']/drop[@name='foodRawMeat']" 		name="name">foodRawChickenMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalCoyote']/drop[@name='foodRawMeat']" 		name="name">foodRawCoyoteMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalMountainLion']/drop[@name='foodRawMeat']" 	name="name">foodRawMountainLionMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalRabbit']/drop[@name='foodRawMeat']" 		name="name">foodRawRabbitMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalSnake']/drop[@name='foodRawMeat']" 		name="name">foodRawSnakeMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalStag']/drop[@name='foodRawMeat']" 			name="name">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalDoe']/drop[@name='foodRawMeat']" 			name="name">foodRawVenisonMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalWolf']/drop[@name='foodRawMeat']" 			name="name">foodRawWolfMeatFM</setattribute>
+	<setattribute xpath="//entity_class[@name='animalDireWolf']/drop[@name='foodRawMeat']" 		name="name">foodRawWolfMeatFM</setattribute>
+</configs>

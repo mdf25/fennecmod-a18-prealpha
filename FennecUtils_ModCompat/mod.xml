@@ -1,0 +1,10 @@
+<mod>
+	<info>
+		<author>MaxFox Gaming</author>
+		<name>FennecUtils - ModCompat</name>
+		<description>A bridging modlet that will combine separate elements from each of the FennecModlets together. Load this after all FennecModlets. This is required for the full FennecMod experience.</description>
+		<mod_version>1.0</mod_version>
+		<game_version>18.3</game_version>
+		<launcher_version>0.7.3</launcher_version>
+	</info>
+</mod>

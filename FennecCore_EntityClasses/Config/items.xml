@@ -1,0 +1,20 @@
+<configs>
+
+	<append xpath="/items">
+		<item name="animalChickenItem">		
+			<property name="HoldType" value="1"/>
+			<property name="Meshfile" value="Entities/Animals/CHICKEN/chickenPrefab"/>
+			<property name="DropMeshfile" value="Entities/Animals/CHICKEN/chickenPrefab"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Morganic"/>
+			<property name="RepairTime" value="1"/>
+			<property name="RepairAmount" value="30"/>
+			<property name="Stacknumber" value="5"/> 
+			<property name="EconomicValue" value="100"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="Group" value="Resources"/>
+		</item>
+	</append>
+	
+	
+</configs>

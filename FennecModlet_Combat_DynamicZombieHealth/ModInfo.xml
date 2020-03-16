@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<ModInfo>
+		<Name value="FennecModlet - Combat - Dynamic Zombie Health"/>
+		<Description value="Zombies will spawn in with between 50% and 200% of their normal health." />
+		<Author value="MaxFox Gaming"/>
+		<Version value="1.0"/>
+	</ModInfo>
+</xml>
