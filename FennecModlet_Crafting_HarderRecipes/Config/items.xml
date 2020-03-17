@@ -1,0 +1,18 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Harder Recipes -->
+	</insertBefore>
+	
+	<!-- Make bandages heal a little health due to the harder recipe requirement -->
+	<insertBefore xpath="//item[@name='medicalBandage']/effect_group[1]/triggered_effect[@trigger='onSelfPrimaryActionEnd' and @action='AddBuff' and @buff='buffProcessConsumables']">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalHealthAmount" operation="add" value="10"/> <!-- X -->
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="healthIncrease" operation="set" value="@healthPerkIncrease"/>
+	</insertBefore>	
+	<insertBefore xpath="//item[@name='medicalBandage']/effect_group[1]/triggered_effect[@trigger='onSelfSecondaryActionEnd' and @action='AddBuff' and @buff='buffProcessConsumables']">
+		<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="medicalHealthAmount" operation="add" value="10"/> <!-- X -->
+		<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="healthIncrease" operation="set" value="2.5" />
+	</insertBefore>
+	
+</configs>

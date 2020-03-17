@@ -5,7 +5,8 @@
 	</insertBefore>
 	
 	<!-- Increases the amount of zombies that spawn in the overworld by 200% -->
-	<setattribute xpath="//spawn[@maxcount='1' and contains(@entitygroup, 'Zombies')]" name="maxcount">3</setattribute>
+	<setattribute xpath="//spawn[@maxcount='1' and @time='Day' and contains(@entitygroup, 'Zombies')]" name="maxcount">3</setattribute>
+	<setattribute xpath="//spawn[@maxcount='1' and @time='Night' and contains(@entitygroup, 'Zombies')]" name="maxcount">5</setattribute>
 	
 	<!-- Day time zombies respawn every day -->
 	<setattribute xpath="//spawn[@time='Day' and contains(@entitygroup, 'Zombies')]" name="respawndelay">1</setattribute>

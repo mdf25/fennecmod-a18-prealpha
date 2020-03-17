@@ -167,14 +167,7 @@
 			<ingredient name="drinkJarBoiledWater" 		count="1" />
 		</recipe>
 	</append>
-	
-	
-	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes -->
-	<!-- Makes medical items fall in line with the crafting changes. -->
-	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalAntisepticBandageFM']">
-		<ingredient name="resourceDuctTape" count="1" />
-	</append>
-	
+
 	
 	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Leather Processing -->
 	<!-- Basic leather recipe requires turpentine instead of river water. -->
@@ -184,6 +177,60 @@
 	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Wood Processing -->
 	<!-- Turpentine now uses the wood logs in the modlet instead of the pillar 100 blocks. -->
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalTurpentineOilFM']/ingredient[@name='woodLogPillar100']" name="name">resourceTreeWoodFM</setattribute>
+	
+	<!-- Add new recipe for the medical tape using tree sap -->
+	
+	
+	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes -->
+	<!-- Makes medical items fall in line with the crafting changes. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalAntisepticBandageFM']">
+		<ingredient name="resourceDuctTape" count="1" />
+	</append>
+	
+	<!-- Medical tape recipe added to compensate for harder recipes. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']">
+		<recipe name="resourceMedicalTapeFM" count="1" craft_time="10">
+			<ingredient name="resourceCloth" count="1" />
+			<ingredient name="medicalAloeCream" count="1" />
+		</recipe>
+		
+		<recipe name="resourceMedicalTapeFM" count="1" craft_time="10">
+			<ingredient name="resourceCloth" count="1" />
+			<ingredient name="medicalHerbalCreamFM" count="1" />
+		</recipe>
+	</append>
+	
+	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes + FennecModlet - Crafting - Wood Processing -->
+	<!-- Add alternative recipes for bandages, first aid bandages and antiseptic bandages that use medical tape instead of duct tape. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']">
+		<recipe name="resourceMedicalTapeFM" count="1" craft_time="10">
+			<ingredient name="resourceCloth" count="1" />
+			<ingredient name="resourceTreeSapFM" count="1" />
+		</recipe>
+		
+		<recipe name="medicalBandage" count="1">
+			<ingredient name="resourceCloth" 			count="2"/>
+			<ingredient name="resourceMedicalTapeFM" 	count="1" />
+		</recipe>
+		<recipe name="medicalFirstAidBandage" count="1" tags="learnable">
+			<ingredient name="medicalAloeCream" 		count="2" />
+			<ingredient name="resourceCloth" 			count="1"/>
+			<ingredient name="resourceMedicalTapeFM" 	count="1" />
+			<ingredient name="resourceSewingKit"		count="1" />
+		</recipe>
+		<recipe name="medicalAntisepticBandageFM" count="1">
+			<ingredient name="resourceCloth" 			count="2"/>
+			<ingredient name="drinkJarGrainAlcohol" 	count="1" />
+			<ingredient name="resourceMedicalTapeFM" 	count="1" />
+		</recipe>
+		<recipe name="medicalAntisepticBandageFM" count="1">
+			<ingredient name="resourceCloth" 				count="2"/>
+			<ingredient name="medicalTurpentineExtractFM" 	count="1" />
+			<ingredient name="resourceMedicalTapeFM" 		count="1" />
+		</recipe>
+	</append>
 	
 	
 	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Crafting - Leather Processing -->

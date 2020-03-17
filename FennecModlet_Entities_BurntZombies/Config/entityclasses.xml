@@ -17,6 +17,15 @@
 			</effect_group>
 		</entity_class>
 		
+		<entity_class name="zombieArleneBurntTest" extends="zombieArlene">
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/Materials.unity3d?ZombieArleneBurntMaterial" />
+			<property name="HandItem" value="meleeHandZombieBurning" />
+			<property name="SoundSpawn" value="Ambient_Loops/a_fire_embersmoke_sm_lp"/>
+			<effect_group name="FireParticles">
+				<triggered_effect trigger="onSelfFirstSpawn" action="AttachPrefabToEntity" prefab="p_smoke" />
+			</effect_group>
+		</entity_class>
+		
 	</append>
 	
 </configs>

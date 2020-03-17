@@ -4,6 +4,9 @@
 		<!-- DEPENDENCY: FennecModlet - World - Increased Zombie Spawns -->
 	</insertBefore>
 	
+	<setattribute xpath="//entitygroup[@name='ZombiesNight']/entity[contains(@name, 'Feral')]" name="prob">0.05</setattribute>
+	
+	
 	<!-- Changes screamer entity group to one where it could be any zombie instead. -->
 	<append xpath="//entitygroup[@name='ZombieScouts']">
 		<entity name="zombieSpider" prob="1"/>

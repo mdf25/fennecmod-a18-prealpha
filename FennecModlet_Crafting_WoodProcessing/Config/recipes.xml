@@ -18,13 +18,13 @@
 		</recipe>
 		
 		<!-- Logs can be sawed up into usable wood. -->
-		<recipe name="resourceWood" count="15" craft_area="tableSaw" craft_time="60">
+		<recipe name="resourceWood" count="25" craft_area="tableSaw" craft_time="60">
 			<ingredient name="resourceTreeWoodFM" count="1" />
 		</recipe>
 		
 		<!-- Scrap wood can be built into barricades. -->
-		<recipe name="plainWoodWindowPlug" count="1" craft_time="8">
-			<ingredient name="resourceScrapWoodFM" count="5" />
+		<recipe name="plainWoodWindowPlug" count="1" craft_time="4">
+			<ingredient name="resourceScrapWoodFM" count="4" />
 		</recipe>
 		
 	</append>

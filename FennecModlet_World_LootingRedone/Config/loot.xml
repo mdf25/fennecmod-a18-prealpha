@@ -21,8 +21,10 @@
 		<item name="resourceBulletTip"		count="10,15" prob="0.1" />
 	</append>
 
-	<!-- Makes duct tape and glue less common. -->
+	<!-- Makes glue less common. -->
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGlue']" name="prob">0.4</setattribute>
+	
+	<!-- Makes duct tape more common -->
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceDuctTape']" name="prob">0.2</setattribute>
 	
 	<!-- Make sewing kits less common. -->

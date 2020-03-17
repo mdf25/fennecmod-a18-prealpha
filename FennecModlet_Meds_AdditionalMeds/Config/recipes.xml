@@ -7,12 +7,12 @@
 
 	<append xpath="/recipes">
 		<recipe name="medicalAntisepticBandageFM" count="1" craft_time="5">
-			<ingredeint name="resourceCloth" count="1" />
+			<ingredient name="resourceCloth" count="1" />
 			<ingredient name="drinkJarGrainAlcohol" count="1" />
 		</recipe>
 		
 		<recipe name="medicalAntisepticBandageFM" count="1" craft_time="5">
-			<ingredeint name="resourceCloth" count="1" />
+			<ingredient name="resourceCloth" count="1" />
 			<ingredient name="medicalTurpentineExtractFM" count="1" />
 		</recipe>
 		
@@ -39,7 +39,12 @@
 			<ingredient name="drinkJarEmpty" count="1" />
 		</recipe>
 		
-		
+		<recipe name="medicalHerbalCreamFM" count="1">
+			<ingredient name="foodCropBlueberries" 				count="1" />
+			<ingredient name="resourceCropGoldenrodPlant" 		count="1" />
+			<ingredient name="resourceCropChrysanthemumPlant" 	count="1" />
+			<ingredient name="drinkJarBoiledWater"				count="1" />
+		</recipe>
 		
 		<!-- Turpentine uses -->
 		<recipe name="meleeToolTorch" count="1">

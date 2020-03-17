@@ -6,13 +6,13 @@
 	</insertBefore>
 	
 	<!-- NOISE SYSTEM -->
-	<!-- All noises are louder -->
+	<!-- All noises are louder so zombies will hear you further away. -->
 	<setattribute xpath="//Noise[@ID='1']" name="noise">10</setattribute>
 	<setattribute xpath="//Noise[@ID='2']" name="noise">25</setattribute>
-	<setattribute xpath="//Noise[@ID='3']" name="noise">60</setattribute>
-	<setattribute xpath="//Noise[@ID='4']" name="noise">110</setattribute>
-	<setattribute xpath="//Noise[@ID='5']" name="noise">150</setattribute>
-	<setattribute xpath="//Noise[@ID='6']" name="noise">30</setattribute>
+	<setattribute xpath="//Noise[@ID='3']" name="noise">50</setattribute>
+	<setattribute xpath="//Noise[@ID='4']" name="noise">80</setattribute>
+	<setattribute xpath="//Noise[@ID='5']" name="noise">120</setattribute>
+	<setattribute xpath="//Noise[@ID='6']" name="noise">20</setattribute>
 	
 	
 	<!-- HEAT SYSTEM OVERHAUL -->

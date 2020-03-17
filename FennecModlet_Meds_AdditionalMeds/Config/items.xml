@@ -493,6 +493,40 @@
 			<property name="EconomicValue" value="48"/>
 		</item>
 		
+		<!-- TODO: Make herbal cream give hyperthermal resist for 5 minutes -->
+		<item name="medicalHerbalCreamFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DisplayType" value="medical"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="50"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="1"/>
+			<!--
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_ointment"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_ointment"/>
+			</property>
+			<effect_group tiered="false" name="Cure Early Infection">
+				<display_value name="dCureInfection" value=".003"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="0.3"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="$buffInfectionAddCurePerc" operation="add" value="0.3"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other" buff="buffInfectionAddCure"/>
+			</effect_group>
+			-->
+		</item>
+		
 		<item name="medicalImmunityBoosterSyringeFM">
 			<property name="Tags" value="medical"/>
 			<property name="HoldType" value="16"/>
@@ -658,10 +692,22 @@
 			</effect_group>
 		</item>
 		
+		<item name="resourceMedicalTapeFM">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="junk"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mcloth"/>
+			<property name="Weight" value="5"/>
+			<property name="EconomicValue" value="25"/>
+			<property name="Stacknumber" value="500"/> <!-- STK resource -->
+			<property name="Group" value="Resources"/>
+		</item>
+		
 		<item name="resourceSnakeHeadFM">
 			<property name="HoldType" value="45"/>
-	<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
-	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="Weight" value="10"/>
 			<property name="Stacknumber" value="10"/> <!-- STK resource -->

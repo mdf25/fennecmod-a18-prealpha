@@ -1,0 +1,15 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Crafting - Wood Processing -->
+	</insertBefore>
+	
+	<append xpath="/ui_display_info/item_display">
+		<item_display_info display_type="medicalCureInfection" display_group="groupConsumables">
+			<display_entry name="dCureInfection" title_key="statCureInfection" display_type="Percent"/>
+		</item_display_info>
+	</append>
+	
+	
+</configs>

@@ -41,6 +41,39 @@
 			<property name="Group" value="Resources"/>
 			<property name="CraftingIngredientTime" value="0.15"/>
 		</item>
+		
+		<item name="resourceTreeSapFM"> <!-- scrap material -->
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DisplayType" value="medicalCureInfection"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="250"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="1"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_ointment"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_ointment"/>
+			</property>
+			<effect_group tiered="false" name="Cure Early Infection">
+				<display_value name="dCureInfection" value=".003"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffInfectionAddCurePerc" operation="add" value="0.3"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInfectionAddCure"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="$buffInfectionAddCurePerc" operation="add" value="0.3"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other" buff="buffInfectionAddCure"/>
+			</effect_group>
+		</item>
+		
+		
 	</append>
 	
 	
