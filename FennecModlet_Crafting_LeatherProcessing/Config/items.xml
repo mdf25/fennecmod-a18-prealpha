@@ -42,7 +42,6 @@
 		
 		<item name="resourceLeatherScrapsFM">
 			<property name="HoldType" value="45"/>
-			<property name="CustomIcon" value="resourceLeather" />
 			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="MresourceLeather"/>

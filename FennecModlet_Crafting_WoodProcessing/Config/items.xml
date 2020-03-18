@@ -8,6 +8,11 @@
 	<!-- Adjust weight of wood to control scrapping values a bit. -->
 	<setattribute xpath="//item[@name='resourceWood']/property[@name='Weight']" name="value">3</setattribute>
 	
+	<!-- Add fBuilding to wood's Group property to show it in tablesaw recipe -->
+	<append xpath="//item[@name='resourceWood']/property[@name='Group']/@value">,Building,advBuilding</append>
+	
+	
+	
 	<!-- Adds tree wood and scrap wood. -->
 	<append xpath="/items">
 		<item name="resourceTreeWoodFM">
@@ -20,7 +25,7 @@
 			<property name="RepairAmount" value="150"/>
 			<property name="Stacknumber" value="6000"/> 
 			<property name="EconomicValue" value="3"/>
-			<property name="Group" value="Resources"/>
+			<property name="Group" value="Resources,Decor/Miscellaneous"/>
 			<property name="CraftingIngredientTime" value="2"/>
 			<property class="Action1">
 				<property name="Class" value="PlaceAsBlock"/>

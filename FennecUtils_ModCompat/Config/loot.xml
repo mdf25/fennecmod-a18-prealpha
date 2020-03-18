@@ -19,5 +19,13 @@
 		<item name="resourceNitrateFragmentFM" 	count="30,50" 	prob="0.1" />
 	</append>
 	
+	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes -->
+	<!-- Make medical tape available in loot containers if both modlets are installed -->
+	<append xpath="//*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']//lootgroup[@name='medicine']">
+		<item name="resourceMedicalTapeFM"		count="2,3"		prob="0.8" />
+	</append>
+	<append xpath="//*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Harder Recipes ']//lootgroup[@name='junk']">
+		<item name="resourceMedicalTapeFM"		count="1,2"		prob="0.1" />
+	</append>
 	
 </configs>

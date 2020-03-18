@@ -11,4 +11,16 @@
 	<!-- Makes sticks drop from the shrubs that would usually drop scrap wood instead. -->
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/block[starts-with(@name, 'tree')]/drop[@name='resourceScrapWoodFM']" name="name">resourceStickFM</setattribute>
 	
+	
+	<!-- FennecModlet - Skills - New: Scrap Collector + FennecModlet - Crafting - Wood Processing -->
+	<!-- Couches and furniture that drop wood need to drop scrap wood instead. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']//drop[@name='resourceWood' and contains(@tag, 'scrapCollectorHarvest')]" name="name">resourceScrapWoodFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']//drop[@name='resourceScrapWoodFM' and contains(@tag, 'scrapCollectorHarvest')]" name="count">2,3</setattribute>
+	
+	
+	<!-- FennecModlet - Skills - New: Scrap Collector + FennecModlet - Crafting - Leather Processing -->
+	<!-- Couches and furniture that drop leather need to drop leather scraps instead. -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']//drop[@name='resourceLeather' and contains(@tag, 'scrapCollectorHarvest')]" name="name">resourceLeatherScrapsFM</setattribute>
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']//drop[@name='resourceLeatherScrapsFM' and contains(@tag, 'scrapCollectorHarvest')]" name="count">2,3</setattribute>
+	
 </configs>

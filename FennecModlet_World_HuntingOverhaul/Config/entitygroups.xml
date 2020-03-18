@@ -8,4 +8,8 @@
 	<setattribute xpath="//entity[@name='invisibleAnimalEnemy']" name="prob">20</setattribute>
 	<setattribute xpath="//entity[@name='invisibleAnimal']" name="prob">12</setattribute>
 	
+	<!-- Add invisible animal entity to the AnimalsSmall group to make small animals a rarer spawn. -->
+	<append xpath="//entitygroup[@name='AnimalsSmall']">
+		<entity name="invisibleAnimal" prob="6" />
+	</append>
 </configs>

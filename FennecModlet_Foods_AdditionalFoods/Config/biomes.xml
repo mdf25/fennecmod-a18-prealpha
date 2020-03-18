@@ -14,12 +14,12 @@
 	
 	<!-- Adds tomatoes to the forest biome in areas where you find chrysanthemum -->
 	<append xpath="//decoration[@blockname='plantedChrysanthemum3Harvest']/..">
-		<decoration type="block" blockname="plantedTomato3HarvestFM" prob=".0014"/>
+		<decoration type="block" blockname="plantedTomato3HarvestFM" prob=".0006"/>
 	</append>
 	
 	<!-- Adds wheat to the desert biome in areas where you would find aloe -->
 	<append xpath="//decoration[@blockname='plantedAloe3Harvest']/..">
-		<decoration type="block" blockname="plantedWheat3HarvestFM" prob=".0014"/>
+		<decoration type="block" blockname="plantedWheat3HarvestFM" prob=".0006"/>
 	</append>
 	
 </configs>

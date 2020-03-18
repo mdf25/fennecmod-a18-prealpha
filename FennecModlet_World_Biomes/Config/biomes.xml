@@ -13,14 +13,14 @@
 	<!-- Adds extra deco to each biome -->
 	<append xpath="//biome[@name='pine_forest']//decoration/..">
 		<!-- Sticks -->
-		<decoration type="block" blockname="propStick01" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick02" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick03" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick04" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick05" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick06" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick07" prob="0.013" rotatemax="7" />
-		<decoration type="block" blockname="propStick08" prob="0.013" rotatemax="7" />
+		<decoration type="block" blockname="propStick01" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick02" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick03" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick04" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick05" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick06" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick07" prob="0.007" rotatemax="7" />
+		<decoration type="block" blockname="propStick08" prob="0.007" rotatemax="7" />
 		<!-- Mushrooms -->
 		<decoration type="block" blockname="plantedMushroom3Harvest" prob="0.0001" rotatemax="3" />
 		<decoration type="block" blockname="plantedBlueberry3Harvest" prob="0.0001" rotatemax="3" />
@@ -34,10 +34,10 @@
 	</append>
 
 	<append xpath="//biome[@name='burnt_forest']//decoration/..">
-		<decoration type="block" blockname="propStick01" prob="0.012" rotatemax="7" />
-		<decoration type="block" blockname="propStick02" prob="0.012" rotatemax="7" />
-		<decoration type="block" blockname="propStick03" prob="0.012" rotatemax="7" />
-		<decoration type="block" blockname="propStick04" prob="0.012" rotatemax="7" />
+		<decoration type="block" blockname="propStick01" prob="0.015" rotatemax="7" />
+		<decoration type="block" blockname="propStick02" prob="0.015" rotatemax="7" />
+		<decoration type="block" blockname="propStick03" prob="0.015" rotatemax="7" />
+		<decoration type="block" blockname="propStick04" prob="0.015" rotatemax="7" />
 	</append>
 
 	<append xpath="//biome[@name='desert']//decoration/..">
@@ -67,6 +67,11 @@
 	<setattribute xpath="//decoration[@blockname='treeMountainPine31m']" 	name="prob">0.002</setattribute>
 	<setattribute xpath="//decoration[@blockname='treeMountainPineDry21m']" name="prob">0.002</setattribute>
 	<setattribute xpath="//decoration[@blockname='treeMountainPine41m']" 	name="prob">0.0001</setattribute>
+	
+	<!-- Increase trees in burnt forest -->
+	<setattribute xpath="//decoration[@blockname='treeBurntMaple01']" 		name="prob">0.005</setattribute>
+	<setattribute xpath="//decoration[@blockname='treeBurntMaple02']" 		name="prob">0.005</setattribute>
+	<setattribute xpath="//decoration[@blockname='treeBurntMaple03']" 		name="prob">0.005</setattribute>
 	
 	<!-- We don't want deserts to become forests with oak trees so exclude this from oak spawns. -->
 	<setattribute xpath="//biome[not(@name='desert')]//decoration[@blockname='treeOakLrg01']" 			name="prob">0.001</setattribute>

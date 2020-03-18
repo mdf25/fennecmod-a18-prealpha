@@ -18,7 +18,7 @@
 		</recipe>
 		
 		<!-- Logs can be sawed up into usable wood. -->
-		<recipe name="resourceWood" count="25" craft_area="tableSaw" craft_time="60">
+		<recipe name="resourceWood" count="25" craft_area="tablesaw" tags="tableSawCrafting" craft_time="30">
 			<ingredient name="resourceTreeWoodFM" count="1" />
 		</recipe>
 		
