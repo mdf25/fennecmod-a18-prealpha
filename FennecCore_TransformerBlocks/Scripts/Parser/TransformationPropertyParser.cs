@@ -24,6 +24,7 @@ public class TransformationPropertyParser
         this.ParseTransformationData();
         this.CheckRequiresPower();
         this.CheckRequiresHeat();
+		this.CheckRequireBlocksNearby();
     }
 
 
@@ -561,6 +562,7 @@ public class TransformationPropertyParser
         string requireNearbyBlocks;
         if (!this.PropExists(propRequireNearbyBlocks, out requireNearbyBlocks))
         {
+			Log.Warning("Property does not exists for require nearby blocks.");
             return;
         }
         
@@ -568,6 +570,8 @@ public class TransformationPropertyParser
         {
             throw new Exception("Require nearby blocks property needs to be true or false.");
         }
+		Log.Out("Nearby Blocks Needed? " + this.requireNearbyBlocks.ToString());
+		
 
         // Check whether we have a range specified. If so, we need to parse it.
         string nearbyBlockRange;

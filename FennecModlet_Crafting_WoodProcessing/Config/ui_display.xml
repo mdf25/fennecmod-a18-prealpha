@@ -7,7 +7,7 @@
 	
 	<append xpath="/ui_display_info/item_display">
 		<item_display_info display_type="medicalCureInfection" display_group="groupConsumables">
-			<display_entry name="dCureInfection" title_key="statCureInfection" display_type="Percent"/>
+			<display_entry name="dCureInfection" title_key="statCureInfection" display_type="Decimal"/>
 		</item_display_info>
 	</append>
 	

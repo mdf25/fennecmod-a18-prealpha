@@ -1,0 +1,26 @@
+<config>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - QOL - Build on Small Objects -->
+	</insertBefore>
+	
+	
+	<!-- This turns any block that uses Mleaves material to a non-collidable version for building. -->
+	<setattribute xpath="//property[@name='Material' and @value='Mleaves']" name="value">MleavesNoCollision</setattribute>
+	
+	<!-- This turns the birds nest block into a leaf-like material with no colliders (makes more sense) -->
+	<setattribute xpath="//block[@name='cntBirdnest']/property[@name='Material']" name="value">MleavesNoCollision</setattribute>
+	
+	
+	<!-- This turns any small rocks that use Mstone into non-collidable versions for building. -->
+	<!-- Simple solution
+	<setattribute xpath="//block[@name='rock01']/property[@name='Material']" name="value">MstoneNoCollision</setattribute>
+	-->
+	<!-- For compatibility with stones other than rock01 and extensions -->
+	<setattribute xpath="//property[@name='MaxDamage' and @value='1']/../property[@name='Material' and @value='Mstone']" name="value">MstoneNoCollision</setattribute>
+	
+	
+	
+	
+</config>

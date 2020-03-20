@@ -1,0 +1,44 @@
+<config>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - QOL - Build on Small Objects -->
+	</insertBefore>
+	
+	<append xpath="/materials">
+		
+		<material id="MleavesNoCollision">
+			<property name="damage_category" value="earth"/>
+			<property name="surface_category" value="plant"/>
+			<property name="particle_destroy_category" value="xt_leaves2"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="tree"/>
+			<property name="lightopacity" value="5"/>
+			<property name="stability_glue" value="0"/>
+			<property name="Mass" type="int" value="1"/>
+			<property name="plant" value="true"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="MaxDamage" value="1"/>
+			<property name="Experience" value="2"/>
+			<property name="collidable" value="false"/>
+			<property name="ground_cover" value="true"/>
+		</material>
+		
+		<material id="MstoneNoCollision">
+			<property name="damage_category" value="stone"/>
+			<property name="surface_category" value="stone"/>
+			<property name="forge_category" value="stone"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="stone"/>
+			<property name="stability_glue" value="120"/>
+			<property name="Mass" type="int" value="10"/>
+			<property name="MaxDamage" value="500"/>
+			<property name="Experience" value="2"/>
+			<property name="collidable" value="false"/>
+			<property name="ground_cover" value="true"/>
+		</material>
+		
+	</append>
+	
+	
+</config>

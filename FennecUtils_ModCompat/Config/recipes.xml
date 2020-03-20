@@ -122,6 +122,12 @@
 		</recipe>
 	</append>
 	
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - Cooking Stations -->
+	<!-- Remove alcohol recipes as they are now in the fermenting barrel -->
+	<remove xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Cooking Stations ']/recipe[@name='drinkJarAppleCiderFM']" />
+	<remove xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Cooking Stations ']/recipe[@name='drinkJarBlueberryWineFM']" />
+	
 
 	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - More Meats + FennecModlet - Entities - Animals -->
 	<!-- Adds any extra recipes for foods not covered by only a pair of modlets -->

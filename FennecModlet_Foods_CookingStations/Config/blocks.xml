@@ -1,0 +1,108 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
+	</insertBefore>
+	
+	
+	<append xpath="/blocks">
+	
+		<!-- Fermenting barrel takes in water + alcohol ingredient, or just a juice, and transforms it into an alcoholic beverage. -->
+		<block name="fermentingBarrelFM">
+			<property name="Extends" 				value="woodNoUpgradeMaster" />
+			<property name="CustomIcon"				value="wineBarrel" />
+			<property name="Shape" 					value="ModelEntity" />
+			<property name="Model" 					value="Entities/Decor/wineBarrelPrefab" /> 
+			<property name="Path" 					value="solid" />
+			<property name="Place" 					value="TowardsPlacerInverted" />
+			<property name="ImposterDontBlock" 		value="true" />
+			<property name="IsTerrainDecoration" 	value="true" />
+			<property name="FilterTags" 			value="fdecor,ffurniture" />
+			<property name="Group" 					value="Decor/Miscellaneous" />
+			<property name="Class" 			  		value="Transformer, Mods" />
+			<property name="LootList" 				value="300" />
+			<property class="Transformations">
+				<!-- 1 -->
+				<property name="Transformation1_Time"     value="300" />
+				<property name="Transformation1_Input1"   value="drinkJarBoiledWater,1" />
+				<property name="Transformation1_Input2"   value="resourceCropHopsFlower,4" />
+				<property name="Transformation1_Output1"  value="drinkJarBeer,1" />
+				<!-- 2 -->
+				<property name="Transformation2_Time"     value="300" />
+				<property name="Transformation2_Input1"   value="drinkJarBoiledWater,1" />
+				<property name="Transformation2_Input2"   value="foodCornMeal,3" />
+				<property name="Transformation2_Output1"  value="drinkJarGrainAlcohol,1" />
+			</property>
+		</block>
+	
+		
+		<!-- Working Sinks - Can insert jars to fill with water, either filtered or not -->
+		<block name="cntGraniteSinkWorkingFM">
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="New"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="counter_sink"/> <property name="Place" value="TowardsPlacerInverted"/>
+			<property name="IsDecoration" value="true"/>
+			<property name="Texture" value="373,261,262,345,345,345"/> <!-- 373/374=sink, 82=cabinetWood -->
+			<property name="LootList" value="300"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="3,5" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="10" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapBrass" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+			<drop event="Harvest" name="resourceScrapLead" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="5" prob="1"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="EconomicValue" value="100"/> <!-- disassemble value -->
+			<property name="ImposterExchange" value="imposterBlock" param1="116"/>
+			<property name="FilterTags" value="floot,ffurniture"/>
+			<property name="Class" value="Transformer, Mods"/>
+			<property class="Transformations">
+				<!-- 1 -->
+				<property name="Transformation1_Time"     value="5" />
+				<property name="Transformation1_Input1"   value="drinkJarEmpty,1" />
+				<property name="Transformation1_Output1"  value="drinkJarRiverWater,1" />
+			</property>
+			<property name="RequireNearbyBlocks" value="true" />
+			<property name="NearbyBlockRange" value="0,1,0" />
+			<property name="NearbyBlockNames" value="faucet02,faucetBrass02,faucet04,faucetBrass04" />
+			<property name="RequireAllTags" value="false" />
+			<property name="NearbyBlockCount" value="1" />
+		</block>
+		
+		<block name="cntGraniteSinkWorkingFilteredFM">
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="New"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="counter_sink"/> <property name="Place" value="TowardsPlacerInverted"/>
+			<property name="IsDecoration" value="true"/>
+			<property name="Texture" value="373,261,262,345,345,345"/> <!-- 373/374=sink, 82=cabinetWood -->
+			<property name="LootList" value="300"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="3,5" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="10" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapBrass" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+			<drop event="Harvest" name="resourceScrapLead" prob="1" count="1,5" tag="WasteTreasuresSinkHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="5" prob="1"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="EconomicValue" value="200"/> <!-- disassemble value -->
+			<property name="ImposterExchange" value="imposterBlock" param1="116"/>
+			<property name="FilterTags" value="floot,ffurniture"/>
+			<property name="Class" value="Transformer, Mods"/>
+			<property class="Transformations">
+				<!-- 1 -->
+				<property name="Transformation1_Time"     value="5" />
+				<property name="Transformation1_Input1"   value="drinkJarEmpty,1" />
+				<property name="Transformation1_Output1"  value="drinkJarBoiledWater,1" />
+			</property>
+			<property name="RequireNearbyBlocks" value="true" />
+			<property name="NearbyBlockRange" value="0,1,0" />
+			<property name="NearbyBlockNames" value="faucet02,faucetBrass02,faucet04,faucetBrass04" />
+			<property name="RequireAllTags" value="false" />
+			<property name="NearbyBlockCount" value="1" />
+		</block>
+		
+	</append>
+	
+	
+</configs>

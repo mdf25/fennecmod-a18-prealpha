@@ -1,0 +1,26 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
+	</insertBefore>
+	
+	<!-- Remove vanilla recipes for beer and grain alcohol -->
+	<remove xpath="//recipe[@name='drinkJarBeer']" />
+	<remove xpath="//recipe[@name='drinkJarGrainAlcohol']" />
+	
+	<!-- Add recipes for cooking stations -->
+	<append xpath="/recipes">
+		
+		<!-- TODO: Learnable -->
+		<recipe name="fermentingBarrelFM" 	count="1" craft_area="workbench" craft_time="30">
+			<ingredient name="resourceWood"				count="25" />
+			<ingredient name="resourceForgedIron"		count="3" />
+			<ingredient name="resourceMechanicalParts" 	count="1" />
+			<ingredient name="resourceNail"				count="10" />
+		</recipe>
+		
+	</append>
+	
+	
+</configs>

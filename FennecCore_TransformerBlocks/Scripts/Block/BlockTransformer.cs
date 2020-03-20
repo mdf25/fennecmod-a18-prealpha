@@ -189,6 +189,7 @@ public class BlockTransformer : BlockLoot
 
     protected override void addTileEntity(WorldBase world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue)
     {
+		Log.Out("Nearby Blocks needed? " +transformationPropertyParser.requireNearbyBlocks.ToString());
         TileEntityBlockTransformer tileEntityBlockTransformer = new TileEntityBlockTransformer(_chunk);
         tileEntityBlockTransformer.localChunkPos = World.toBlock(_blockPos);
         tileEntityBlockTransformer.lootListIndex = (int)((ushort)this.lootList);

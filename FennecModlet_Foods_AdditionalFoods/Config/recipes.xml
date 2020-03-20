@@ -838,7 +838,7 @@
 		</recipe>
 		
 		<recipe name="drinkJarAppleCiderFM" 			count="1" craft_area="chemistryStation" craft_time="600" tags="learnable,perkMasterChef">
-			<ingredient name="drinkJarAloeJuiceFM"				count="1" />
+			<ingredient name="drinkJarAppleJuiceFM"				count="1" />
 		</recipe>
 		
 		<recipe name="drinkJarAppleJuiceFM" 			count="1" craft_time="25" tags="perkMasterChef">

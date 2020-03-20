@@ -1,0 +1,10 @@
+<configs>
+
+	<!-- Ties together drop events etc from separate modlets -->
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - Cooking Stations -->
+	<!-- Remove alcohol schematics from loot that are added by additional foods -->
+	<remove xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Cooking Stations ']//item[@name='drinkJarAppleCiderFMSchematic']"/>
+	<remove xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Cooking Stations ']//item[@name='drinkJarBlueberryWineFMSchematic']"/>
+	
+</configs>

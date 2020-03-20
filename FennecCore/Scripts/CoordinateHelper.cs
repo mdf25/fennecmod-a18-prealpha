@@ -414,7 +414,7 @@ public static class CoordinateHelper
 
     public static bool EnoughBlocksInCoordinatesThatAre(World _world, List<Vector3i> coordinates, List<string> names, int needed)
     {
-        return (needed >= CountBlocksInCoordinatesThatAre(_world, coordinates, names));
+        return (needed <= CountBlocksInCoordinatesThatAre(_world, coordinates, names));
     }
 
 
@@ -424,6 +424,6 @@ public static class CoordinateHelper
     
     public static bool EnoughBlocksInCoordinatesThatHaveTags(World _world, List<Vector3i> coordinates, List<string> tagNames, int needed, bool matchAll = false)
     {
-        return (needed >= CountBlocksInCoordinatesThatHaveTags(_world, coordinates, tagNames, matchAll));
+        return (needed <= CountBlocksInCoordinatesThatHaveTags(_world, coordinates, tagNames, matchAll));
     }
 }

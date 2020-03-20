@@ -251,7 +251,7 @@
       <property name="LootList" 		        value="300" />
       <property name="RequireNearbyBlocks"  value="true" />
       <property name="NearbyBlockRange"     value="2, 5, 2" />
-      <property name="NearbyBlockNames"     value="water,waterMoving,waterPOI" />
+      <property name="NearbyBlockNames"     value="water,waterMoving,terrWaterPOI" />
       <property name="NearbyBlockCount"     value="30" />
       <property class="Transformations">
         <!-- 1 -->

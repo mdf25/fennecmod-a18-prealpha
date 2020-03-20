@@ -1,0 +1,12 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
+	</insertBefore>
+	
+	<remove xpath="//item[@name='drinkJarBeerSchematic']"/>
+	
+	
+	
+</configs>

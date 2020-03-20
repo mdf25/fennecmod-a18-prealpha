@@ -23,4 +23,27 @@
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']//drop[@name='resourceLeather' and contains(@tag, 'scrapCollectorHarvest')]" name="name">resourceLeatherScrapsFM</setattribute>
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Skills - New: Scrap Collector ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Leather Processing ']//drop[@name='resourceLeatherScrapsFM' and contains(@tag, 'scrapCollectorHarvest')]" name="count">2,3</setattribute>
 	
+	
+	<!-- FennecModlet - World - Biomes + FennecModlet - QOL - Build on Small Objects -->
+	<!-- Changes the sticks so that they are non-collidable on building -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']/../*[comment() = ' DEPENDENCY: FennecModlet - QOL - Build on Small Objects ']//property[@name='Material' and @value='Mleaves']" name="value">MleavesNoCollision</setattribute>
+	
+	
+	<!-- FennecModlet - Foods - Additional Foods + FennecModlet - Foods - Cooking Stations -->
+	<!-- Makes the fermenting barrel usable for all alcoholic recipes. -->
+	<append xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Foods - Additional Foods ']/../*[comment() = ' DEPENDENCY: FennecModlet - Foods - Cooking Stations ']/block[@name='fermentingBarrelFM']/property[@class='Transformations']">
+		<!-- 3 -->
+		<property name="Transformation3_Time"     value="300" />
+		<property name="Transformation3_Input1"   value="drinkJarAppleJuiceFM,1" />
+		<property name="Transformation3_Output1"  value="drinkJarAppleCiderFM,1" />
+		<!-- 4 -->
+		<property name="Transformation4_Time"     value="300" />
+		<property name="Transformation4_Input1"   value="drinkJarBlueberryJuiceFM,1" />
+		<property name="Transformation4_Output1"  value="drinkJarBlueberryWineFM,1" />
+	</append>
+	
+	
+	
+	
+	
 </configs>

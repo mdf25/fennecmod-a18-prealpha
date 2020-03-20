@@ -1,0 +1,7 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+fermentingBarrelFM,Blocks,Transformer,,,"Fermenting Barrel"
+fermentingBarrelFMDesc,Blocks,Transformer,,,"This barrel can store liquids and turn them into alcoholic beverages over time."
+cntGraniteSinkWorkingFM,Blocks,Transformer,,,"Granite Sink (Working)"
+cntGraniteSinkWorkingFMDesc,Blocks,Transformer,,,"This sink can be used to fill up your jars with unfiltered water. Just insert your empty jars, and they will fill up over time."
+cntGraniteSinkWorkingFilteredFM,Blocks,Transformer,,,"Granite Sink (Working, Filtered)"
+cntGraniteSinkWorkingFilteredFMDesc,Blocks,Transformer,,,"This sink can be used to fill up your jars with clean water. Just insert your empty jars, and they will fill up over time."

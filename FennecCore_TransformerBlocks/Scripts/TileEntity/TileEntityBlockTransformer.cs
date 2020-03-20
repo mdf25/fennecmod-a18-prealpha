@@ -259,19 +259,51 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
 
         World world = GameManager.Instance.World;
 
-        bool namesFound = true;
-        bool tagsFound = true;
+        bool namesFound = false;
+        bool tagsFound = false;
 
         if (this.nearbyBlockNames.Count > 0)
         {
-            namesFound = CoordinateHelper.EnoughBlocksInCoordinatesThatAre(world, this.nearbyBlockCoords, this.nearbyBlockNames, this.nearbyBlocksNeeded);
+			if (nearbyBlockNames.Count == 1)
+			{
+				if (this.nearbyBlockNames[0] == "")
+				{
+					namesFound = true;
+					Log.Out("Name was empty.");
+				}
+			}
+			if (!namesFound)
+			{
+				namesFound = CoordinateHelper.EnoughBlocksInCoordinatesThatAre(world, this.nearbyBlockCoords, this.nearbyBlockNames, this.nearbyBlocksNeeded);
+				Log.Out("Names: " + namesFound.ToString());
+			}
         }
+		else 
+		{
+			namesFound = true;
+		}
 
         if (this.nearbyBlockTags.Count > 0)
         {
-            tagsFound = CoordinateHelper.EnoughBlocksInCoordinatesThatHaveTags(world, this.nearbyBlockCoords, this.nearbyBlockTags, this.nearbyBlocksNeeded, this.nearbyBlockRequireAllTags);
+			if (nearbyBlockTags.Count == 1) {
+				if (this.nearbyBlockTags[0] == "")
+				{
+					tagsFound = true;
+					Log.Out("Tag was empty");
+				}
+			}
+			if (!tagsFound)
+			{
+				tagsFound = CoordinateHelper.EnoughBlocksInCoordinatesThatHaveTags(world, this.nearbyBlockCoords, this.nearbyBlockTags, this.nearbyBlocksNeeded, this.nearbyBlockRequireAllTags);
+				Log.Out("Tags: " + tagsFound.ToString());
+			}
         }
+		else
+		{
+			tagsFound = true;
+		}
 
+		Log.Out("Tags and name found? " + (tagsFound & namesFound).ToString());
         return this.hasNearbyBlocks = (tagsFound & namesFound);
     }
 

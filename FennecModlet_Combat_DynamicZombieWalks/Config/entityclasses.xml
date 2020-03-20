@@ -5,13 +5,13 @@
 	</insertBefore>
 	
 	<!-- All zombies have a dynamic walk type buff appended -->
-	<append xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler'))]/effect_group[@name='Base Effects']">
+	<append xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler')) and not(contains(@name, 'Template'))]/effect_group[@name='Base Effects']">
 		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffInitialSpeed" />
 		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicWalk" />
 		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicSpeed" />
 	</append>
 	
-	<insertAfter xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler'))]/effect_group[last()]">
+	<insertAfter xpath="//entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'Crawler')) and not(contains(@name, 'Template'))]/effect_group[last()]">
 		<effect_group name="Initial Conditions">
 			<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" cvar=".IWalkType" value="randomint(1,7)"/>
 			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffDynamicWalk" />
