@@ -9,6 +9,13 @@
 	<remove xpath="//recipe[@name='drinkJarBeer']" />
 	<remove xpath="//recipe[@name='drinkJarGrainAlcohol']" />
 	
+	<!-- Adjust recipe for purified water to use a water filter instead of random flowers and coal. -->
+	<remove xpath="//recipe[@name='drinkJarPureMineralWater']/ingredient" />
+	<append xpath="//recipe[@name='drinkJarPureMineralWater']">
+		<ingredient name="drinkJarBoiledWater" 		count="1" />
+		<ingredient name="resourceWaterFilterFM" 	count="1" />
+	</append>
+	
 	<!-- Add recipes for cooking stations -->
 	<append xpath="/recipes">
 		
@@ -18,6 +25,20 @@
 			<ingredient name="resourceForgedIron"		count="3" />
 			<ingredient name="resourceMechanicalParts" 	count="1" />
 			<ingredient name="resourceNail"				count="10" />
+		</recipe>
+		
+		<recipe name="resourceSinkUpgradeKitFM" count="1" craft_area="workbench" craft_time="60" tags="learnable,workbenchCrafting">
+			<ingredient name="resourceMetalPipe"		count="3" />
+			<ingredient name="resourceForgedIron"		count="2" />
+			<ingredient name="resourceDuctTape"			count="2" />
+			<ingredient name="resourceMechanicalParts"	count="1" />
+		</recipe>
+		
+		<recipe name="resourceWaterFilterFM"	count="1" craft_area="workbench" craft_time="60" tags="learnable,workbenchCrafting">
+			<ingredient name="resourceScrapPolymers"	count="3" />
+			<ingredient name="resourceCrushedSand"		count="3" />
+			<ingredient name="resourceCoal"				count="2" />
+			<ingredient name="resourceCloth"			count="2" />
 		</recipe>
 		
 	</append>

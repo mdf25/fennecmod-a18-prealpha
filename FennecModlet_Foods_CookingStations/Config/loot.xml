@@ -5,5 +5,11 @@
 		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
 	</insertBefore>
 	
+	<!-- Beer no longer needs a schematic in loot -->
 	<remove xpath="//item[@name='drinkJarBeerSchematic']"/>
+	
+	<append xpath="//lootgroup[@name='schematicsElectrical']">
+		<item name="resourceSinkUpgradeKitFMSchematic" />
+	</append>
+	
 </configs>

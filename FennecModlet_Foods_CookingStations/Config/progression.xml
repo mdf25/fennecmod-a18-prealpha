@@ -5,8 +5,11 @@
 		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
 	</insertBefore>
 	
+	<!-- Add the sink upgrade kit recipe as an advanced engineering 3 unlock -->
+	<append xpath="//perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,5']/@tags">,resourceSinkUpgradeKitFM</append>
+	<setattribute xpath="//effect_description[@desc_key='perkAdvancedEngineeringRank3Desc']" name="long_desc_key">perkAdvancedEngineeringRank3LongDescFM</setattribute>
 	
-	
-	
+	<!-- Add the water filter as an unlockable recipe to wasteland treasures perk. -->
+	<append xpath="//perk[@name='perkWasteTreasuresWater']/effect_group/passive_effect[@name='RecipeTagUnlocked']/@tags">,resourceWaterFilterFM</append>
 	
 </configs>

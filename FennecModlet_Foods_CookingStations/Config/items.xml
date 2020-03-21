@@ -5,8 +5,61 @@
 		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
 	</insertBefore>
 	
+	<append xpath="//item[@name!='meleeToolHoeIron']//property[@name='Allowed_upgrade_items']/@value">,resourceSinkUpgradeKitFM,resourceWaterFilterFM</append>
 	
+	<append xpath="/items">
 	
+		<!-- Misc Resources -->
+		<item name="resourceWaterFilterFM">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="500"/>
+			<property name="EconomicValue" value="8"/>
+			<property name="Group" value="Resources"/>
+			<property name="RepairTime" value=".5"/>
+			<property name="RepairAmount" value="20"/>
+			<property name="CraftingIngredientTime" value=".2"/>
+			<property name="UnlockedBy" value="perkWasteTreasuresWater"/>
+		</item>
 	
+		
+		<!-- Upgrade Kits -->
+		<item name="resourceUpgradeKitMasterFM">
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="10"/>
+			<property name="Stacknumber" value="10"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="Group" value="Resources"/>
+			<property name="RepairTime" value=".5"/>
+			<property name="RepairAmount" value="20"/>
+			<property name="CraftingIngredientTime" value=".2"/>
+			<property name="UnlockedBy" value="perkAdvancedEngineering,resourceSinkUpgradeKitFMSchematic"/>
+		</item>
+	
+		<item name="resourceSinkUpgradeKitFM">
+			<property name="Extends" value="resourceUpgradeKitMasterFM" />
+		</item>
+		
+		
+		<!-- Schematics -->
+		<item name="resourceSinkUpgradeKitFMSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="resourceSinkUpgradeKitFM"/>
+			<property name="Unlocks" value="resourceSinkUpgradeKitFM"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="resourceSinkUpgradeKitFM" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	
+	</append>
 	
 </configs>
