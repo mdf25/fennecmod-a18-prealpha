@@ -1,0 +1,33 @@
+<configs>
+	
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Food - Cooking Stations -->
+	</insertBefore>
+	
+	
+	<!-- Add new placeholders so that weapons bags, hardened chests and gun safes don't always generate. -->
+	<append xpath="/blockplaceholders">
+		<!-- Working Sinks -->
+		<placeholder name="cntGraniteSink">
+			<block name="cntGraniteSinkNotWorkingFM" 	prob="0.9" />
+			<block name="cntGraniteSinkWorkingFM" 		prob="0.1" />
+		</placeholder>
+		
+		<placeholder name="cntCabinetOldSink">
+			<block name="cntCabinetOldSinkNotWorkingFM"	prob="0.9" />
+			<block name="cntCabinetOldSinkWorkingFM"		prob="0.1" />
+		</placeholder>
+	</append>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</configs>

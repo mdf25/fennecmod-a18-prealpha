@@ -1,0 +1,15 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
+	</insertBefore>
+
+	<append xpath="//crafting_category_display">
+		<crafting_category_list display_type="wallOvenWorkingFM">
+			<crafting_category name="WOFood/Cooking" icon="ui_game_symbol_fork" display_name="lblCategoryFood" />
+			<crafting_category name="WODrink/Cooking" icon="ui_game_symbol_thirst" display_name="lblCategoryDrink" />
+		</crafting_category_list>
+	</append>
+
+</configs>

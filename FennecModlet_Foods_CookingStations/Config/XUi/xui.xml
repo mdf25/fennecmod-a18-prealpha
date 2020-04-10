@@ -1,0 +1,18 @@
+<configs>
+
+	<!-- Adds a dependency tag to the start of the XML -->
+	<insertBefore xpath="/*/*[1]">
+		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
+	</insertBefore>
+	
+	<append xpath="//ruleset[1]">
+		<window_group name="workstation_wallOvenWorkingFM" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>	
+	</append>
+	
+</configs>
