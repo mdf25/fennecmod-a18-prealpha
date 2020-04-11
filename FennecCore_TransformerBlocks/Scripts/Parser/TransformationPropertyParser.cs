@@ -25,6 +25,7 @@ public class TransformationPropertyParser
         this.CheckRequiresPower();
         this.CheckRequiresHeat();
 		this.CheckRequireBlocksNearby();
+        this.CheckRequireUserAccess();
     }
 
 
@@ -654,6 +655,26 @@ public class TransformationPropertyParser
 
 
     /**
+     * Checks whether the user is needed to be accessing the block in order for processing to occur.
+     */
+
+    protected void CheckRequireUserAccess()
+    {
+        this.requireUserAccess = false;
+        string requireUserAccess;
+        if (!this.PropExists(this.propRequireUserAccess, out requireUserAccess))
+        {
+            return;
+        }
+
+        if (!StringParsers.TryParseBool(requireUserAccess, out this.requireUserAccess))
+        {
+            throw new Exception("Could not parse value as boolean.");
+        }
+    }
+
+
+    /**
      * Checks whether a block is defined or not.
      */
 
@@ -708,6 +729,7 @@ public class TransformationPropertyParser
     protected string propNearbyBlockNames               = "NearbyBlockNames";
     protected string propNearbyBlockTags                = "NearbyBlockTags";
     protected string propRequireAllTags                 = "RequireAllTags";
+    protected string propRequireUserAccess              = "RequireUserAccess";
     
     // Used to detect inputs, outputs, and time strings
     protected string inputString                        = "_Input";
@@ -747,4 +769,5 @@ public class TransformationPropertyParser
     public List<string> nearbyBlockNames;
     public List<string> nearbyBlockTags;
     public bool requireAllTags;
+    public bool requireUserAccess;
 }

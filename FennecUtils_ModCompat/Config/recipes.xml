@@ -148,6 +148,11 @@
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion ']/../*[comment() = ' DEPENDENCY: FennecModlet - World - Biomes ']//recipe[@name='ammoArrowPrimitiveFM']/ingredient[@name='resourceWood']" name="name">resourceStickFM</setattribute>
 	
 	
+	<!-- FennecModlet - Weapons - Arrow and Bolt Expansion + FennecModlet - Crafting - Wood Processing -->
+	<!-- Scrap arrows should use scrap wood in crafting -->
+	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Weapons - Arrow and Bolt Expansion ']/../*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']//recipe[@name='ammoArrowPrimitiveFM']/ingredient[@name='resourceWood' or @name='resourceStickFM']" name="name">resourceScrapWoodFM</setattribute>
+	
+	
 	<!-- FennecModlet - Crafting - Wood Processing + FennecModlet - World - Biomes -->
 	<!-- Remove the scrap wood recipe for the stone axe, sticks can handle this -->
 	<remove xpath="//recipe[@name='meleeToolStoneAxe']/ingredient[@name='resourceScrapWoodFM']/.." />                                   
@@ -183,9 +188,6 @@
 	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Wood Processing -->
 	<!-- Turpentine now uses the wood logs in the modlet instead of the pillar 100 blocks. -->
 	<setattribute xpath="/*[comment() = ' DEPENDENCY: FennecModlet - Crafting - Wood Processing ']/../*[comment() = ' DEPENDENCY: FennecModlet - Meds - Additional Meds ']/recipe[@name='medicalTurpentineOilFM']/ingredient[@name='woodLogPillar100']" name="name">resourceTreeWoodFM</setattribute>
-	
-	<!-- Add new recipe for the medical tape using tree sap -->
-	
 	
 	
 	<!-- FennecModlet - Meds - Additional Meds + FennecModlet - Crafting - Harder Recipes -->

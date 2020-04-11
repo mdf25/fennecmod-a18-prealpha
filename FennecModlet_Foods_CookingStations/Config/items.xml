@@ -5,7 +5,7 @@
 		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
 	</insertBefore>
 	
-	<append xpath="//item[@name!='meleeToolHoeIron']//property[@name='Allowed_upgrade_items']/@value">,resourceSinkUpgradeKitFM,resourceWaterFilterFM</append>
+	<append xpath="//item[@name!='meleeToolHoeIron']//property[@name='Allowed_upgrade_items']/@value">,resourceSinkUpgradeKitFM,resourceOvenUpgradekitFM,resourceWaterFilterFM</append>
 	
 	<append xpath="/items">
 	
@@ -47,6 +47,10 @@
 			<property name="Extends" value="resourceUpgradeKitMasterFM" />
 		</item>
 		
+		<item name="resourceOvenUpgradeKitFM">
+			<property name="Extends" value="resourceUpgradeKitMasterFM" />
+		</item>
+		
 		
 		<!-- Schematics -->
 		<item name="resourceSinkUpgradeKitFMSchematic">
@@ -60,6 +64,23 @@
 			</effect_group>
 		</item>
 	
+		<item name="resourceOvenUpgradeKitFMSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="resourceOvenUpgradeKitFM"/>
+			<property name="Unlocks" value="resourceOvenUpgradeKitFM"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="resourceOvenUpgradeKitFM" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	
 	</append>
+	
+	
+	<!-- Adjust vanilla food items so that they display on the working oven. -->
+	<append xpath="//item[starts-with(@name, 'food')]/property[@name='Group' and contains(@value, 'CFFood')]/@value">,WOFood/Cooking</append>
+	
+	<append xpath="//item[starts-with(@name, 'drink')]/property[@name='Group' and contains(@value, 'CFDrink')]/@value">,WODrink/Cooking</append>
 	
 </configs>

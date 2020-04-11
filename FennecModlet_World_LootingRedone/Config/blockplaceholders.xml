@@ -420,47 +420,47 @@
 		
 		<!-- Turn pre-existing store shelving into a new placeholder to generate lootable shelf assets in POIs -->
 		<placeholder name="storeShelving01">
-			<block name="storeShelfEmptyFM"						prob="0.6" />
-			<block name="storeShelfGeneric1FM"					prob="0.15" />
-			<block name="storeShelfGeneric2FM"					prob="0.14" />
-			<block name="storeShelfGeneric3FM"					prob="0.01" />
-			<block name="storeShelfFood1FM"						prob="0.03" />
-			<block name="storeShelfFood2FM"						prob="0.03" />
-			<block name="storeShelfMedicalFM"					prob="0.02" />
-			<block name="storeShelfToolsFM"						prob="0.02" />
+			<block name="storeShelving01EmptyFM"				prob="0.6" />
+			<block name="storeShelving01Generic1FM"				prob="0.15" />
+			<block name="storeShelving01Generic2FM"				prob="0.14" />
+			<block name="storeShelving01Generic3FM"				prob="0.01" />
+			<block name="storeShelving01Food1FM"				prob="0.03" />
+			<block name="storeShelving01Food2FM"				prob="0.03" />
+			<block name="storeShelving01Medical1FM"				prob="0.02" />
+			<block name="storeShelving01Tools1FM"				prob="0.02" />
 		</placeholder>
 		
 		<placeholder name="storeShelving01Top">
-			<block name="storeShelfEmptyFM"						prob="0.6" />
-			<block name="storeShelfGeneric1FM"					prob="0.15" />
-			<block name="storeShelfGeneric2FM"					prob="0.14" />
-			<block name="storeShelfGeneric3FM"					prob="0.01" />
-			<block name="storeShelfFood1FM"						prob="0.03" />
-			<block name="storeShelfFood2FM"						prob="0.03" />
-			<block name="storeShelfMedicalFM"					prob="0.02" />
-			<block name="storeShelfToolsFM"						prob="0.02" />
+			<block name="storeShelving01TopEmptyFM"				prob="0.6" />
+			<block name="storeShelving01TopGeneric1FM"			prob="0.15" />
+			<block name="storeShelving01TopGeneric2FM"			prob="0.14" />
+			<block name="storeShelving01TopGeneric3FM"			prob="0.01" />
+			<block name="storeShelving01TopFood1FM"				prob="0.03" />
+			<block name="storeShelving01TopFood2FM"				prob="0.03" />
+			<block name="storeShelving01TopMedical1FM"			prob="0.02" />
+			<block name="storeShelving01TopTools1FM"			prob="0.02" />
 		</placeholder>
 		
 		<placeholder name="storeShelving01Double">
-			<block name="storeShelfEmptyFM"						prob="0.6" />
-			<block name="storeShelfGeneric1FM"					prob="0.15" />
-			<block name="storeShelfGeneric2FM"					prob="0.14" />
-			<block name="storeShelfGeneric3FM"					prob="0.01" />
-			<block name="storeShelfFood1FM"						prob="0.03" />
-			<block name="storeShelfFood2FM"						prob="0.03" />
-			<block name="storeShelfMedicalFM"					prob="0.02" />
-			<block name="storeShelfToolsFM"						prob="0.02" />
+			<block name="storeShelving01DoubleEmptyFM"			prob="0.6" />
+			<block name="storeShelving01DoubleGeneric1FM"		prob="0.15" />
+			<block name="storeShelving01DoubleGeneric2FM"		prob="0.14" />
+			<block name="storeShelving01DoubleGeneric3FM"		prob="0.01" />
+			<block name="storeShelving01DoubleFood1FM"			prob="0.03" />
+			<block name="storeShelving01DoubleFood2FM"			prob="0.03" />
+			<block name="storeShelving01DoubleMedical1FM"		prob="0.02" />
+			<block name="storeShelving01DoubleTools1FM"			prob="0.02" />
 		</placeholder>
 		
 		<placeholder name="storeShelving01TopDouble">
-			<block name="storeShelfEmptyFM"						prob="0.6" />
-			<block name="storeShelfGeneric1FM"					prob="0.15" />
-			<block name="storeShelfGeneric2FM"					prob="0.14" />
-			<block name="storeShelfGeneric3FM"					prob="0.01" />
-			<block name="storeShelfFood1FM"						prob="0.03" />
-			<block name="storeShelfFood2FM"						prob="0.03" />
-			<block name="storeShelfMedicalFM"					prob="0.02" />
-			<block name="storeShelfToolsFM"						prob="0.02" />
+			<block name="storeShelving01TopDoubleEmptyFM"		prob="0.6" />
+			<block name="storeShelving01TopDoubleGeneric1FM"	prob="0.15" />
+			<block name="storeShelving01TopDoubleGeneric2FM"	prob="0.14" />
+			<block name="storeShelving01TopDoubleGeneric3FM"	prob="0.01" />
+			<block name="storeShelving01TopDoubleFood1FM"		prob="0.03" />
+			<block name="storeShelving01TopDoubleFood2FM"		prob="0.03" />
+			<block name="storeShelving01TopDoubleMedical1FM"	prob="0.02" />
+			<block name="storeShelving01TopDoubleTools1FM"		prob="0.02" />
 		</placeholder>
 		
 		

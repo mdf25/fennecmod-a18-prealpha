@@ -34,6 +34,13 @@
 			<ingredient name="resourceMechanicalParts"	count="1" />
 		</recipe>
 		
+		<recipe name="resourceOvenUpgradeKitFM" count="1" craft_area="workbech" craft_time="60" tags="learnable,workbenchCrafting">
+			<ingredient name="toolCookingGrill"			count="1" />
+			<ingredient name="resourceForgedIron"		count="2" />
+			<ingredient name="resourceDuctTape"			count="2" />
+			<ingredient name="resourceElectricParts"	count="1" />
+		</recipe>
+		
 		<recipe name="resourceWaterFilterFM"	count="1" craft_area="workbench" craft_time="60" tags="learnable,workbenchCrafting">
 			<ingredient name="resourceScrapPolymers"	count="3" />
 			<ingredient name="resourceCrushedSand"		count="3" />
@@ -41,6 +48,103 @@
 			<ingredient name="resourceCloth"			count="2" />
 		</recipe>
 		
+	</append>
+	
+	<!-- This will adjust all advanced vanilla recipes to use the working oven. -->
+	<setattribute xpath="//recipe[@name='foodMeatStew'
+	or @name='foodBlueberryPie'
+	or @name='foodCanSham'
+	or @name='foodChiliDog'
+	or @name='foodFishTacos'
+	or @name='foodHoboStew'
+	or @name='foodPumpkinCheesecake'
+	or @name='foodPumpkinPie'
+	or @name='foodShamChowder'
+	or @name='foodSteakAndPotato'
+	or @name='foodVegetableStew'
+	or @name='drinkJarGrandpasAwesomeSauce'
+	or @name='drinkJarGrandpasLearningElixir'
+	or @name='drinkJarBlackStrapCoffee'
+	or @name='drinkJarCoffee'
+	or @name='drinkJarGoldenRodTea'
+	or @name='drinkJarRedTea'
+	]" name="craft_area">workingoven</setattribute>
+	<removeattribute xpath="//recipe[@name='foodMeatStew'
+	or @name='foodBlueberryPie'
+	or @name='foodCanSham'
+	or @name='foodChiliDog'
+	or @name='foodFishTacos'
+	or @name='foodHoboStew'
+	or @name='foodPumpkinCheesecake'
+	or @name='foodPumpkinPie'
+	or @name='foodShamChowder'
+	or @name='foodSteakAndPotato'
+	or @name='foodVegetableStew'
+	or @name='drinkJarGrandpasAwesomeSauce'
+	or @name='drinkJarGrandpasLearningElixir'
+	or @name='drinkJarBlackStrapCoffee'
+	or @name='drinkJarCoffee'
+	or @name='drinkJarGoldenRodTea'
+	or @name='drinkJarRedTea'
+	]/@craft_tool" />
+	
+	<!-- Set harder campfire recipes for some items which are more expensive on the campfire. -->
+	<append xpath="/recipes">
+		<recipe name="foodBlueberryPie" count="1" craft_area="campfirefood" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCropBlueberries" count="5"/>
+			<ingredient name="foodEgg" count="1"/>
+			<ingredient name="foodCornMeal" count="2"/>
+			<ingredient name="resourceAnimalFat" count="2"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
+
+		<recipe name="foodPumpkinPie" count="1" craft_area="campfirefood" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCropPumpkin" count="3"/>
+			<ingredient name="foodEgg" count="1"/>
+			<ingredient name="foodCornMeal" count="2"/>
+			<ingredient name="resourceAnimalFat" count="2"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
+
+		<recipe name="foodPumpkinCheesecake" count="1" craft_area="campfirefood" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodCropPumpkin" count="2"/>
+			<ingredient name="foodEgg" count="1"/>
+			<ingredient name="foodCornMeal" count="2"/>
+			<ingredient name="resourceAnimalFat" count="2"/>
+			<ingredient name="drinkJarGrainAlcohol" count="1"/>
+		</recipe>
+		
+		<recipe name="foodHoboStew" count="1"  craft_time="65" craft_area="campfirefood" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="foodRottingFlesh" count="15"/>
+			<ingredient name="foodCropPotato" count="2"/>
+			<ingredient name="foodCropCorn" count="2"/>
+			<ingredient name="resourceAnimalFat" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="2,5" operation="base_add" value="-2" tags="foodRottingFlesh"/>
+			</effect_group>
+		</recipe>
+		
+		<recipe name="drinkJarBlackStrapCoffee" count="1" craft_area="campfiredrinks" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="resourceCropCoffeeBeans" count="3"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+			<ingredient name="resourceGunPowder" count="15"/>
+		</recipe>
+		
+		<recipe name="drinkJarCoffee" count="1" craft_area="campfiredrinks" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="resourceCropCoffeeBeans" count="3"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
+		
+		<recipe name="drinkJarGoldenRodTea" count="1" craft_area="campfiredrinks" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="resourceCropGoldenrodPlant" count="3"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
+	
+		<recipe name="drinkJarRedTea" count="1" craft_area="campfiredrinks" craft_tool="toolCookingPot" tags="perkMasterChef,learnable">
+			<ingredient name="resourceCropChrysanthemumPlant" count="1"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
 	</append>
 	
 	

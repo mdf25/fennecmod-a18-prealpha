@@ -128,6 +128,12 @@
     ((2 * 1 + 1) * (2 * 1 + 1) * (2 * 1 + 1) - 1) = 26
     otherwise, the having enough blocks requirement will never be fulfilled.
     
+	
+	REQUIRING USER ACCESS TO WORK
+	Sometimes you may want an operation to occur only if the user is actually accessing the block.
+	  <property name="RequireUserAccess" value="true" />
+	You can check that the user is accessing the block and only run transformations if they are.
+	
     
     LAG REDUCTION
     Note that the transformer blocks themselves could be quite heavy on a system. The best way I have found to reduce the lag on

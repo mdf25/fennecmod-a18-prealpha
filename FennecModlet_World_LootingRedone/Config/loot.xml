@@ -9,11 +9,11 @@
 
 	<!-- JUNK -->
 	<!-- Make ammo supplies more plentiful in junk but rarer to find, helps convince one to keep the stacks. -->
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGunPowder']" 	name="count">20,30</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGunPowder']" 	name="count">10,25</setattribute>
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGunPowder']" 	name="prob">0.2</setattribute>
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceNail']" 			name="count">5,50</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceNail']" 			name="count">10,50</setattribute>
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceNail']" 			name="prob">0.5</setattribute>
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceBulletCasing']" 	name="count">20,30</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceBulletCasing']" 	name="count">8,17</setattribute>
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceBulletCasing']" 	name="prob">0.1</setattribute>
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceFeather']" 		name="count">5,10</setattribute>
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceScrapPolymers']" name="count">5,10</setattribute>
@@ -22,17 +22,16 @@
 	</append>
 
 	<!-- Makes glue less common. -->
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGlue']" name="prob">0.4</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceGlue']" name="prob">0.5</setattribute>
 	
 	<!-- Makes duct tape more common -->
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceDuctTape']" name="prob">0.2</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceDuctTape']" name="prob">0.3</setattribute>
 	
 	<!-- Make sewing kits less common. -->
-	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceSewingKit']" name="prob">0.05</setattribute>
+	<setattribute xpath="//lootgroup[@name='junk']/item[@name='resourceSewingKit']" name="prob">0.1</setattribute>
 	
 	<!-- Painkillers need to be rare -->
 	<setattribute xpath="//lootgroup[@name='junk']/item[@name='drugPainkillers']" name="prob">0.15</setattribute>
-	
 	
 	
 	
@@ -59,8 +58,6 @@
 
 
 	<!-- Reduce quantity of loot in some containers for balance. -->
-	<!-- Trash piles -->
-	<!--<setattribute xpath="//lootcontainer[@id='10']" name="count">0,1</setattribute>-->
 	<!-- Cars -->
 	<setattribute xpath="//lootcontainer[@id='19']" name="count">0,1</setattribute>
 	<setattribute xpath="//lootcontainer[@id='19']/item[@group='automotive+tools+junk']" name="count">1,2</setattribute>
@@ -75,11 +72,11 @@
 	
 	<!-- Birds nests contain more feathers and eggs -->
 	<setattribute xpath="//lootgroup[@name='groupBirdNest']/item[@name='foodEgg']" 			name="count">1,2</setattribute>
-	<setattribute xpath="//lootgroup[@name='groupBirdNest']/item[@name='resourceFeather']" 	name="count">1,12</setattribute>
-	<setattribute xpath="//lootgroup[@name='groupBirdNestMain']/item[@name='resourceFeather']" 	name="count">4,8</setattribute>
+	<setattribute xpath="//lootgroup[@name='groupBirdNest']/item[@name='resourceFeather']" 	name="count">1,7</setattribute>
+	<setattribute xpath="//lootgroup[@name='groupBirdNestMain']/item[@name='resourceFeather']" 	name="count">2,6</setattribute>
 	
 	<!-- Adds new loot containers for the wood burning stove and pallets -->
-	<insertAfter xpath="/lootcontainers/lootcontainer[@id='124']">
+	<insertAfter xpath="/lootcontainers/lootcontainer[last()]">
 		<!-- cntWoodBurningStove -->
 		<lootcontainer id="180" count="0,2" size="5,1" sound_open="UseActions/open_mailbox" sound_close="UseActions/close_mailbox" loot_quality_template="qualBaseTemplate">
 			<item name="resourceWood" count="4,12" prob="0.5" />

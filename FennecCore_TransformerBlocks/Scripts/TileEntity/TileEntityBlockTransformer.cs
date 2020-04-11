@@ -19,6 +19,7 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
         this.hasPower           = false;
         this.hasHeat            = false;
         this.hasNearbyBlocks    = false;
+        this.userAccessing      = false;
         this.random             = RandomStatic.Range(0, 5);
     }
 
@@ -53,6 +54,7 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
         this.hasPower                   = false;
         this.hasHeat                    = false;
         this.hasNearbyBlocks            = false;
+        this.userAccessing              = false;
         this.CalculateLookupCoordinates();
         this.random = RandomStatic.Range(0, 5);
     }
@@ -98,6 +100,7 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
         this.hasPower                   = false;
         this.hasHeat                    = false;
         this.hasNearbyBlocks            = false;
+        this.userAccessing              = false;
         this.CalculateLookupCoordinates();
         this.random = RandomStatic.Range(0, 5);
     }
@@ -309,6 +312,26 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
 
 
     /**
+     * Checks whether the user is accessing the block
+     */
+
+    public bool HasUserAccessing()
+    {
+        if (!this.CanTick())
+        {
+            return this.userAccessing;
+        }
+
+        if (!this.requiresUserAccess)
+        {
+            return this.userAccessing = true;
+        }
+
+        return this.userAccessing = bUserAccessing;
+    }
+
+
+    /**
      * Checks whether the game object can tick or not. Random value is also applied so that multiple tile entities won't all try and tick at once causing tons of lag.
      */
 
@@ -513,9 +536,10 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
         this.nearbyBlockRange = StringHelpers.WriteStringToVector3i(_br.ReadString());
 
         // After read:
-        this.hasPower = false;
-        this.hasHeat = false;
-        this.hasNearbyBlocks = false;
+        this.hasPower           = false;
+        this.hasHeat            = false;
+        this.hasNearbyBlocks    = false;
+        this.userAccessing      = false;
         this.CalculateLookupCoordinates();
         this.random = RandomStatic.Range(0, 20);
     }
@@ -638,6 +662,16 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
 
 
     /**
+     * Sets whether the block requires the user to be accessing it.
+     */
+
+    public void SetRequireUserAccess(bool requireUserAccess)
+    {
+        this.requiresUserAccess         = requireUserAccess;
+    }
+
+
+    /**
      * Calculates the lookup coordinates.
      */
     
@@ -663,6 +697,7 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
     private bool requiresPower;
     private bool requiresHeat;
     private bool requiresNearbyBlocks;
+    private bool requiresUserAccess;
     private List<string> powerSources;
     private List<string> heatSources;
     private List<string> nearbyBlockNames;
@@ -685,5 +720,6 @@ public class TileEntityBlockTransformer : TileEntityLootContainer
     private bool hasPower;
     private bool hasHeat;
     private bool hasNearbyBlocks;
+    private bool userAccessing;
     private int random;
 }

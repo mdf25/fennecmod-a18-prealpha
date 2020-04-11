@@ -5,10 +5,24 @@
 		<!-- DEPENDENCY: FennecModlet - Foods - Cooking Stations -->
 	</insertBefore>
 	
+	<!-- Beer is not needing to be crafted on the chemistry station now. -->
 	<remove xpath="//item[@name='drinkJarBeerSchematic']"/>
 	
+	<!-- Allows upgrade kit schematics to be found at the trader. -->
 	<append xpath="//trader_item_group[@name='schematicsElectrical']">
 		<item name="resourceSinkUpgradeKitFMSchematic" />
+		<item name="resourceOvenUpgradeKitFMSchematic" /> 	
 	</append>
+	
+	<!-- Adds the old sink and granite sink variants to the trader so you can buy not working and working ones -->
+	<setattribute xpath="//item[@name='cntGraniteSink']" name="name">cntGraniteSinkNotWorkingFM</setattribute>
+	<insertAfter xpath="//item[@name='cntGraniteSinkNotWorkingFM']">
+		<item name="cntGraniteSinkWorkingFM" prob="0.1" />
+	</insertAfter>
+	<setattribute xpath="//item[@name='cntCabinetOldSink']" name="name">cntCabinetOldSinkNotWorkingFM</setattribute>
+	<insertAfter xpath="//item[@name='cntCabinetOldSinkNotWorkingFM']">
+		<item name="cntCabinetOldSinkWorkingFM" prob="0.1" />
+	</insertAfter>
+	
 	
 </configs>

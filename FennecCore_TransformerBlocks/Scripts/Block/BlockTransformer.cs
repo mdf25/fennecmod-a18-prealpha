@@ -211,6 +211,9 @@ public class BlockTransformer : BlockLoot
             this.transformationPropertyParser.nearbyBlockRange,
             this.transformationPropertyParser.nearbyBlockCount
         );
+        tileEntityBlockTransformer.SetRequireUserAccess(
+            this.transformationPropertyParser.requireUserAccess
+        );
         tileEntityBlockTransformer.CalculateLookupCoordinates();
         _chunk.AddTileEntity(tileEntityBlockTransformer);
     }
